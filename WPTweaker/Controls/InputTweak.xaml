@@ -1,0 +1,32 @@
+﻿<UserControl
+    x:Class="WPTweaker.InputTweak"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WPTweaker"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Margin="0,10"
+    d:DesignHeight="230"
+    d:DesignWidth="480">
+
+    <StackPanel>
+        <Border Background="{StaticResource PhoneChromeBrush}" Padding="8">
+            <TextBlock Text="{Binding Name}" FontSize="24" VerticalAlignment="Center" />
+        </Border>
+        <TextBlock Text="{Binding Description}" FontSize="18" Padding="8" TextWrapping="Wrap"/>
+        <Grid Margin="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Value:" FontSize="18" VerticalAlignment="Center" Grid.Column="0" />
+            <TextBox x:Name="ValueInput" Text="{Binding Path=ValueToString, Mode=OneWay}" FontSize="18" Grid.Column="1" HorizontalAlignment="Stretch" FontFamily="/WPTweaker;component/Fonts/Fonts.zip#Segoe UI Mono" />
+        </Grid>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Read" Margin="0,0,10,0" Width="140" Click="ReadButton_Click"/>
+            <Button Content="Write" Margin="0,0,10,0" Width="140" Click="WriteButton_Click"/>
+            <Button Content="Default" Margin="0" Width="140" Click="DefaultButton_Click"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

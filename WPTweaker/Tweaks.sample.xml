@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<tweaks>
+
+  <contributors>
+    <contributor>sensboston</contributor>
+  </contributors>
+
+  <tweak category="System" name="Unlimited sideloading" type="toggle" description="Max number of unsigned apps" >
+    <entry path="HKLM\Software\Microsoft\DeviceReg\Install" name="MaxUnsignedApp" type="dword" default="0000000A" comparer=">">
+      <value>7fffffff</value>
+    </entry>
+  </tweak>
+
+  <tweak category="System" name="Unlimited sideloading #1" type="input" description="Max number of unsigned apps">
+    <entry path="HKLM\Software\Microsoft\DeviceReg\Install" name="MaxUnsignedApp" type="dword" default="0000000A"/>
+  </tweak>
+
+  <tweak category="System" name="Unlimited sideloading #2" type="enum" description="Max number of unsigned apps">
+    <entry path="HKLM\Software\Microsoft\DeviceReg\Install" name="MaxUnsignedApp" type="dword" default="0000000A">
+      <value name="Student">2</value>
+      <value name="Developer">A</value>
+      <value name="Unlimited">7fffffff</value>
+    </entry>
+  </tweak>
+
+  <tweak category="User interface" name="Haptic feedback (toggle)" type="toggle" description="Enable or disable haptic feedback" reboot="true">
+    <entry path="HKEY_LOCAL_MACHINE\System\Touch\Buttons" name="Vibrate" type="dword" default="0">
+      <value>1</value>
+    </entry>
+  </tweak>
+
+  <tweak category="User interface" name="Haptic feedback (input)" type="input" description="Enable or disable haptic feedback" reboot="true">
+    <entry path="HKEY_LOCAL_MACHINE\System\Touch\Buttons" name="Vibrate" type="dword" default="0">
+      <value>1</value>
+    </entry>
+  </tweak>
+
+  <tweak category="User interface" name="Haptic feedback (enum)" type="enum" description="Enable or disable haptic feedback" reboot="true">
+    <entry path="HKEY_LOCAL_MACHINE\System\Touch\Buttons" name="Vibrate" type="dword" default="0">
+      <value name="Enabled">1</value>
+      <value name="Disabled">0</value>
+    </entry>
+  </tweak>
+
+  <tweak category="User interface" name="Touch buttons intensity" type="input" description="Increase or decrease intensity of touch buttons" min="100" max="1000">
+    <entry path="HKLM\System\Touch\Buttons" name="Intensity" type="dword" default="36"/>
+  </tweak>
+
+  <tweak category="User interface" name="Touch buttons intensity #2" type="enum" description="Increase or decrease intensity of touch buttons">
+    <entry path="HKLM\System\Touch\Buttons" name="Intensity" type="dword" default="36">
+      <value name="Default">36</value>
+      <value name="Longer">72</value>
+      <value name="Long">120</value>
+    </entry>
+  </tweak>
+
+  <tweak category="System" name="Enable internet sharing" type="toggle" description="Enable internet sharing, disabled by cell provider" reboot="true">
+    <entry path="HKEY_LOCAL_MACHINE\System\ControlSet001\Services\ICSSVC\Settings" name="Enabled" type="dword" default="0">
+      <value>1</value>
+    </entry>
+    <entry path="HKEY_LOCAL_MACHINE\System\ControlSet001\Services\ICSSVC\Settings" name="EntitlementRequired" type="dword" default="1">
+      <value>0</value>
+    </entry>
+    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="@" type="string">
+      <value>Soft AP</value>
+    </entry>
+    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="Location" type="string">
+      <value>app://5B04B775-356B-4AA0-AAF8-6491FFEA5629/Default</value>
+    </entry>
+    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="Plugin" type="string">
+      <value>{09c51652-2cbc-49d5-883e-20606f9a47ff}</value>
+    </entry>
+    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="QuickSettingsIconURI" type="string">
+      <value>res://UIXMobileAssets{ScreenResolution}!actioncenter.hotspot.tier25.png</value>
+    </entry>
+    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="QuickSettingsTitle" type="string">
+      <value>@\\windows\\system32\\Settings3Res.dll,-535</value>
+    </entry>
+    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="Title" type="string">
+      <value>@\\windows\\system32\\Settings3Res.dll,-242</value>
+    </entry>
+    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="Type" type="dword" default="0">
+      <value>1</value>
+    </entry>
+    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{69DAA7D1-09EA-4eae-A67E-56E4B0B4CA5B}\SecureItems" name="{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" type="dword">
+      <value>b0</value>
+    </entry>
+    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\QuickSettingElements" name="{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" type="dword">
+      <value>7</value>
+    </entry>
+  </tweak>
+
+  <tweak category="User interface" name="Boot screen logo" type="input" description="Change boot screen logo">
+    <entry path="HKEY_LOCAL_MACHINE\SYSTEM\Shell\BootScreens" name="WPBootScreenOverride" type="string"/>
+  </tweak>
+
+</tweaks>
