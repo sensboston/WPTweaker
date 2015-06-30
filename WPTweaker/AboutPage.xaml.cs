@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Windows.System;
+using Windows.ApplicationModel;
 
 namespace WPTweaker
 {
@@ -19,6 +20,9 @@ namespace WPTweaker
             InitializeComponent();
             ContributorsList.DataContext = this;
             ContributorsList.ItemsSource = Contributors;
+
+            PackageVersion version = Package.Current.Id.Version;
+            appVersion.Text = string.Format("ver {0}.{1}.{2}", version.Major, version.Minor, version.Build);
         }
 
         private async void donateButton_Click(object sender, RoutedEventArgs e)

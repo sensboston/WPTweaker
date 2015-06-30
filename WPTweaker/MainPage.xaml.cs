@@ -81,8 +81,11 @@ namespace WPTweaker
         public void ParseTweaksXml()
         {
             _tweaks.Clear();
-            //var xmlDoc = string.IsNullOrEmpty(_settings.XmlTweaks) ? XDocument.Load("Tweaks.xml") : XDocument.Parse(_settings.XmlTweaks);
+#if !DEBUG
+            var xmlDoc = string.IsNullOrEmpty(_settings.XmlTweaks) ? XDocument.Load("Tweaks.xml") : XDocument.Parse(_settings.XmlTweaks);
+#else
             var xmlDoc = XDocument.Load("Tweaks.xml");
+#endif
             if (xmlDoc != null)
             {
                 AboutPage.Contributors = xmlDoc.Descendants("contributor").Select(d => d.Value).ToList();
@@ -183,7 +186,7 @@ namespace WPTweaker
                         MessageBox.Show(args.Error.Message);
                     }
                 };
-            webClient.DownloadStringAsync(new Uri("http://senssoft.com/Tweaks.xml"));
+            webClient.DownloadStringAsync(new Uri("https://raw.githubusercontent.com/sensboston/WPTweaker/master/WPTweaker/Tweaks.xml"));
         }
 
         /// <summary>
