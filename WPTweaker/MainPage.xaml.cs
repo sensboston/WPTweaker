@@ -65,14 +65,14 @@ namespace WPTweaker
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (!RegistryEntry.IsInteropUnlocked())
-            {
-                MessageBox.Show("Your phone is not interop unlocked. Press \"OK\" to exit.");
-                App.Current.Terminate();
-            }
-
             if (e.NavigationMode == NavigationMode.New)
             {
+                if (!RegistryEntry.IsInteropUnlocked())
+                {
+                    MessageBox.Show("Your phone is not interop unlocked. Press \"OK\" to exit.");
+                    App.Current.Terminate();
+                }
+
                 ParseTweaksXml();
                 BuildUI();
             }

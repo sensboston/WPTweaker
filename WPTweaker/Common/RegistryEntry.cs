@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Diagnostics;
 #if ARM
 using OEMSharedFolderAccessLib;
@@ -70,7 +71,8 @@ namespace WPTweaker
                 _rpc = new COEMSharedFolder();
                 try
                 {
-                    if (_rpc.RPC_Init() != 1) _rpc = null; else _rpc.unlockcaps();
+                    var retCode = _rpc.RPC_Init();
+                    if (retCode != 1) _rpc = null;
                 }
                 catch
                 {
@@ -87,7 +89,7 @@ namespace WPTweaker
                 }
                 else return true;
             }
-            return _useDevProgram;
+            return (_rpc != null) || (_useDevProgram);
 #else
             return true;
 #endif
