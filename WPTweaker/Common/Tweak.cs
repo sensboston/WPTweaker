@@ -37,8 +37,8 @@ namespace WPTweaker
         public string Description { get; set; }
         public TweakType Type { get; set; }
         private List<TweakEntry> Entries = new List<TweakEntry>();
-        private int Min { get; set; }
-        private int Max { get; set; }
+        public Int64 Min { get; set; }
+        public Int64 Max { get; set; }
         public int RequireReboot { get; private set; }
 
         public delegate void ValueChangedHandler(object sender, string hashedKeys);
@@ -59,8 +59,8 @@ namespace WPTweaker
 
             if (Type == TweakType.Input)
             {
-                Min = xml.Attribute("min") != null ? int.Parse(xml.Attribute("min").Value) : 0;
-                Max = xml.Attribute("max") != null ? int.Parse(xml.Attribute("max").Value) : int.MaxValue;
+                Min = xml.Attribute("min") != null ? Int64.Parse(xml.Attribute("min").Value) : Int64.MinValue;
+                Max = xml.Attribute("max") != null ? Int64.Parse(xml.Attribute("max").Value) : Int64.MaxValue;
             }
 
             var xmlEntries = xml.Descendants("entry");
@@ -183,6 +183,14 @@ namespace WPTweaker
                     }
             }
             return false;
+        }
+
+        public RegDataType RegistryDataType
+        {
+            get
+            {
+                return (Entries != null && Entries.Count > 0) ? Entries.First().RegEntry.DataType : RegDataType.REG_UNKNOWN;
+            }
         }
     }
 }

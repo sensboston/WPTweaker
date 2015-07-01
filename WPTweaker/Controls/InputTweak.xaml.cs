@@ -33,6 +33,23 @@ namespace WPTweaker
 
         private void WriteButton_Click(object sender, RoutedEventArgs e)
         {
+            // Validate user input first
+            if (_tweak.RegistryDataType == RegDataType.REG_DWORD || _tweak.RegistryDataType == RegDataType.REG_QWORD)
+            {
+                long result = 0;
+                if (!Int64.TryParse(ValueInput.Text, out result))
+                {
+                    MessageBox.Show("Value must be numerical");
+                    ValueInput.Focus();
+                    return;
+                }
+                if (result < _tweak.Min || result > _tweak.Max)
+                {
+                    MessageBox.Show(string.Format("Value must be in range {0} to {1}", _tweak.Min.ToString("X"), _tweak.Max.ToString("X")));
+                    ValueInput.Focus();
+                    return;
+                }
+            }
             _tweak.Value = ValueInput.Text;
         }
 
