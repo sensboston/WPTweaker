@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Windows;
+using System.Globalization;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
@@ -37,15 +38,15 @@ namespace WPTweaker
             if (_tweak.RegistryDataType == RegDataType.REG_DWORD || _tweak.RegistryDataType == RegDataType.REG_QWORD)
             {
                 long result = 0;
-                if (!Int64.TryParse(ValueInput.Text, out result))
+                if (!Int64.TryParse(ValueInput.Text, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out result))
                 {
-                    MessageBox.Show("Value must be numerical");
+                    MessageBox.Show("Value must be numerical, in the hex format");
                     ValueInput.Focus();
                     return;
                 }
                 if (result < _tweak.Min || result > _tweak.Max)
                 {
-                    MessageBox.Show(string.Format("Value must be in range {0} to {1}", _tweak.Min.ToString("X"), _tweak.Max.ToString("X")));
+                    MessageBox.Show(string.Format("Value must be in range {0} to {1} (hex)", _tweak.Min.ToString("X"), _tweak.Max.ToString("X")));
                     ValueInput.Focus();
                     return;
                 }

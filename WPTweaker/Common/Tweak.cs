@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using System.Xml.Linq;
+using System.Globalization;
 
 namespace WPTweaker
 {
@@ -37,8 +38,6 @@ namespace WPTweaker
         public string Description { get; set; }
         public TweakType Type { get; set; }
         private List<TweakEntry> Entries = new List<TweakEntry>();
-        public Int64 Min { get; set; }
-        public Int64 Max { get; set; }
         public int RequireReboot { get; private set; }
 
         public delegate void ValueChangedHandler(object sender, string hashedKeys);
@@ -57,12 +56,6 @@ namespace WPTweaker
             Description = xml.Attribute("description") != null ? xml.Attribute("description").Value : string.Empty;
             RequireReboot = (xml.Attribute("reboot") != null && xml.Attribute("reboot").Value.Equals("true")) ? 1 : 0;
 
-            if (Type == TweakType.Input)
-            {
-                Min = xml.Attribute("min") != null ? Int64.Parse(xml.Attribute("min").Value) : Int64.MinValue;
-                Max = xml.Attribute("max") != null ? Int64.Parse(xml.Attribute("max").Value) : Int64.MaxValue;
-            }
-
             var xmlEntries = xml.Descendants("entry");
             if (xmlEntries == null || xmlEntries.Count() == 0) throw new Exception(string.Format("Error: no registry entries found for the tweak \"{0}\"", Name));
 
@@ -77,11 +70,18 @@ namespace WPTweaker
                 string entryType = xmlEntry.Attribute("type").Value;
                 string entryDefault = xmlEntry.Attribute("default") != null ? xmlEntry.Attribute("default").Value : string.Empty;
                 string entryComparer = xmlEntry.Attribute("comparer") != null ? xmlEntry.Attribute("comparer").Value : string.Empty;
+                Int64 min = Int64.MinValue;
+                Int64 max = Int64.MaxValue;
+                if (Type == TweakType.Input)
+                {
+                    if (xmlEntry.Attribute("min") != null) Int64.TryParse(xmlEntry.Attribute("min").Value, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out min);
+                    if (xmlEntry.Attribute("max") != null) Int64.TryParse(xmlEntry.Attribute("max").Value, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out max);
+                }
 
                 RegDataType dataType = RegistryEntry.DataTypeFromString(entryType);
                 if (dataType == RegDataType.REG_UNKNOWN) throw new Exception(string.Format("Error, invalid data type \"{0}\" for the entry value", entryType));
 
-                var regEntry = new RegistryEntry(entryPath, entryName, dataType, entryDefault, entryComparer);
+                var regEntry = new RegistryEntry(entryPath, entryName, dataType, entryDefault, entryComparer, min, max);
 
                 var values = new List<RegValue>();
                 var xmlValues = xmlEntry.Descendants("value");
@@ -190,6 +190,22 @@ namespace WPTweaker
             get
             {
                 return (Entries != null && Entries.Count > 0) ? Entries.First().RegEntry.DataType : RegDataType.REG_UNKNOWN;
+            }
+        }
+
+        public Int64 Min
+        {
+            get
+            {
+                return (Entries != null && Entries.Count > 0) ? Entries.First().RegEntry.Min : Int64.MinValue;
+            }
+        }
+
+        public Int64 Max
+        {
+            get
+            {
+                return (Entries != null && Entries.Count > 0) ? Entries.First().RegEntry.Max : Int64.MaxValue;
             }
         }
     }

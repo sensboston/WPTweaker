@@ -4,6 +4,8 @@
   <contributors>
     <contributor>sensboston @ xda-developers</contributor>
     <contributor>Jaxbot @ WindowsPhoneHacker.com</contributor>
+    <contributor>xFleck @ xda-developers</contributor>
+    <contributor>titi66200 @ xda-developers</contributor>
   </contributors>
 
   <tweak category="Cellural" name="Hide highest speed selection" type="toggle" >
@@ -214,14 +216,14 @@
     </entry>
   </tweak>
 
-  <tweak category="System" name="Limit volume on reboot" type="toggle" >
+  <tweak category="System" name="Limit volume on reboot" type="toggle" reboot="true" >
     <entry path="HKLM\Software\OEM\VolumeLimit" name="EnableVolumeLimit" type="dword" default="0">
       <value>1</value>
     </entry>
   </tweak>
 
   <tweak category="System" name="Volume limit on reboot" type="input" >
-    <entry path="HKLM\Software\OEM\VolumeLimit" name="VolumeLimit" type="dword" min="0" max="30" default="19">
+    <entry path="HKLM\Software\OEM\VolumeLimit" name="VolumeLimit" type="dword" min="0" max="1E" default="19">
       <value>1</value>
     </entry>
   </tweak>
@@ -253,6 +255,21 @@
   <tweak category="User interface" name="China variant of Maps" type="toggle">
     <entry path="HKLM\System\Maps" name="OEMChinaVariant" type="dword" default="0">
       <value>1</value>
+    </entry>
+  </tweak>
+
+  <tweak category="System" name="Disable backlight for the hardware buttons"  type="toggle">
+    <entry path="HKLM\SOFTWARE\OEM\Nokia\Display\ColorAndLight" name="UserSettingKeyLightsEnabled" type="dword" default="1">
+      <value>0</value>
+    </entry>
+  </tweak>
+
+  <tweak category="Network" name="Enable WiFi connection sound notifications" type="toggle">
+    <entry path="HKLM\SOFTWARE\Microsoft\EventSounds\Sounds\WiFiConnected" name="Disabled" type="dword" default="1">
+      <value>0</value>
+    </entry>
+    <entry path="HKLM\SOFTWARE\Microsoft\EventSounds\Sounds\WiFiDisconnected" name="Disabled" type="dword" default="1">
+      <value>0</value>
     </entry>
   </tweak>
 
