@@ -177,7 +177,7 @@ namespace WPTweaker
             var req = HttpWebRequest.Create(_tweakListUri);
             req.Method = "HEAD";
             WebResponse resp = await req.GetResponseAsync();
-            if (resp.ContentLength > 0 && Math.Abs(resp.ContentLength - _settings.XmlTweaks.Length) > 1)
+            if (resp.ContentLength > 0 && Math.Abs(resp.ContentLength - _settings.XmlTweaks.Length) > 20)
             {
                 if (MessageBox.Show("Would you like to download new list?", "Tweak list update found", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
                 {
