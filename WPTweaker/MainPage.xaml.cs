@@ -26,6 +26,7 @@ namespace WPTweaker
         List<Tweak> _tweaks = new List<Tweak>();
         bool _isSamsung = false;
         int _rebootCounter = 0;
+        Uri _tweakListUri = new Uri("https://raw.githubusercontent.com/sensboston/WPTweaker/master/WPTweaker/Tweaks.xml");
 
         public MainPage()
         {
@@ -56,6 +57,9 @@ namespace WPTweaker
 
             PhoneApplicationService.Current.ContractActivated +=  Application_ContractActivated;
             _isSamsung = DeviceStatus.DeviceManufacturer.ToLower().Contains("samsung");
+
+            (ApplicationBar.MenuItems[2] as ApplicationBarMenuItem).Text = string.Format("{0}  sort tweaks", (_settings.SortTweaks ? _checkBoxChar[1] : _checkBoxChar[0]));
+            (ApplicationBar.MenuItems[3] as ApplicationBarMenuItem).Text = string.Format("{0}  auto-check tweaks update", (_settings.CheckTweaks ? _checkBoxChar[1] : _checkBoxChar[0]));
         }
 
         /// <summary>
@@ -73,6 +77,7 @@ namespace WPTweaker
                     App.Current.Terminate();
                 }
 
+                if (_settings.CheckTweaks) CheckTweakListUpdate();
                 ParseTweaksXml();
                 BuildUI();
             }
@@ -132,13 +137,14 @@ namespace WPTweaker
         public void BuildUI()
         {
             LayoutRoot.Items.Clear();
-            var categories = _tweaks.Select(t => t.Category).Distinct().ToList();
+            var categories = _tweaks.Select(t => t.Category).Distinct();
+            if (_settings.SortTweaks) categories = categories.OrderBy(t => t);
             foreach (var category in categories)
             {
                 var tweaksByCategory = _tweaks.Where(t => t.Category.Equals(category));
+                if (_settings.SortTweaks) tweaksByCategory = tweaksByCategory.OrderBy(t => t.Name);
                 var pivotItem = new PivotItem() { Header = category };
                 var content = new StackPanel();
-                int i = 1;
                 foreach (var tweak in tweaksByCategory)
                 {
                     dynamic tweakControl = null;
@@ -165,6 +171,21 @@ namespace WPTweaker
         }
 
         #region Command bar buttons commands
+
+        private async void CheckTweakListUpdate()
+        {
+            var req = HttpWebRequest.Create(_tweakListUri);
+            req.Method = "HEAD";
+            WebResponse resp = await req.GetResponseAsync();
+            if (resp.ContentLength > 0 && Math.Abs(resp.ContentLength - _settings.XmlTweaks.Length) > 1)
+            {
+                if (MessageBox.Show("Would you like to download new list?", "Tweak list update found", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                {
+                    SyncButton_Click(this, null);
+                }
+            }
+        }
+
         /// <summary>
         /// Download updated tweaks from the project's uri
         /// </summary>
@@ -186,7 +207,7 @@ namespace WPTweaker
                         MessageBox.Show(args.Error.Message);
                     }
                 };
-            webClient.DownloadStringAsync(new Uri("https://raw.githubusercontent.com/sensboston/WPTweaker/master/WPTweaker/Tweaks.xml"));
+            webClient.DownloadStringAsync(_tweakListUri);
         }
 
         /// <summary>
@@ -267,6 +288,22 @@ namespace WPTweaker
             _settings.XmlTweaks = xmlDoc.ToString();
             ParseTweaksXml();
             BuildUI();
+        }
+
+        static char[] _checkBoxChar = new char[] {'☐', '☑'};
+        private void SortTweaks_Click(object sender, EventArgs e)
+        {
+            _settings.SortTweaks = !_settings.SortTweaks;
+            (sender as ApplicationBarMenuItem).Text = string.Format("{0}  sort tweaks", (_settings.SortTweaks ? _checkBoxChar[1] : _checkBoxChar[0]));
+            ParseTweaksXml();
+            BuildUI();
+        }
+
+        private void AutoCheckTweaks_Click(object sender, EventArgs e)
+        {
+            _settings.CheckTweaks = !_settings.CheckTweaks;
+            (sender as ApplicationBarMenuItem).Text = string.Format("{0}  auto-check tweaks update", (_settings.CheckTweaks ? _checkBoxChar[1] : _checkBoxChar[0]));
+            if (_settings.CheckTweaks) CheckTweakListUpdate();
         }
 
         #endregion

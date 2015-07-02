@@ -20,6 +20,7 @@ namespace WPTweaker
         public EnumTweak(Tweak tweak)
         {
             this.InitializeComponent();
+            ValuesList.SetValue(ListPicker.ItemCountThresholdProperty, 20);
             _tweak = tweak;
             _tweak.ValueChanged += ValueChanged;
         }

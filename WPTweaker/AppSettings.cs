@@ -11,19 +11,17 @@ namespace WPTweaker
 
         // The isolated storage key names of our settings
         public const string XmlTweaksSettingKeyName = "XmlTweaks";
+        public const string SortTweaksSettingKeyName = "SortTweaks";
+        public const string CheckTweaksSettingKeyName = "SortTweaks";
 
         // The default value of our settings
         private const string XmlTweaksSettingDefault = "";
+        private const bool SortTweaksSettingDefault = false;
+        private const bool CheckTweaksSettingDefault = false;
 
         public AppSettings()
         {
-            try
-            {
-                localSettings = IsolatedStorageSettings.ApplicationSettings;
-            }
-            catch (Exception)
-            {
-            }
+            localSettings = IsolatedStorageSettings.ApplicationSettings;
         }
 
         /// <summary>
@@ -84,5 +82,18 @@ namespace WPTweaker
             get { return GetValueOrDefault<string>(XmlTweaksSettingKeyName, XmlTweaksSettingDefault); }
             set { AddOrUpdateValue(XmlTweaksSettingKeyName, value); }
         }
+
+        public bool SortTweaks
+        {
+            get { return GetValueOrDefault<bool>(SortTweaksSettingKeyName, SortTweaksSettingDefault); }
+            set { AddOrUpdateValue(SortTweaksSettingKeyName, value); }
+        }
+
+        public bool CheckTweaks
+        {
+            get { return GetValueOrDefault<bool>(CheckTweaksSettingKeyName, CheckTweaksSettingDefault); }
+            set { AddOrUpdateValue(CheckTweaksSettingKeyName, value); }
+        }
+
     }
 }

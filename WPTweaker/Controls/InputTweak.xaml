@@ -14,7 +14,7 @@
         <Border Background="{StaticResource PhoneChromeBrush}" Padding="8">
             <TextBlock Text="{Binding Name}" FontSize="24" VerticalAlignment="Center" />
         </Border>
-        <TextBlock Text="{Binding Description}" FontSize="18" Padding="8" TextWrapping="Wrap"/>
+        <TextBlock Text="{Binding Description}" FontSize="18" Padding="4" TextWrapping="Wrap"/>
         <Grid Margin="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="60"/>

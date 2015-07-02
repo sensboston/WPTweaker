@@ -37,6 +37,8 @@
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="restore default tweaks" Click="RestoreTweaksButton_Click"/>
                 <shell:ApplicationBarMenuItem Text="save tweaks" Click="SaveTweaksButton_Click"/>
+                <shell:ApplicationBarMenuItem Text="☐  sort tweaks" Click="SortTweaks_Click"/>
+                <shell:ApplicationBarMenuItem Text="☐  auto-check tweaks update" Click="AutoCheckTweaks_Click"/>
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

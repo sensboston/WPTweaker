@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Windows.System;
 using Windows.ApplicationModel;
+using System.Reflection;
 
 namespace WPTweaker
 {
@@ -21,8 +22,15 @@ namespace WPTweaker
             ContributorsList.DataContext = this;
             ContributorsList.ItemsSource = Contributors;
 
-            PackageVersion version = Package.Current.Id.Version;
-            appVersion.Text = string.Format("ver {0}.{1}.{2}", version.Major, version.Minor, version.Build);
+            Assembly asm = Assembly.GetExecutingAssembly();
+            if (asm.FullName != null)
+            try
+            {
+                string[] parts = asm.FullName.Split(',');
+                string[] versions = parts[1].Substring(parts[1].IndexOf('=') + 1).Split('.');
+                appVersion.Text = string.Format("ver {0}.{1}.{2}", versions[0], versions[1], versions[2]);
+            }
+            catch { }
         }
 
         private async void donateButton_Click(object sender, RoutedEventArgs e)

@@ -15,14 +15,14 @@
         <Border Background="{StaticResource PhoneChromeBrush}"  Padding="8">
             <TextBlock Text="{Binding Name}" FontSize="24" VerticalAlignment="Center"  />
         </Border>
-        <TextBlock Text="{Binding Description}" FontSize="18" Padding="8" TextWrapping="Wrap"/>
+        <TextBlock Text="{Binding Description}" FontSize="18" Padding="4" TextWrapping="Wrap"/>
         <Grid Margin="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="60"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <TextBlock Text="Value:" FontSize="18" VerticalAlignment="Center" Grid.Column="0" />
-            <toolkit:ListPicker x:Name="ValuesList" ItemsSource="{Binding EnumList, Mode=OneWay}" DisplayMemberPath="DisplayName" SelectionMode="Single" FontSize="22" Grid.Column="1" VerticalAlignment="Center" />
+            <toolkit:ListPicker x:Name="ValuesList" ItemsSource="{Binding EnumList, Mode=OneWay}" DisplayMemberPath="DisplayName" SelectionMode="Single" FontSize="22" Grid.Column="1" VerticalAlignment="Center"/>
         </Grid>
     </StackPanel>
 </UserControl>

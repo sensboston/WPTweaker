@@ -2,7 +2,7 @@
 <tweaks>
 
   <contributors>
-    <contributor>sensboston</contributor>
+    <contributor>sensboston @ xda-developers</contributor>
     <contributor>Jaxbot @ WindowsPhoneHacker.com</contributor>
   </contributors>
 
@@ -70,11 +70,11 @@
     <entry path="HKLM\System\Touch\Buttons" name="Intensity" type="dword" default="36">
       <value name="Default">36</value>
       <value name="Longer">72</value>
-      <value name="Long">120</value>
+      <value name="Very long">100</value>
     </entry>
   </tweak>
 
-  <tweak category="Cellural" name="Enable internet sharing" type="toggle" description="Enable internet sharing, disabled by cell provider" reboot="true">
+  <tweak category="Cellural" name="Enable internet sharing" type="toggle" description="Enable internet sharing (if disabled by provider)" reboot="true">
     <entry path="HKEY_LOCAL_MACHINE\System\ControlSet001\Services\ICSSVC\Settings" name="Enabled" type="dword" default="0">
       <value>1</value>
     </entry>
@@ -190,7 +190,7 @@
     <entry path="HKLM\Software\Microsoft\Pim\RecentList\8" name="MaxSize" type="dword" default="8" />
   </tweak>
 
-  <tweak category="System" name="Screen timeout (on battery)" type="enum" description="Set screen timeout" reboot="true">
+  <tweak category="System" name="Screen timeout (on battery)" type="enum" reboot="true">
     <entry path="HKLM\SOFTWARE\Microsoft\Shell\Timeouts" name="DCUserIdle" type="dword" default="60">
       <value name="30 seconds">30</value>
       <value name="1 minute">60</value>
@@ -202,7 +202,7 @@
     </entry>
   </tweak>
 
-  <tweak category="System" name="Screen timeout (when charging)" type="enum" description="Set screen timeout" reboot="true">
+  <tweak category="System" name="Screen timeout (when charging)" type="enum" reboot="true">
     <entry path="HKLM\SOFTWARE\Microsoft\Shell\Timeouts" name="ACUserIdle" type="dword" default="60">
       <value name="30 seconds">30</value>
       <value name="1 minute">60</value>
