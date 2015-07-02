@@ -12,10 +12,10 @@
     d:DesignWidth="480">
 
     <StackPanel Margin="0,0,0,-20">
-        <Border Background="{StaticResource PhoneChromeBrush}" Padding="8">
-            <TextBlock Text="{Binding Name}" FontSize="24" VerticalAlignment="Center" />
+        <Border Background="{StaticResource TweakHeaderBackgroundBrush}" Padding="8">
+            <TextBlock Text="{Binding Name}" Foreground="{StaticResource TweakHeaderForegroundBrush}" FontSize="{StaticResource TweakHeaderFontSize}" VerticalAlignment="Center" />
         </Border>
-        <TextBlock Text="{Binding Description}" FontSize="18" Padding="4" TextWrapping="Wrap" />
+        <TextBlock Text="{Binding Description}" FontSize="{StaticResource TweakDescriptionFontSize}" Padding="4" TextWrapping="Wrap" />
         <tk:ToggleSwitch x:Name="Toggle" IsChecked="{Binding Value, Mode=TwoWay}" Margin="4,-10,4,0" />
     </StackPanel>
 </UserControl>

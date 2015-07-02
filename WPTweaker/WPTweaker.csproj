@@ -101,7 +101,6 @@
     <Compile Include="Controls\ToggleTweak.xaml.cs">
       <DependentUpon>ToggleTweak.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

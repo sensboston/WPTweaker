@@ -16,14 +16,16 @@
     <phone:Pivot x:Name="LayoutRoot">
         <phone:Pivot.TitleTemplate>
             <DataTemplate>
-                <Border Width="480" Background="{StaticResource PhoneAccentBrush}" Margin="-20,-14,0,0" Padding="0,6" >
-                    <TextBlock Text="{Binding}" FontSize="24" Margin="10,0,0,0" />
+                <Border Width="480" Background="{StaticResource AppHeaderBackgroundBrush}" Margin="-20,-14,0,0" Padding="0,6" >
+                    <TextBlock Text="{Binding}" Foreground="{StaticResource AppHeaderForegroundBrush}" FontSize="{StaticResource AppHeaderFontSize}" Margin="10,0,0,0" />
                 </Border>
             </DataTemplate>
         </phone:Pivot.TitleTemplate>
         <phone:Pivot.HeaderTemplate>
             <DataTemplate>
-                <TextBlock Text="{Binding}" FontSize="36" Margin="0,20,0,-10"/>
+                <Border Background="{StaticResource PageHeaderBackgroundBrush}" Margin="0,20,0,-10">
+                    <TextBlock Text="{Binding}" Foreground="{StaticResource PageHeaderForegroundBrush}" FontSize="{StaticResource PageHeaderFontSize}"/>
+                </Border>
             </DataTemplate>
         </phone:Pivot.HeaderTemplate>
     </phone:Pivot>

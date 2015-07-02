@@ -11,8 +11,8 @@
     d:DesignWidth="480">
 
     <StackPanel>
-        <Border Background="{StaticResource PhoneChromeBrush}" Padding="8">
-            <TextBlock Text="{Binding Name}" FontSize="24" VerticalAlignment="Center" />
+        <Border Background="{StaticResource TweakHeaderBackgroundBrush}" Padding="8">
+            <TextBlock Text="{Binding Name}" Foreground="{StaticResource TweakHeaderForegroundBrush}" FontSize="{StaticResource TweakHeaderFontSize}" VerticalAlignment="Center" />
         </Border>
         <TextBlock Text="{Binding Description}" FontSize="18" Padding="4" TextWrapping="Wrap"/>
         <Grid Margin="4">
@@ -20,7 +20,7 @@
                 <ColumnDefinition Width="60"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Value:" FontSize="18" VerticalAlignment="Center" Grid.Column="0" />
+            <TextBlock Text="Value:" FontSize="{StaticResource TweakDescriptionFontSize}" VerticalAlignment="Center" Grid.Column="0" />
             <TextBox x:Name="ValueInput" Text="{Binding Path=ValueToString, Mode=OneWay}" FontSize="18" Grid.Column="1" HorizontalAlignment="Stretch" FontFamily="/WPTweaker;component/Fonts/Fonts.zip#Segoe UI Mono" />
         </Grid>
         <StackPanel Orientation="Horizontal">

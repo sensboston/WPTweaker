@@ -30,6 +30,9 @@ namespace WPTweaker
 
         public MainPage()
         {
+            //Application.Current.Resources.Remove("AppHeaderBrush");
+            //Application.Current.Resources.Add("AppHeaderBrush", new SolidColorBrush(Colors.Blue));
+
             InitializeComponent();
             App.Current.UnhandledException += (object sender, ApplicationUnhandledExceptionEventArgs e) =>
             {
