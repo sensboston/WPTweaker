@@ -19,8 +19,10 @@
         <SolidColorBrush x:Key="TweakHeaderBackgroundBrush" Color="{StaticResource PhoneChromeColor}"/>
         <SolidColorBrush x:Key="TweakHeaderForegroundBrush" Color="{StaticResource PhoneForegroundColor}"/>
         <sys:Double x:Key="TweakHeaderFontSize">24</sys:Double>
-        
+
+        <SolidColorBrush x:Key="TweakDescriptionForegroundBrush" Color="{StaticResource PhoneForegroundColor}"/>
         <sys:Double x:Key="TweakDescriptionFontSize">18</sys:Double>
+
         <SolidColorBrush x:Key="TweakEvenBackgroundBrush" Color="{StaticResource PhoneBackgroundColor}"/>
         <SolidColorBrush x:Key="TweakOddBackgroundBrush" Color="{StaticResource PhoneBackgroundColor}"/>
     </Application.Resources>

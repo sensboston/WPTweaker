@@ -11,11 +11,11 @@
     d:DesignHeight="150"
     d:DesignWidth="480">
 
-    <StackPanel Margin="0,0,0,-20">
+    <StackPanel Background="{Binding Background}" Margin="0,0,0,-20">
         <Border Background="{StaticResource TweakHeaderBackgroundBrush}" Padding="8">
             <TextBlock Text="{Binding Name}" Foreground="{StaticResource TweakHeaderForegroundBrush}" FontSize="{StaticResource TweakHeaderFontSize}" VerticalAlignment="Center" />
         </Border>
-        <TextBlock Text="{Binding Description}" FontSize="{StaticResource TweakDescriptionFontSize}" Padding="4" TextWrapping="Wrap" />
-        <tk:ToggleSwitch x:Name="Toggle" IsChecked="{Binding Value, Mode=TwoWay}" Margin="4,-10,4,0" />
+        <TextBlock Text="{Binding Description}" Foreground="{StaticResource TweakDescriptionForegroundBrush}" FontSize="{StaticResource TweakDescriptionFontSize}" Padding="4" TextWrapping="Wrap" />
+        <tk:ToggleSwitch IsChecked="{Binding Value, Mode=TwoWay}" Background="{StaticResource TweakHeaderBackgroundBrush}" Foreground="{StaticResource TweakHeaderForegroundBrush}" Margin="4,-10,4,0" />
     </StackPanel>
 </UserControl>

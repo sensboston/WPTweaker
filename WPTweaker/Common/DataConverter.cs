@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Windows.Media;
+using System.Globalization;
 
 namespace WPTweaker
 {
@@ -49,6 +51,27 @@ namespace WPTweaker
                 default:
                     return string.Empty;
             }
+        }
+
+        public static Color FromString(string hex)
+        {
+            if (hex.StartsWith("#")) hex = hex.Replace("#", "");
+            byte a = 255, r, g , b;
+            int start = 0;
+
+            // handle ARGB strings (8 characters long)
+            if (hex.Length == 8)
+            {
+                a = byte.Parse(hex.Substring(0, 2), NumberStyles.HexNumber);
+                start = 2;
+            }
+
+            //convert RGB characters to bytes
+            r = byte.Parse(hex.Substring(start, 2), NumberStyles.HexNumber);
+            g = byte.Parse(hex.Substring(start + 2, 2), NumberStyles.HexNumber);
+            b = byte.Parse(hex.Substring(start + 4, 2), NumberStyles.HexNumber);
+
+            return Color.FromArgb(a, r, g, b);
         }
     }
 }

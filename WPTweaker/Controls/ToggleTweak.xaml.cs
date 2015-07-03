@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Navigation;
+using System.Windows.Media;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
@@ -23,7 +23,7 @@ namespace WPTweaker
         void ValueChanged(object sender, string hashedKeys)
         {
             if (string.IsNullOrEmpty(hashedKeys)) 
-                Toggle.SetValue(ToggleSwitch.IsCheckedProperty, _tweak.Value);
+                (sender as ToggleSwitch).SetValue(ToggleSwitch.IsCheckedProperty, _tweak.Value);
         }
     }
 }

@@ -11,11 +11,13 @@ namespace WPTweaker
 
         // The isolated storage key names of our settings
         public const string XmlTweaksSettingKeyName = "XmlTweaks";
+        public const string ThemeSettingKeyName = "Theme";
         public const string SortTweaksSettingKeyName = "SortTweaks";
         public const string CheckTweaksSettingKeyName = "SortTweaks";
 
         // The default value of our settings
         private const string XmlTweaksSettingDefault = "";
+        private const string ThemeSettingDefault = "";
         private const bool SortTweaksSettingDefault = false;
         private const bool CheckTweaksSettingDefault = false;
 
@@ -81,6 +83,12 @@ namespace WPTweaker
         {
             get { return GetValueOrDefault<string>(XmlTweaksSettingKeyName, XmlTweaksSettingDefault); }
             set { AddOrUpdateValue(XmlTweaksSettingKeyName, value); }
+        }
+
+        public string Theme
+        {
+            get { return GetValueOrDefault<string>(ThemeSettingKeyName, ThemeSettingDefault); }
+            set { AddOrUpdateValue(ThemeSettingKeyName, value); }
         }
 
         public bool SortTweaks

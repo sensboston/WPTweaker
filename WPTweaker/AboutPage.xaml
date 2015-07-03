@@ -14,7 +14,7 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PageHeaderBackgroundBrush}">
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,20,12,0">
             <Grid.RowDefinitions>
@@ -59,7 +59,7 @@
             </RichTextBox>
 
             <TextBlock Text="Tweak list contributors:" Margin="20,10" Grid.Row="8" />
-            <ListBox x:Name="ContributorsList" Margin="20,10" Grid.Row="9" FontSize="22" Background="{StaticResource PhoneChromeBrush}" Height="240" />
+            <ListBox x:Name="ContributorsList" Foreground="{StaticResource TweakHeaderForegroundBrush}" Background="{StaticResource TweakOddBackgroundBrush}" Margin="20,10" Grid.Row="9" FontSize="22" Height="240" />
         </Grid>
     </Grid>
 

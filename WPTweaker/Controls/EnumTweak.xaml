@@ -11,11 +11,11 @@
     d:DesignHeight="180"
     d:DesignWidth="480" Loaded="EnumControl_Loaded">
 
-    <StackPanel>
+    <StackPanel Background="{Binding Background}">
         <Border Background="{StaticResource TweakHeaderBackgroundBrush}"  Padding="8">
             <TextBlock Text="{Binding Name}" Foreground="{StaticResource TweakHeaderForegroundBrush}" FontSize="{StaticResource TweakHeaderFontSize}" VerticalAlignment="Center"  />
         </Border>
-        <TextBlock Text="{Binding Description}" FontSize="{StaticResource TweakDescriptionFontSize}" Padding="4" TextWrapping="Wrap"/>
+        <TextBlock Text="{Binding Description}" Foreground="{StaticResource TweakDescriptionForegroundBrush}" FontSize="{StaticResource TweakDescriptionFontSize}" Padding="4" TextWrapping="Wrap"/>
         <Grid Margin="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="60"/>

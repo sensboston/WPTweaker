@@ -5,7 +5,7 @@ using System.Net;
 using System.Windows;
 using System.Globalization;
 using System.Windows.Controls;
-using System.Windows.Navigation;
+using System.Windows.Media;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 

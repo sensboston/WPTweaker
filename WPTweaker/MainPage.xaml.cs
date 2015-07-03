@@ -30,10 +30,9 @@ namespace WPTweaker
 
         public MainPage()
         {
-            //Application.Current.Resources.Remove("AppHeaderBrush");
-            //Application.Current.Resources.Add("AppHeaderBrush", new SolidColorBrush(Colors.Blue));
-
+            ParseTheme();
             InitializeComponent();
+
             App.Current.UnhandledException += (object sender, ApplicationUnhandledExceptionEventArgs e) =>
             {
                 MessageBox.Show(e.ExceptionObject.Message, "Exception", MessageBoxButton.OK);
@@ -86,7 +85,7 @@ namespace WPTweaker
             }
         }
 
-        public void ParseTweaksXml()
+        void ParseTweaksXml()
         {
             _tweaks.Clear();
 #if !DEBUG
@@ -96,7 +95,15 @@ namespace WPTweaker
 #endif
             if (xmlDoc != null)
             {
+                // Check custom app theme
+                if (xmlDoc.Descendants("theme").FirstOrDefault() != null)
+                {
+                    _settings.Theme = xmlDoc.Descendants("theme").FirstOrDefault().ToString();
+                }
+
+                // Load list contributors
                 AboutPage.Contributors = xmlDoc.Descendants("contributor").Select(d => d.Value).ToList();
+
                 var tweaks = xmlDoc.Descendants("tweak").ToList();
                 if (tweaks != null)
                 {
@@ -120,6 +127,55 @@ namespace WPTweaker
             LayoutRoot.Title = string.Format("WPTweaker: {0} tweak{1} available", _tweaks.Count, _tweaks.Count == 1 ? "" : "s");
         }
 
+        void ChangeResource(string resName, string newValue)
+        {
+            if (!string.IsNullOrEmpty(newValue))
+            {
+                if (Application.Current.Resources.Contains(resName)) Application.Current.Resources.Remove(resName);
+                if (resName.Contains("Size"))
+                {
+                    int newSize = 0;
+                    if (int.TryParse(newValue, out newSize)) Application.Current.Resources.Add(resName, newSize);
+                }
+                else
+                {
+                    // first, check for the system resources
+                    if (App.Current.Resources.Contains(newValue))
+                    {
+                        Application.Current.Resources.Add(resName, Application.Current.Resources[newValue]);
+                    }
+                    // try to parse color
+                    else
+                    {
+                        try
+                        {
+                            var newColor = DataConverter.FromString(newValue);
+                            Application.Current.Resources.Add(resName, new SolidColorBrush(newColor));
+                        }
+                        catch { }
+                    }
+                }
+            }
+        }
+
+        void ParseTheme()
+        {
+            if (!string.IsNullOrEmpty(_settings.Theme))
+            {
+                var theme = XElement.Parse(_settings.Theme);
+                if (theme != null)
+                {
+                    foreach (var key in Application.Current.Resources.Keys)
+                    {
+                        if (theme.Element(key.ToString()) != null)
+                        {
+                            ChangeResource(key.ToString(), theme.Element(key.ToString()).Value);
+                        }
+                    }
+                }
+            }
+        }
+
         void TweakValueChanged(object sender, string hashedKeys)
         {
             var senderTweak = sender as Tweak;
@@ -132,13 +188,12 @@ namespace WPTweaker
             }
         }
 
-#if false
-        SolidColorBrush[] brushes = { Application.Current.Resources["PhoneBackgroundBrush"] as SolidColorBrush, Application.Current.Resources["PhoneChromeBrush"] as SolidColorBrush };
-        { Background = brushes[i++ % 2] }
-#endif
-
-        public void BuildUI()
+        void BuildUI()
         {
+            List<SolidColorBrush> brushes = new List<SolidColorBrush>();
+            brushes.Add(Application.Current.Resources["TweakEvenBackgroundBrush"] as SolidColorBrush);
+            brushes.Add(Application.Current.Resources["TweakOddBackgroundBrush"] as SolidColorBrush);
+
             LayoutRoot.Items.Clear();
             var categories = _tweaks.Select(t => t.Category).Distinct();
             if (_settings.SortTweaks) categories = categories.OrderBy(t => t);
@@ -148,8 +203,10 @@ namespace WPTweaker
                 if (_settings.SortTweaks) tweaksByCategory = tweaksByCategory.OrderBy(t => t.Name);
                 var pivotItem = new PivotItem() { Header = category };
                 var content = new StackPanel();
+                int i = 0;
                 foreach (var tweak in tweaksByCategory)
                 {
+                    tweak.Background = brushes[++i % 2];
                     dynamic tweakControl = null;
                     switch (tweak.Type)
                     {
@@ -168,8 +225,7 @@ namespace WPTweaker
                     }
                 }
                 pivotItem.Content = new ScrollViewer() { Content = content };
-                try { LayoutRoot.Items.Add(pivotItem); }
-                catch { }
+                LayoutRoot.Items.Add(pivotItem);
             }
         }
 

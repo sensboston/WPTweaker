@@ -5,6 +5,7 @@ using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 using System.Globalization;
+using System.Windows.Media;
 
 namespace WPTweaker
 {
@@ -208,5 +209,7 @@ namespace WPTweaker
                 return (Entries != null && Entries.Count > 0) ? Entries.First().RegEntry.Max : Int64.MaxValue;
             }
         }
+
+        public SolidColorBrush Background { set; get; }
     }
 }
