@@ -83,7 +83,7 @@
     <entry path="HKEY_LOCAL_MACHINE\System\ControlSet001\Services\ICSSVC\Settings" name="EntitlementRequired" type="dword" default="1">
       <value>0</value>
     </entry>
-    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="@" type="string">
+    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="" type="string">
       <value>Soft AP</value>
     </entry>
     <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="Location" type="string">
