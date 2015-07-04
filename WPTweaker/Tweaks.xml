@@ -6,6 +6,7 @@
     <contributor>Jaxbot @ WindowsPhoneHacker.com</contributor>
     <contributor>xFleck @ xda-developers</contributor>
     <contributor>titi66200 @ xda-developers</contributor>
+    <contributor>winphouser @ xda-developers</contributor>
   </contributors>
 
   <tweak category="Cell" name="Hide highest speed selection" type="toggle" >
@@ -246,18 +247,6 @@
     </entry>
   </tweak>
 
-  <tweak category="Misc" name="OEM Watermark in maps" type="toggle">
-    <entry path="HKLM\System\Maps" name="OEMWatermarkEnabled" type="dword" default="0">
-      <value>1</value>
-    </entry>
-  </tweak>
-
-  <tweak category="Misc" name="China variant of Maps" type="toggle">
-    <entry path="HKLM\System\Maps" name="OEMChinaVariant" type="dword" default="0">
-      <value>1</value>
-    </entry>
-  </tweak>
-
   <tweak category="System" name="Disable backlight for the hardware buttons"  type="toggle">
     <entry path="HKLM\SOFTWARE\OEM\Nokia\Display\ColorAndLight" name="UserSettingKeyLightsEnabled" type="dword" default="1">
       <value>0</value>
@@ -303,6 +292,24 @@
     </entry>
     <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="Type" type="dword">
       <value>7</value>
+    </entry>
+  </tweak>
+  
+  <tweak category="Misc" name="Enable IE hidden setting" description="Hidden IE setting 'Show Pictures Automatically' toggle" type="toggle" >
+    <entry path="HKLM\Software\Microsoft\Internet Explorer" name="Disable Display Inline Images" type="dword" default="0">
+      <value>1</value>
+    </entry>
+  </tweak>
+
+  <tweak category="Misc" name="China variant of Maps" type="toggle">
+    <entry path="HKLM\System\Maps" name="OEMChinaVariant" type="dword" default="0">
+      <value>1</value>
+    </entry>
+  </tweak>
+  
+  <tweak category="Misc" name="OEM Watermark in maps" type="toggle">
+    <entry path="HKLM\System\Maps" name="OEMWatermarkEnabled" type="dword" default="0">
+      <value>1</value>
     </entry>
   </tweak>
 
