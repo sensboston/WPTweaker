@@ -96,7 +96,7 @@ namespace WPTweaker
             return true;
 #endif
         }
-        public RegistryEntry(string fullPath, string keyName, RegDataType dataType, string defaultValue, string comparer, Int64 min = Int64.MinValue, Int64 max = Int64.MaxValue)
+        public RegistryEntry(string fullPath, string keyName, RegDataType dataType, object defaultValue, string comparer, Int64 min = Int64.MinValue, Int64 max = Int64.MaxValue)
         {
             if (fullPath.StartsWith("HKEY_CLASSES_ROOT") || fullPath.StartsWith("HKCR")) Hive = RegistryHive.HKEY_CLASSES_ROOT;
             else if (fullPath.StartsWith("HKEY_LOCAL_MACHINE") || fullPath.StartsWith("HKLM")) Hive = RegistryHive.HKEY_LOCAL_MACHINE;
@@ -105,7 +105,7 @@ namespace WPTweaker
             KeyPath = fullPath.Substring(fullPath.IndexOf('\\') + 1);
             ValueName = keyName;
             DataType = dataType;
-            DefaultValue = DataConverter.FromString(defaultValue, DataType);
+            DefaultValue = defaultValue;
             Comparer = comparer;
             Min = min;
             Max = max;
@@ -202,6 +202,7 @@ namespace WPTweaker
 
             set
             {
+                if (value == null) return;
 #if ARM
                 if (_rpc == null && _useDevProgram == false) return;
                 uint retVal = 0;

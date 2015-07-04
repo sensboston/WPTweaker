@@ -21,7 +21,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <TextBlock Text="Value:" FontSize="{StaticResource TweakDescriptionFontSize}" VerticalAlignment="Center" Grid.Column="0" />
-            <TextBox x:Name="ValueInput" Text="{Binding Path=ValueToString, Mode=OneWay}" FontSize="18" Grid.Column="1" HorizontalAlignment="Stretch" FontFamily="/WPTweaker;component/Fonts/Fonts.zip#Segoe UI Mono" />
+            <TextBox x:Name="ValueInput" Text="{Binding Path=ValueToString, Mode=OneWay}" FontSize="18" Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Stretch" FontFamily="/WPTweaker;component/Fonts/Fonts.zip#Segoe UI Mono" />
         </Grid>
         <StackPanel Orientation="Horizontal">
             <Button Content="Read" Margin="0,0,10,0" Width="140" Click="ReadButton_Click"/>

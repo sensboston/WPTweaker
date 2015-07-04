@@ -22,6 +22,7 @@ namespace WPTweaker
                     return Convert.ToUInt64(string.IsNullOrEmpty(data) ? "0" : data, 16);
 
                 case RegDataType.REG_BINARY:
+                    data = data.Replace("-", "");
                     return Enumerable.Range(0, data.Length).Where(x => x % 2 == 0).Select(x => Convert.ToByte(data.Substring(x, 2), 16)).ToArray();
 
                 default:
@@ -46,7 +47,7 @@ namespace WPTweaker
                     return String.Format("{0:X}", data);
 
                 case RegDataType.REG_BINARY:
-                    return string.Empty; // Enumerable.Range(0, data.Length).Where(x => x % 2 == 0).Select(x => Convert.ToByte(data.Substring(x, 2), 16)).ToArray();
+                    return BitConverter.ToString(data as byte[], 0);
 
                 default:
                     return string.Empty;

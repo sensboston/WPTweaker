@@ -8,25 +8,25 @@
     <contributor>titi66200 @ xda-developers</contributor>
   </contributors>
 
-  <tweak category="Cellural" name="Hide highest speed selection" type="toggle" >
+  <tweak category="Cell" name="Hide highest speed selection" type="toggle" >
     <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideHighestSpeed" type="dword" default="0" >
       <value>1</value>
     </entry>
   </tweak>
 
-  <tweak category="Cellural" name="Hide mode selection" type="toggle" >
+  <tweak category="Cell" name="Hide mode selection" type="toggle" >
     <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideModeSelection" type="dword" default="0" >
       <value>1</value>
     </entry>
   </tweak>
 
-  <tweak category="Cellural" name="Enable LTE" type="toggle" >
+  <tweak category="Cell" name="Enable LTE" type="toggle" >
     <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\General" name="LTEEnabled" type="dword" default="0" >
       <value>1</value>
     </entry>
   </tweak>
 
-  <tweak category="Cellural" name="Force LTE" type="toggle" >
+  <tweak category="Cell" name="Force LTE" type="toggle" >
     <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\General" name="LTEForced" type="dword" default="0" >
       <value>1</value>
     </entry>
@@ -70,13 +70,13 @@
 
   <tweak category="User interface" name="Touch buttons intensity" type="enum" description="Increase or decrease intensity of touch buttons">
     <entry path="HKLM\System\Touch\Buttons" name="Intensity" type="dword" default="36">
+      <value name="Low">18</value>      
       <value name="Default">36</value>
-      <value name="Longer">72</value>
-      <value name="Very long">100</value>
+      <value name="High">72</value>
     </entry>
   </tweak>
 
-  <tweak category="Cellural" name="Enable internet sharing" type="toggle" description="Enable internet sharing (if disabled by provider)" reboot="true">
+  <tweak category="Cell" name="Enable internet sharing" type="toggle" description="Enable internet sharing (if disabled by provider)" reboot="true">
     <entry path="HKEY_LOCAL_MACHINE\System\ControlSet001\Services\ICSSVC\Settings" name="Enabled" type="dword" default="0">
       <value>1</value>
     </entry>
@@ -158,7 +158,7 @@
     </entry>
   </tweak>
 
-  <tweak category="Cellural" name="Enable SIM Contacts in People" type="toggle" >
+  <tweak category="Cell" name="Enable SIM Contacts in People" type="toggle" >
     <entry path="HKLM\Software\Microsoft\Contacts\Sim" name="EnableSIMAddressBookAndExport" type="dword" default="0" >
       <value>1</value>
     </entry>
@@ -246,13 +246,13 @@
     </entry>
   </tweak>
 
-  <tweak category="User interface" name="OEM Watermark in maps" type="toggle">
+  <tweak category="Misc" name="OEM Watermark in maps" type="toggle">
     <entry path="HKLM\System\Maps" name="OEMWatermarkEnabled" type="dword" default="0">
       <value>1</value>
     </entry>
   </tweak>
 
-  <tweak category="User interface" name="China variant of Maps" type="toggle">
+  <tweak category="Misc" name="China variant of Maps" type="toggle">
     <entry path="HKLM\System\Maps" name="OEMChinaVariant" type="dword" default="0">
       <value>1</value>
     </entry>
@@ -270,6 +270,39 @@
     </entry>
     <entry path="HKLM\SOFTWARE\Microsoft\EventSounds\Sounds\WiFiDisconnected" name="Disabled" type="dword" default="1">
       <value>0</value>
+    </entry>
+  </tweak>
+
+  <tweak category="System" name="Full FS access" type="toggle">
+    <entry path="HKLM\Software\microsoft\mtp" name="datastore" type="string" default="C:\Data\Users\PUBLIC" >
+      <value>c:</value>
+    </entry>
+    <entry path="HKLM\System\ControlSet001\services\Mtp" name="ObjectName" type="string" default=".\WPNONETWORK" >
+      <value>LocalSystem</value>
+    </entry>
+    <entry path="HKLM\System\ControlSet001\services\Mtp" name="Type" type="dword">
+      <value>10</value>
+    </entry>
+    <entry path="HKLM\System\ControlSet001\services\Mtp" name="ServiceSidType" type="dword">
+      <value>1</value>
+    </entry>
+    <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="Data0" type="binary">
+      <value>7508bca3290b900c</value>
+    </entry>
+    <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="Data1" type="binary">
+      <value>0000000001000000</value>
+    </entry>
+    <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="DataType0" type="dword">
+      <value>1</value>
+    </entry>
+    <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="DataType1" type="dword">
+      <value>1</value>
+    </entry>
+    <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="Guid" type="binary">
+      <value>16287a2d5e0cfc459ce7570e5ecde9c9</value>
+    </entry>
+    <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="Type" type="dword">
+      <value>7</value>
     </entry>
   </tweak>
 

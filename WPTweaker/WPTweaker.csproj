@@ -197,11 +197,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <BlendEmbeddedFont Include="Fonts\SegoeUIMono-Bold.TTF">
-      <IsSystemFont>True</IsSystemFont>
-      <All>True</All>
-      <AutoFill>True</AutoFill>
-    </BlendEmbeddedFont>
     <BlendEmbeddedFont Include="Fonts\SegoeUIMono-Regular.TTF">
       <IsSystemFont>True</IsSystemFont>
       <All>True</All>

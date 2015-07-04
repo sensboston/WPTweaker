@@ -69,7 +69,6 @@ namespace WPTweaker
                 string entryPath = xmlEntry.Attribute("path").Value;
                 string entryName = xmlEntry.Attribute("name").Value;
                 string entryType = xmlEntry.Attribute("type").Value;
-                string entryDefault = xmlEntry.Attribute("default") != null ? xmlEntry.Attribute("default").Value : string.Empty;
                 string entryComparer = xmlEntry.Attribute("comparer") != null ? xmlEntry.Attribute("comparer").Value : string.Empty;
                 Int64 min = Int64.MinValue;
                 Int64 max = Int64.MaxValue;
@@ -82,7 +81,9 @@ namespace WPTweaker
                 RegDataType dataType = RegistryEntry.DataTypeFromString(entryType);
                 if (dataType == RegDataType.REG_UNKNOWN) throw new Exception(string.Format("Error, invalid data type \"{0}\" for the entry value", entryType));
 
-                var regEntry = new RegistryEntry(entryPath, entryName, dataType, entryDefault, entryComparer, min, max);
+                var defValue = xmlEntry.Attribute("default") != null ? DataConverter.FromString(xmlEntry.Attribute("default").Value, dataType) : null;
+
+                var regEntry = new RegistryEntry(entryPath, entryName, dataType, defValue, entryComparer, min, max);
 
                 var values = new List<RegValue>();
                 var xmlValues = xmlEntry.Descendants("value");
@@ -107,8 +108,9 @@ namespace WPTweaker
             {
                 switch (Type)
                 {
-                    case TweakType.Toggle: 
-                        return Entries.Count(e => e.RegEntry.IsSet) == Entries.Count;
+                    case TweakType.Toggle:
+                        var processEntries = Entries.Where(e => e.RegEntry.DefaultValue != null).Select(e => e.RegEntry).ToList();
+                        return processEntries.Count(e => e.IsSet) == processEntries.Count;
 
                     case TweakType.Enum:
                     case TweakType.Input:

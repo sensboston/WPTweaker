@@ -46,7 +46,7 @@ namespace WPTweaker
                 {
                     var message = string.Format("You've applied registry tweak(s) that require a phone reboot.\n\n{0}", 
                         _isSamsung ? "Would you like to reboot now?" : "Don't forget to reboot your phone now!");
-                    if (MessageBox.Show(message, "", _isSamsung ? MessageBoxButton.OKCancel : MessageBoxButton.OK) == MessageBoxResult.OK && _isSamsung)
+                    if (MessageBox.Show(message, "Warning", _isSamsung ? MessageBoxButton.OKCancel : MessageBoxButton.OK) == MessageBoxResult.OK && _isSamsung)
                     {
 #if ARM
                         uint retCode;
@@ -75,7 +75,9 @@ namespace WPTweaker
             {
                 if (!RegistryEntry.IsInteropUnlocked())
                 {
-                    MessageBox.Show("Your phone is not interop unlocked. Press \"OK\" to exit.");
+                    MessageBox.Show("RPC component is failed to initialize!\n" +
+                                    "Sorry but this application is designed to work with Nokia/Microsoft and Samsung handsets ONLY...\n" +
+                                    "Press <OK> to terminate application", "Error", MessageBoxButton.OK);
                     App.Current.Terminate();
                 }
 
