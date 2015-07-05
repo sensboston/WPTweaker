@@ -7,6 +7,7 @@
     <contributor>xFleck @ xda-developers</contributor>
     <contributor>titi66200 @ xda-developers</contributor>
     <contributor>winphouser @ xda-developers</contributor>
+    <contributor>kovalDN @ xda-developers</contributor>
   </contributors>
 
   <tweak category="Cell" name="Hide highest speed selection" type="toggle" >
@@ -311,6 +312,32 @@
     <entry path="HKLM\System\Maps" name="OEMWatermarkEnabled" type="dword" default="0">
       <value>1</value>
     </entry>
+  </tweak>
+  
+  <tweak category="Device Info" name="Phone Manufacturer" type="input" description="Change Phone Manufacturer">
+    <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="PhoneManufacturer" type="string"/>
+  </tweak>
+
+  <tweak category="Device Info" name="Phone Manufacturer Model Name" type="input" description="Change Phone Manufacturer Model Name">
+    <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="PhoneManufacturerModelName" type="string"/>
+  </tweak>
+
+  <tweak category="Device Info" name="Phone Mobile Operator Name" type="input" description="Change Phone Mobile Operator Name">
+    <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="PhoneMobileOperatorName" type="string"/>
+  </tweak>
+
+  <tweak category="Device Info" name="Enable Dev OS Preview" description="Preview for Developers Enable toggle" type="toggle" >
+    <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="DevOSPreviewEnable" type="dword" default="0">
+      <value>1</value>
+    </entry>
+  </tweak>
+
+  <tweak category="Device Info" name="Phone Friendly Name" type="input" description="Change Phone Friendly Name">
+    <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="PhoneFriendlyName" type="string"/>
+  </tweak>
+
+  <tweak category="Device Info" name="Phone Mobile Operator Display Name" type="input" description="Change Phone Operator Display Name">
+    <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="PhoneMobileOperatorDisplayName" type="string"/>
   </tweak>
 
 </tweaks>
