@@ -8,6 +8,7 @@
     <contributor>titi66200 @ xda-developers</contributor>
     <contributor>winphouser @ xda-developers</contributor>
     <contributor>kovalDN @ xda-developers</contributor>
+    <contributor>AR2186 @ xda-developers</contributor>
   </contributors>
 
   <tweak category="Cell" name="Hide highest speed selection" type="toggle" >
@@ -340,4 +341,15 @@
     <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="PhoneMobileOperatorDisplayName" type="string"/>
   </tweak>
 
+  <tweak category="Misc" name="IE easter egg" description="Apply tweak and type 'about:moz' in the IE address field (mostly useless)" type="toggle" >
+    <entry path="HKLM\Software\Microsoft\Internet Explorer\Abouturls" name="moz" type="string" default="">
+      <value>res://mshtml.dll/about.moz</value>
+    </entry>
+  </tweak>
+
+  <tweak category="Cell" name="Unhide MMS APN" type="toggle">
+    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideMMSAPN" type="dword" default="1">
+      <value>0</value>
+    </entry>
+  </tweak>
 </tweaks>
