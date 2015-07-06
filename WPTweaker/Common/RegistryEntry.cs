@@ -120,6 +120,7 @@ namespace WPTweaker
                 if (string.IsNullOrEmpty(Comparer)) return !Value.Equals(DefaultValue);
                 else if (Comparer.Equals(">")) return Value > DefaultValue;
                 else if (Comparer.Equals("<")) return Value < DefaultValue;
+                else if (Comparer.Equals("==")) return Value == DefaultValue;
                 else return !Value.Equals(DefaultValue);
             } 
         }
