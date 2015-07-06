@@ -20,6 +20,7 @@
     <contributor>winphouser @ xda-developers</contributor>
     <contributor>kovalDN @ xda-developers</contributor>
     <contributor>AR2186 @ xda-developers</contributor>
+    <contributor>Pen4iK @ 4pda.ru</contributor>
   </contributors>
 
   <tweak category="Cell" name="Hide highest speed selection" type="toggle" >
@@ -380,6 +381,24 @@
     <entry path="HKLM\SOFTWARE\Microsoft\Shell\NavigationBar" name="IsDoubleTapOffEnabled" type="dword" default="0" >
       <value>1</value>
     </entry>
-  </tweak>  
+  </tweak>
+
+  <tweak category="User interface" name="Color or Black on soft navbar" type="toggle" >
+    <entry path="HKLM\SOFTWARE\Microsoft\Shell\NavigationBar" name="Color" type="dword" default="0" >
+      <value>2</value>
+    </entry>
+  </tweak>
+
+  <tweak category="User interface" name="Enable Auto Hide on soft navbar" type="toggle" >
+    <entry path="HKLM\SOFTWARE\Microsoft\Shell\NavigationBar" name="IsAutoHideEnabled" type="dword" default="0" >
+      <value>1</value>
+    </entry>
+  </tweak>
+
+  <tweak category="User interface" name="Enable Hint on soft navbar" type="toggle" >
+    <entry path="HKLM\SOFTWARE\Microsoft\Shell\NavigationBar" name="IsHintEnabled" type="dword" default="0" >
+      <value>1</value>
+    </entry>
+  </tweak>
 
 </tweaks>
