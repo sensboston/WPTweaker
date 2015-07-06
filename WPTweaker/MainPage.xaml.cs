@@ -69,7 +69,7 @@ namespace WPTweaker
         /// </summary>
         /// <param name="e">Event data that describes how this page was reached.
         /// This parameter is typically used to configure the page.</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             if (e.NavigationMode == NavigationMode.New)
             {
@@ -79,6 +79,17 @@ namespace WPTweaker
                                     "Sorry but this application is designed to work with Nokia/Microsoft and Samsung handsets ONLY...\n" +
                                     "Press <OK> to terminate application", "Error", MessageBoxButton.OK);
                     App.Current.Terminate();
+                }
+
+                if (_settings.RunCount++ == 5)
+                {
+                    if (MessageBox.Show("Would you like to support this project by installing and rating '5 stars' my applications from the store? "+
+                                        "It will take not more than 5 minutes of your time! "+
+                                        "Probably you'll find these apps are useful for you ☺" +
+                                        "Press [OK] to open store or [Cancel] to igonre", "Developer's note", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                    {
+                        await Launcher.LaunchUriAsync(new Uri("ms-windows-store:search?keyword=senssoft"));
+                    }
                 }
 
                 if (_settings.CheckTweaks) CheckTweakListUpdate();

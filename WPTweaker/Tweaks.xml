@@ -1,6 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <tweaks>
 
+  <!--<tweak category="Test" name="Accent test" type="input">
+    <entry path="HKLM\Software\Microsoft\Windows\CurrentVersion\Control Panel\Theme\Themes\0\Accents\0" name="Color" type="dword"/>
+  </tweak>
+  <tweak category="Test" name="Accent test" type="input">
+    <entry path="HKLM\Software\Microsoft\Windows\CurrentVersion\Control Panel\Theme\Themes\0\Accents\0" name="ComplementaryColor" type="dword"/>
+  </tweak>-->
+
   <contributors>
     <contributor>sensboston @ xda-developers</contributor>
     <contributor>Jaxbot @ WindowsPhoneHacker.com</contributor>
@@ -36,8 +43,8 @@
   </tweak>
 
   <tweak category="System" name="'Never' screen timeout option" type="toggle" description="Enable or disable 'Never' timeout">
-    <entry path="HKLM\SOFTWARE\Microsoft\Settings\Lock" name="DisableNever" type="dword" default="0">
-      <value>1</value>
+    <entry path="HKLM\SOFTWARE\Microsoft\Settings\Lock" name="DisableNever" type="dword" default="1">
+      <value>0</value>
     </entry>
   </tweak>
 
@@ -347,9 +354,28 @@
     </entry>
   </tweak>
 
+  <tweak category="Cell" name="Unhide APN" type="toggle">
+    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideAPN" type="dword" default="1">
+      <value>0</value>
+    </entry>
+  </tweak>
+
   <tweak category="Cell" name="Unhide MMS APN" type="toggle">
     <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideMMSAPN" type="dword" default="1">
       <value>0</value>
     </entry>
   </tweak>
+
+  <tweak category="Cell" name="Hide SIM security UI" type="toggle">
+    <entry path="HKLM\Software\Microsoft\Phone\Settings" name="HideSIMSecurityUI" type="dword" default="0">
+      <value>1</value>
+    </entry>
+  </tweak>
+
+  <tweak category="User interface" name="Enable Double Tap Off on soft navbar" type="toggle" >
+    <entry path="HKLM\SOFTWARE\Microsoft\Shell\NavigationBar" name="IsDoubleTapOffEnabled" type="dword" default="0" >
+      <value>1</value>
+    </entry>
+  </tweak>  
+
 </tweaks>

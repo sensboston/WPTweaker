@@ -14,12 +14,14 @@ namespace WPTweaker
         public const string ThemeSettingKeyName = "Theme";
         public const string SortTweaksSettingKeyName = "SortTweaks";
         public const string CheckTweaksSettingKeyName = "SortTweaks";
+        public const string RunCountSettingKeyName = "RunCount";
 
         // The default value of our settings
         private const string XmlTweaksSettingDefault = "";
         private const string ThemeSettingDefault = "";
         private const bool SortTweaksSettingDefault = false;
         private const bool CheckTweaksSettingDefault = false;
+        public const int RunCountSettingDefault = 0;
 
         public AppSettings()
         {
@@ -103,5 +105,10 @@ namespace WPTweaker
             set { AddOrUpdateValue(CheckTweaksSettingKeyName, value); }
         }
 
+        public int RunCount
+        {
+            get { return GetValueOrDefault<int>(RunCountSettingKeyName, RunCountSettingDefault); }
+            set { AddOrUpdateValue(RunCountSettingKeyName, value); }
+        }
     }
 }
