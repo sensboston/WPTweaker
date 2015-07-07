@@ -9,13 +9,14 @@ using System.Windows.Media;
 
 namespace WPTweaker
 {
-    public class TweakNames { public static string[] TweakTypeNames = { "toggle", "input", "enum", "onetime" }; }
+    public class TweakNames { public static string[] TweakTypeNames = { "toggle", "input", "enum", "color" }; }
 
     public enum TweakType
     {
         Toggle = 0,
         Input = 1,
         Enum = 2,
+        Color = 3
     }
 
     public class RegValue

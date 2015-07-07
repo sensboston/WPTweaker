@@ -92,6 +92,12 @@
     <Compile Include="Common\DataConverter.cs" />
     <Compile Include="Common\RegistryEntry.cs" />
     <Compile Include="Common\Tweak.cs" />
+    <Compile Include="Controls\ColorEditorPage.xaml.cs">
+      <DependentUpon>ColorEditorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ColorTweak.xaml.cs">
+      <DependentUpon>ColorTweak.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\EnumTweak.xaml.cs">
       <DependentUpon>EnumTweak.xaml</DependentUpon>
     </Compile>
@@ -117,6 +123,14 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="AboutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ColorEditorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ColorTweak.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
