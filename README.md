@@ -5,11 +5,9 @@ You may easily add new hacks by modifying XML data file.
 This app should work on the interop-unlocked Lumias and Samsung handsets ONLY.
 
 The WPTweaker's user interface is pretty simple and doesn't require explanation. 
-
 The XML data file format is kinda more complicated (but nothing close to the "rocket science" of course )
 
 So, here an example of the Tweaks.xml file:
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 ```
 <?xml version="1.0" encoding="utf-8" ?>
 <tweaks>
@@ -75,32 +73,31 @@ So, here an example of the Tweaks.xml file:
   </tweak>
 </tweaks>
 ```
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
 I'll try to explain this XML: 
 
-<contributors> element is a tweak contributors list, I'll be glad to add you to this list.
+```<contributors>``` element is a tweak contributors list, I'll be glad to add you to this list.
 
-Element <tweak> must have some attributes and may have some...
+Element ```<tweak>``` must have some attributes and may have some...
 required attributes
-- category="User interface": it's a tweak category, all tweaks will be grouped by categories, and these categories become a pivot pages headers
-- name="Touch buttons intensity": short tweak description
-- type="enum": tweak type. There are 3 types of tweaks currently serving: toggle, input and enum
+- ```category="User interface"```: it's a tweak category, all tweaks will be grouped by categories, and these categories become a pivot pages headers
+- ```name="Touch buttons intensity"```: short tweak description
+- ```type="enum"```: tweak type. There are 3 types of tweaks currently serving: toggle, input and enum
 optional attributes
-- description="Increase or decrease intensity of touch buttons": detailed tweak description
-- reboot="true": reboot is required for this tweak?
-- min="100", max="1000": minimal and maximal value limits (for numeric input, currently not implemented)
+- ```description="Increase or decrease intensity of touch buttons"```: detailed tweak description
+- ```reboot="true"```: reboot is required for this tweak?
+- ```min="100", max="1000"```: minimal and maximal value limits (for numeric input, currently not implemented)
 
-Element <entry> represents registry entry.
+Element ```<entry>``` represents registry entry.
 required attributes
-- path="HKLMSoftwareMicrosoftDeviceRegInstall" : registry key path
-- name="MaxUnsignedApp": registry key name
-- type="dword": registry data type, can be "dword", "qword", "string", "strings" and "binary"
-- default="0000000A" : default registry value. Can be omitted but definitely good to have one...
+- ```path="HKLMSoftwareMicrosoftDeviceRegInstall"``` : registry key path
+- ```name="MaxUnsignedApp"```: registry key name
+- ```type="dword"```: registry data type, can be "dword", "qword", "string", "strings" and "binary"
+- ```default="0000000A"``` : default registry value. Can be omitted but definitely good to have one...
 optional attributes
-- comparer=">": determines how to check tweak state. Logical operation for the value comparer (with default value). By default it's "!=" (not equal), also can be ">" or "<"
+- ```comparer=">"```: determines how to check tweak state. Logical operation for the value comparer (with default value). By default it's "!=" (not equal), also can be ">" or "<"
 
-Element <value> it's a registry entry value.
+Element ```<value>``` it's a registry entry value.
 This element may have an optional attribute "name", to specify how this value should appear in the combo box.
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
