@@ -10,6 +10,7 @@ The XML data file format is kinda more complicated (but nothing close to the "ro
 
 So, here an example of the Tweaks.xml file:
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
 <?xml version="1.0" encoding="utf-8" ?>
 <tweaks>
 
@@ -75,6 +76,7 @@ So, here an example of the Tweaks.xml file:
 </tweaks>
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
 I'll try to explain this XML: 
 
 <contributors> element is a tweak contributors list, I'll be glad to add you to this list.
@@ -102,6 +104,7 @@ Element <value> it's a registry entry value.
 This element may have an optional attribute "name", to specify how this value should appear in the combo box.
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
 Since version 1.2.0 I've added ability to customize application's look, it can be done by adding a few element to the XML data file (Tweaks.xml)
 
 <theme name="Blue Waves">
@@ -131,6 +134,7 @@ To apply color theme settings, do the following:
 After applying new theme, you can update Tweaks.xml file via http, custom colors will remain. 
 
 To reset app theme to default, just add empty element <theme /> to your xml and load the file.
+
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
 If you want to contribute tweaks and hacks to the project, I'll be glad to list your name/nick/email in the app's "about box"! But please check your hacks first, and ask me (here, in this thread) if you have any questions.
