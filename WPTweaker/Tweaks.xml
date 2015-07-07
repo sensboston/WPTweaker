@@ -390,13 +390,24 @@
     </entry>
   </tweak>
 
-
   <tweak category="User interface" name="Change default accent colors" type="color">
     <entry path="HKLM\Software\Microsoft\Windows\CurrentVersion\Control Panel\Theme\Themes\0\Accents\0" name="Color" type="dword"/>
   </tweak>
 
   <tweak category="User interface" name="Change default complementary colors" description="(for dual SIM phones only)" type="color">
     <entry path="HKLM\Software\Microsoft\Windows\CurrentVersion\Control Panel\Theme\Themes\0\Accents\0" name="ComplementaryColor" type="dword"/>
+  </tweak>
+
+  <tweak category="Cell" name="Unhide DTMF 'Long Tones' Phone setting" type="toggle" >
+    <entry path="HKLM\Software\Microsoft\Phone\Settings" name="ShowLongTones" type="dword" default="0" >
+      <value>1</value>
+    </entry>
+  </tweak>
+
+  <tweak category="Cell" name="Show status while sending SMS/MMS messages" type="toggle" >
+    <entry path="HKLM\Software\Microsoft\Messaging\GlobalSettings" name="ShowSendingStatus" type="dword" default="0" >
+      <value>1</value>
+    </entry>
   </tweak>
 
 </tweaks>
