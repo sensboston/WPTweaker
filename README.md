@@ -10,7 +10,7 @@ The XML data file format is kinda more complicated (but nothing close to the "ro
 
 So, here an example of the Tweaks.xml file:
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-
+```
 <?xml version="1.0" encoding="utf-8" ?>
 <tweaks>
 
@@ -74,7 +74,7 @@ So, here an example of the Tweaks.xml file:
     </entry>
   </tweak>
 </tweaks>
-
+```
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
 I'll try to explain this XML: 
@@ -106,7 +106,7 @@ This element may have an optional attribute "name", to specify how this value sh
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
 Since version 1.2.0 I've added ability to customize application's look, it can be done by adding a few element to the XML data file (Tweaks.xml)
-
+```
 <theme name="Blue Waves">
     <AppHeaderBackgroundBrush>#0F1F2E</AppHeaderBackgroundBrush>
     <AppHeaderForegroundBrush>#C2D1E0</AppHeaderForegroundBrush>"
@@ -122,7 +122,7 @@ Since version 1.2.0 I've added ability to customize application's look, it can b
     <TweakEvenBackgroundBrush>#0F1F2E</TweakEvenBackgroundBrush>
     <TweakOddBackgroundBrush>#14293D</TweakOddBackgroundBrush>
   </theme>
-  
+```  
 You may use standard WP theme resources (see below) or custom color values in #argb format ('a' - transparency - can be omitted). 
 
 To apply color theme settings, do the following:
