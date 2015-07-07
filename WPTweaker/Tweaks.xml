@@ -410,4 +410,10 @@
     </entry>
   </tweak>
 
+  <tweak category="Misc" name="Unhide .DNG format in Camera settings" type="toggle">
+    <entry path="HKLM\SOFTWARE\OEM\Nokia\Camera\Barc" name="DNGDisabled" type="dword" default="1">
+      <value>0</value>
+    </entry>
+  </tweak>  
+ 
 </tweaks>
