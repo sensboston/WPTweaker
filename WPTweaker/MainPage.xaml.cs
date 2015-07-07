@@ -83,10 +83,10 @@ namespace WPTweaker
 
                 if (_settings.RunCount++ == 5)
                 {
-                    if (MessageBox.Show("Would you like to support this project by installing and rating '5 stars' my applications from the store? "+
-                                        "It will take not more than 5 minutes of your time!\n\n"+
-                                        "Probably you'll find these apps are useful for you ☺\n\n" +
-                                        "Press [OK] to open store or [Cancel] to igonre", "Developer's note", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                    if (MessageBox.Show("Would you like to support this project by installing and rating \"5 stars\" my apps from the store? "+
+                                        "It will take not more than five minutes of your time...\n\n"+
+                                        "I hope these appls will be useful for you ☺\n\n" +
+                                        "Press [OK] to open store or [Cancel] to igonre this note", "Developer's note", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
                     {
                         await Launcher.LaunchUriAsync(new Uri("ms-windows-store:search?keyword=senssoft"));
                     }
@@ -160,11 +160,7 @@ namespace WPTweaker
                     // try to parse color
                     else
                     {
-                        try
-                        {
-                            var newColor = DataConverter.FromString(newValue);
-                            Application.Current.Resources.Add(resName, new SolidColorBrush(newColor));
-                        }
+                        try { Application.Current.Resources.Add(resName, new SolidColorBrush(ColorExtensions.FromString(newValue))); }
                         catch { }
                     }
                 }

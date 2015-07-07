@@ -67,7 +67,7 @@ namespace WPTweaker
             Colors.Clear();
             for (int j=0; j<_defaultAccentColors.Length; j++)
             {
-                Colors.Add(new SolidColorBrush(ColorExtensions.FromArgb((int)_colorEntries[0, j].Value)));
+                Colors.Add(new SolidColorBrush(ColorExtensions.FromArgb(_colorEntries[0, j].Value)));
             }
             ColorsList.ItemsSource = Colors;
             ColorsList.SelectedIndex = 0;
@@ -77,13 +77,13 @@ namespace WPTweaker
         {
             for (int i=0; i<2; i++)
                 for (int j = 0; j < _defaultAccentColors.Length; j++)
-                    _colorEntries[i, j].Value =  Colors[j].Color.ToArgb();
+                    _colorEntries[i, j].Value = Colors[j].Color.ToArgb();
         }
 
         private void DefaultButton_Click(object sender, RoutedEventArgs e)
         {
             Colors.Clear();
-            foreach (int color in _keyName.Equals("Color") ? _defaultAccentColors : _defaultComplementaryColors)
+            foreach (uint color in _keyName.Equals("Color") ? _defaultAccentColors : _defaultComplementaryColors)
                 Colors.Add(new SolidColorBrush(ColorExtensions.FromArgb(color)));
             ColorsList.ItemsSource = Colors;
             ColorsList.SelectedIndex = 0;
