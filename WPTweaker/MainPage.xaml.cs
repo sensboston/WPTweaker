@@ -84,7 +84,7 @@ namespace WPTweaker
                 if (_settings.RunCount++ == 5)
                 {
                     if (MessageBox.Show("Would you like to support this project by installing and rating '5 stars' my applications from the store? "+
-                                        "It will take not more than 5 minutes of your time!\n"+
+                                        "It will take not more than 5 minutes of your time!\n\n"+
                                         "Probably you'll find these apps are useful for you ☺\n\n" +
                                         "Press [OK] to open store or [Cancel] to igonre", "Developer's note", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
                     {

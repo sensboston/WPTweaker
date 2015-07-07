@@ -40,6 +40,7 @@ namespace WPTweaker
         public string Description { get; set; }
         public TweakType Type { get; set; }
         private List<TweakEntry> Entries = new List<TweakEntry>();
+        public List<RegistryEntry> RegEntries { get { return Entries.Select(e => e.RegEntry).ToList(); } }
         public int RequireReboot { get; private set; }
 
         public delegate void ValueChangedHandler(object sender, string hashedKeys);

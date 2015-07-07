@@ -59,7 +59,7 @@ namespace WPTweaker
         };
         public uint RegHive { get { return (uint) _hives[Hive]; } }
         public string KeyPath { get; set; }
-        public string ValueName { get; set; }
+        public string KeyName { get; set; }
         public RegDataType DataType { get; set; }
         public dynamic DefaultValue { get; set; }
         public string Comparer { get; set; }
@@ -103,7 +103,7 @@ namespace WPTweaker
             else if (fullPath.StartsWith("HKEY_CURRENT_USER") || fullPath.StartsWith("HKCU")) Hive = RegistryHive.HKEY_CURRENT_USER;
             else if (fullPath.Contains("HKEY_CURRENT_CONFIG") || fullPath.Contains("HKCC")) Hive = RegistryHive.HKEY_CURRENT_CONFIG;
             KeyPath = fullPath.Substring(fullPath.IndexOf('\\') + 1);
-            ValueName = keyName;
+            KeyName = keyName;
             DataType = dataType;
             DefaultValue = defaultValue;
             Comparer = comparer;
@@ -142,12 +142,12 @@ namespace WPTweaker
                         switch (DataType)
                         {
                             case RegDataType.REG_DWORD:
-                                CRPCComponent.Registry_GetDWORD(RegHive, KeyPath, ValueName, out retVal);
+                                CRPCComponent.Registry_GetDWORD(RegHive, KeyPath, KeyName, out retVal);
                                 result = retVal.ToString("X");
                                 break;
 
                             case RegDataType.REG_SZ:
-                                result = CRPCComponent.Registry_GetString(RegHive, KeyPath, ValueName, out retVal);
+                                result = CRPCComponent.Registry_GetString(RegHive, KeyPath, KeyName, out retVal);
                                 break;
 
                             case RegDataType.REG_QWORD:
@@ -159,7 +159,7 @@ namespace WPTweaker
                     // unlocked Lumias
                     else
                     {
-                        if (_rpc != null) result = _rpc.rget((uint)Hive, KeyPath, ValueName, (uint)DataType);
+                        if (_rpc != null) result = _rpc.rget((uint)Hive, KeyPath, KeyName, (uint)DataType);
                     }
 #else
                     // Use AppSettings to emulate registry changes (if running on phone emulator)
@@ -196,7 +196,7 @@ namespace WPTweaker
                 }
                 finally
                 {
-                    Debug.WriteLine(string.Format("Reading registry key {0}\non path {1}\nreturned {2}\n", ValueName, string.Concat(Hive, "\\", KeyPath), result));
+                    Debug.WriteLine(string.Format("Reading registry key {0}\non path {1}\nreturned {2}\n", KeyName, string.Concat(Hive, "\\", KeyPath), result));
                 }
                 return DataConverter.FromString(result, DataType);
             }
@@ -216,7 +216,7 @@ namespace WPTweaker
                         if (!(value is string)) throw new InvalidArgumentTypeException("Value must be a string");
                         buffer = value;
 #if ARM
-                        if (_useDevProgram) CRPCComponent.Registry_SetString(RegHive, KeyPath, ValueName, value, out retVal);
+                        if (_useDevProgram) CRPCComponent.Registry_SetString(RegHive, KeyPath, KeyName, value, out retVal);
 #endif
                         break;
 
@@ -230,7 +230,7 @@ namespace WPTweaker
                         try { buffer = ((UInt32)value).ToString("X8"); }
                         catch { throw new InvalidArgumentTypeException("Value must be an unsigned integer type"); }
 #if ARM
-                        if (_useDevProgram) CRPCComponent.Registry_SetDWORD(RegHive, KeyPath, ValueName, value, out retVal);
+                        if (_useDevProgram) CRPCComponent.Registry_SetDWORD(RegHive, KeyPath, KeyName, value, out retVal);
 #endif
                         break;
 
@@ -246,11 +246,11 @@ namespace WPTweaker
                         break;
                 }
 #if ARM
-                if (!_useDevProgram) _rpc.rset((uint)Hive, KeyPath, ValueName, (uint)DataType, buffer, 0);
+                if (!_useDevProgram) _rpc.rset((uint)Hive, KeyPath, KeyName, (uint)DataType, buffer, 0);
 #else
                 _appSettings.AddOrUpdateValue(GetHashCode().ToString(), value);
 #endif
-                Debug.WriteLine(string.Format("Value {0} of type {1}\nis written to the registry key {2}\non path {3}\n", buffer, DataType, ValueName, string.Concat(Hive, "\\", KeyPath)));
+                Debug.WriteLine(string.Format("Value {0} of type {1}\nis written to the registry key {2}\non path {3}\n", buffer, DataType, KeyName, string.Concat(Hive, "\\", KeyPath)));
             }
         }
 
@@ -267,7 +267,7 @@ namespace WPTweaker
 
         public override int GetHashCode()
         {
-            return string.Concat(Hive.ToString(), KeyPath, ValueName).GetHashCode();
+            return string.Concat(Hive.ToString(), KeyPath, KeyName).GetHashCode();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace WPTweaker
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            (Application.Current.RootVisual as PhoneApplicationFrame).Navigate(new Uri("/Controls/ColorEditorPage.xaml", UriKind.Relative));
+            (Application.Current.RootVisual as PhoneApplicationFrame).Navigate(new Uri(string.Format("/Controls/ColorEditorPage.xaml?keyName={0}", _tweak.RegEntries.First().KeyName), UriKind.Relative));
         }
     }
 }

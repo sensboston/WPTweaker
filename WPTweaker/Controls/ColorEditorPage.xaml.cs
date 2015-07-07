@@ -16,14 +16,14 @@ namespace WPTweaker
 {
     public partial class ColorEditorPage : PhoneApplicationPage
     {
-        public ObservableCollection<SolidColorBrush> Accents = new ObservableCollection<SolidColorBrush>();
+        public ObservableCollection<SolidColorBrush> Colors = new ObservableCollection<SolidColorBrush>();
 
         private const string AccentThemePath = "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Control Panel\\Theme\\Themes\\{0}\\Accents\\{1}";
         private uint[] _defaultAccentColors = new uint[] { 4288988160, 4284524823, 4278225408, 4278234025, 4280000994, 4282279423, 4285137151, 4289331455, 4294210256, 4292345971, 4288806949, 4293202944, 4294600704, 4293960458, 4293117952, 4286732844, 4285368164, 4284774023, 4285948042, 4287068494 };
         private uint[] _defaultComplementaryColors = new uint[] { 4284524823, 4278225408, 4278234025, 4280000994, 4282279423, 4285137151, 4289331455, 4294210256, 4292345971, 4288806949, 4293202944, 4294600704, 4293960458, 4293117952, 4293960458, 4287068494, 4287068494, 4285948042, 4284774023, 4286732844 };
 
-        private int _numAccents;
-        private RegistryEntry[,] _accentEntries;
+        private int _numColors;
+        private RegistryEntry[,] _colorEntries;
         private bool _doUpdate = false;
         private string _keyName = "";
 
@@ -37,11 +37,13 @@ namespace WPTweaker
             if (e.NavigationMode == NavigationMode.New)
             {
                 _keyName = "Color";
-                _numAccents = _defaultAccentColors.Length;
-                _accentEntries = new RegistryEntry[2, _numAccents];
+                if (NavigationContext.QueryString.ContainsKey("keyName")) _keyName = NavigationContext.QueryString["keyName"];
+                
+                _numColors = _defaultAccentColors.Length;
+                _colorEntries = new RegistryEntry[2, _numColors];
                 for (int i = 0; i < 2; i++)
                     for (int j = 0; j < _defaultAccentColors.Length; j++)
-                        _accentEntries[i, j] = new RegistryEntry(string.Format(AccentThemePath, i, j), _keyName, RegDataType.REG_DWORD, _defaultAccentColors[j], "", 0, 255);
+                        _colorEntries[i, j] = new RegistryEntry(string.Format(AccentThemePath, i, j), _keyName, RegDataType.REG_DWORD, _keyName.Equals("Color") ? _defaultAccentColors[j] : _defaultComplementaryColors[j], "", 0, 255);
 
 #if false
                 for (int i = 0; i < 2; i++)
@@ -62,13 +64,12 @@ namespace WPTweaker
 
         private void ReadButton_Click(object sender, RoutedEventArgs e)
         {
-            Accents.Clear();
+            Colors.Clear();
             for (int j=0; j<_defaultAccentColors.Length; j++)
             {
-                var color = (uint) _accentEntries[0, j].Value;
-                Accents.Add(new SolidColorBrush(Color.FromArgb(0xFF, (byte)(color & 0xFF), (byte)((color & 0xFF00) >> 8), (byte)((color & 0xFF0000) >> 16))));
+                Colors.Add(new SolidColorBrush(ColorExtensions.FromArgb((int)_colorEntries[0, j].Value)));
             }
-            ColorsList.ItemsSource = Accents;
+            ColorsList.ItemsSource = Colors;
             ColorsList.SelectedIndex = 0;
         }
 
@@ -76,15 +77,15 @@ namespace WPTweaker
         {
             for (int i=0; i<2; i++)
                 for (int j = 0; j < _defaultAccentColors.Length; j++)
-                    _accentEntries[i, j].Value = Accents[j];
+                    _colorEntries[i, j].Value =  Colors[j].Color.ToArgb();
         }
 
         private void DefaultButton_Click(object sender, RoutedEventArgs e)
         {
-            Accents.Clear();
-            foreach (uint color in _defaultAccentColors)
-                Accents.Add(new SolidColorBrush(Color.FromArgb(0xFF, (byte)(color & 0xFF), (byte)((color & 0xFF00) >> 8), (byte)((color & 0xFF0000) >> 16))));
-            ColorsList.ItemsSource = Accents;
+            Colors.Clear();
+            foreach (int color in _keyName.Equals("Color") ? _defaultAccentColors : _defaultComplementaryColors)
+                Colors.Add(new SolidColorBrush(ColorExtensions.FromArgb(color)));
+            ColorsList.ItemsSource = Colors;
             ColorsList.SelectedIndex = 0;
         }
 
@@ -94,9 +95,9 @@ namespace WPTweaker
             if (i >= 0)
             {
                 _doUpdate = false;
-                RedSlider.Value = Accents[i].Color.R;
-                GreenSlider.Value = Accents[i].Color.G;
-                BlueSlider.Value = Accents[i].Color.B;
+                RedSlider.Value = Colors[i].Color.R;
+                GreenSlider.Value = Colors[i].Color.G;
+                BlueSlider.Value = Colors[i].Color.B;
                 _doUpdate = true;
             }
         }
@@ -106,8 +107,8 @@ namespace WPTweaker
             int i = ColorsList.SelectedIndex;
             if (i >= 0 && _doUpdate)
             {
-                Accents[i] = new SolidColorBrush(Color.FromArgb(0xFF, (byte)RedSlider.Value, (byte)GreenSlider.Value, (byte)BlueSlider.Value));
-                ColorsList.ItemsSource = Accents;
+                Colors[i] = new SolidColorBrush(Color.FromArgb(0xFF, (byte)RedSlider.Value, (byte)GreenSlider.Value, (byte)BlueSlider.Value));
+                ColorsList.ItemsSource = Colors;
                 ColorsList.SelectedIndex = i;
             }
         }

@@ -37,7 +37,7 @@
                 <TextBlock Text="WPTweaker " FontSize="24" Padding="10" TextAlignment="Center" Grid.Row="0" VerticalAlignment="Center" />
                 <TextBlock x:Name="appVersion" Text="ver 1.0.0" FontSize="24" Padding="10" VerticalAlignment="Center" />
             </StackPanel>
-            <RichTextBox IsReadOnly="True" Padding="10" TextAlignment="Center" Grid.Row="1" VerticalAlignment="Center">
+            <RichTextBox IsReadOnly="True" Margin="0, 30, 0,0" TextAlignment="Center" Grid.Row="1" VerticalAlignment="Center">
                 <Paragraph>
                     developed by XDA member
                     <Bold FontSize="22" Foreground="{StaticResource PhoneAccentBrush}">sensboston</Bold>

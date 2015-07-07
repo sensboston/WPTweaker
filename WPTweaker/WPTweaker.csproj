@@ -88,6 +88,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="Common\ColorConverter.cs" />
     <Compile Include="Common\Exceptions.cs" />
     <Compile Include="Common\DataConverter.cs" />
     <Compile Include="Common\RegistryEntry.cs" />
