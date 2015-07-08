@@ -96,7 +96,7 @@ namespace WPTweaker
                 ParseTweaksXml();
                 BuildUI();
             }
-            else if (e.NavigationMode == NavigationMode.Back && PhoneApplicationService.Current.State["LastPage"].ToString().Equals("XmlEditorPage"))
+            else if (e.NavigationMode == NavigationMode.Back && PhoneApplicationService.Current.State.ContainsKey("LastPage") && PhoneApplicationService.Current.State["LastPage"].ToString().Equals("XmlEditorPage"))
             {
                 ParseTweaksXml();
                 BuildUI();
