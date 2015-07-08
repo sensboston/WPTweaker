@@ -32,11 +32,6 @@ namespace WPTweaker
             InitializeComponent();
         }
 
-        protected override async void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            PhoneApplicationService.Current.State["LastPage"] = "ColorEditorPage";
-        }
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             if (e.NavigationMode == NavigationMode.New)

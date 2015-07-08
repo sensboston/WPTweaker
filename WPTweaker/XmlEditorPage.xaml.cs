@@ -17,17 +17,19 @@ namespace WPTweaker
     public partial class XmlEditorPage : PhoneApplicationPage
     {
         AppSettings _settings = new AppSettings();
+        string _originalXML = string.Empty;
 
         public XmlEditorPage()
         {
             InitializeComponent();
             BackKeyPress += XmlEditorPage_BackKeyPress;
-            Editor.Text = _settings.XmlTweaks;
+            Editor.Text = _originalXML = _settings.XmlTweaks;
         }
 
-        protected override async void OnNavigatedFrom(NavigationEventArgs e)
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            PhoneApplicationService.Current.State["LastPage"] = "XmlEditorPage";
+            bool doReload = !_settings.XmlTweaks.Equals(_originalXML);
+            PhoneApplicationService.Current.State["reload"] = doReload.ToString();
         }
 
         void XmlEditorPage_BackKeyPress(object sender, System.ComponentModel.CancelEventArgs e)

@@ -33,11 +33,6 @@ namespace WPTweaker
             catch { }
         }
 
-        protected override async void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            PhoneApplicationService.Current.State["LastPage"] = "AboutPage";
-        }
-
         private async void donateButton_Click(object sender, RoutedEventArgs e)
         {
             await Launcher.LaunchUriAsync(new Uri("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DDGGVLR6LR72N"));
