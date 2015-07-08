@@ -96,6 +96,11 @@ namespace WPTweaker
                 ParseTweaksXml();
                 BuildUI();
             }
+            else if (e.NavigationMode == NavigationMode.Back && PhoneApplicationService.Current.State["LastPage"].ToString().Equals("XmlEditorPage"))
+            {
+                ParseTweaksXml();
+                BuildUI();
+            }
         }
 
         void ParseTweaksXml()
@@ -108,6 +113,9 @@ namespace WPTweaker
 #endif
             if (xmlDoc != null)
             {
+                // Save settings
+                if (string.IsNullOrEmpty(_settings.XmlTweaks)) _settings.XmlTweaks = xmlDoc.ToString();
+
                 // Check custom app theme
                 if (xmlDoc.Descendants("theme").FirstOrDefault() != null)
                 {
@@ -341,9 +349,9 @@ namespace WPTweaker
             }
         }
 
-        private async void DonateButton_Click(object sender, EventArgs e)
+        private void EditButton_Click(object sender, EventArgs e)
         {
-            await Launcher.LaunchUriAsync(new Uri("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DDGGVLR6LR72N"));
+            NavigationService.Navigate(new Uri("/XmlEditorPage.xaml", UriKind.Relative));
         }
 
         private void AboutButton_Click(object sender, EventArgs e)

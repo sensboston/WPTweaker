@@ -13,7 +13,7 @@ namespace WPTweaker
         public const string XmlTweaksSettingKeyName = "XmlTweaks";
         public const string ThemeSettingKeyName = "Theme";
         public const string SortTweaksSettingKeyName = "SortTweaks";
-        public const string CheckTweaksSettingKeyName = "SortTweaks";
+        public const string CheckTweaksSettingKeyName = "CheckTweaks";
         public const string RunCountSettingKeyName = "RunCount";
 
         // The default value of our settings

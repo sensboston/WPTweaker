@@ -12,30 +12,6 @@
     <contributor>Pen4iK @ 4pda.ru</contributor>
   </contributors>
 
-  <tweak category="Cell" name="Hide highest speed selection" type="toggle" >
-    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideHighestSpeed" type="dword" default="0" >
-      <value>1</value>
-    </entry>
-  </tweak>
-
-  <tweak category="Cell" name="Hide mode selection" type="toggle" >
-    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideModeSelection" type="dword" default="0" >
-      <value>1</value>
-    </entry>
-  </tweak>
-
-  <tweak category="Cell" name="Enable LTE" type="toggle" >
-    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\General" name="LTEEnabled" type="dword" default="0" >
-      <value>1</value>
-    </entry>
-  </tweak>
-
-  <tweak category="Cell" name="Force LTE" type="toggle" >
-    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\General" name="LTEForced" type="dword" default="0" >
-      <value>1</value>
-    </entry>
-  </tweak>
-
   <tweak category="System" name="'Never' screen timeout option" type="toggle" description="Enable or disable 'Never' timeout" comparer="==">
     <entry path="HKLM\SOFTWARE\Microsoft\Settings\Lock" name="DisableNever" type="dword" default="1">
       <value>0</value>
@@ -77,6 +53,30 @@
       <value name="Low">18</value>      
       <value name="Default">36</value>
       <value name="High">72</value>
+    </entry>
+  </tweak>
+
+  <tweak category="Cell" name="Hide highest speed selection" type="toggle" >
+    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideHighestSpeed" type="dword" default="0" >
+      <value>1</value>
+    </entry>
+  </tweak>
+
+  <tweak category="Cell" name="Hide mode selection" type="toggle" >
+    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideModeSelection" type="dword" default="0" >
+      <value>1</value>
+    </entry>
+  </tweak>
+
+  <tweak category="Cell" name="Enable LTE" type="toggle" >
+    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\General" name="LTEEnabled" type="dword" default="0" >
+      <value>1</value>
+    </entry>
+  </tweak>
+
+  <tweak category="Cell" name="Force LTE" type="toggle" >
+    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\General" name="LTEForced" type="dword" default="0" >
+      <value>1</value>
     </entry>
   </tweak>
 
@@ -390,7 +390,6 @@
     </entry>
   </tweak>
 
-
   <tweak category="User interface" name="Change default accent colors" type="color">
     <entry path="HKLM\Software\Microsoft\Windows\CurrentVersion\Control Panel\Theme\Themes\0\Accents\0" name="Color" type="dword"/>
   </tweak>
@@ -399,4 +398,22 @@
     <entry path="HKLM\Software\Microsoft\Windows\CurrentVersion\Control Panel\Theme\Themes\0\Accents\0" name="ComplementaryColor" type="dword"/>
   </tweak>
 
+  <tweak category="Cell" name="Unhide DTMF 'Long Tones' Phone setting" type="toggle" >
+    <entry path="HKLM\Software\Microsoft\Phone\Settings" name="ShowLongTones" type="dword" default="0" >
+      <value>1</value>
+    </entry>
+  </tweak>
+
+  <tweak category="Cell" name="Show status while sending SMS/MMS messages" type="toggle" >
+    <entry path="HKLM\Software\Microsoft\Messaging\GlobalSettings" name="ShowSendingStatus" type="dword" default="0" >
+      <value>1</value>
+    </entry>
+  </tweak>
+
+  <tweak category="Misc" name="Unhide .DNG format in Camera settings" type="toggle">
+    <entry path="HKLM\SOFTWARE\OEM\Nokia\Camera\Barc" name="DNGDisabled" type="dword" default="1">
+      <value>0</value>
+    </entry>
+  </tweak>  
+ 
 </tweaks>

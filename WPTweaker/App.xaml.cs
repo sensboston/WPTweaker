@@ -110,6 +110,9 @@ namespace WPTweaker
             // Handle reset requests for clearing the backstack
             RootFrame.Navigated += CheckForResetNavigation;
 
+            // Assign the URI-mapper class to the application frame.
+            RootFrame.UriMapper = new UriMapper();
+
             // Ensure we don't initialize again
             phoneApplicationInitialized = true;
         }

@@ -33,6 +33,9 @@
         </TemplateFlip>
       </PrimaryToken>
     </Tokens>
+    <Extensions>
+      <Protocol Name="wptweaker" NavUriFragment="encodedLaunchUri=%s" TaskID="_default" />
+    </Extensions>
     <ActivatableClasses>
       <InProcessServer>
         <Path>OEMSharedFolderAccessLib.dll</Path>
