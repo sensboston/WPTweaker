@@ -254,7 +254,8 @@ namespace WPTweaker
             var req = HttpWebRequest.Create(_tweakListUri);
             req.Method = "HEAD";
             WebResponse resp = await req.GetResponseAsync();
-            if (resp.ContentLength > 0 && Math.Abs(resp.ContentLength - _settings.XmlTweaks.Length) > 20)
+            // 196 bytes difference it's a headers size. Let's add a few more bytes for CR/LF, tabs etc. (non-significant changes)
+            if (resp.ContentLength > 0 && Math.Abs(resp.ContentLength - _settings.XmlTweaks.Length) > 210)
             {
                 if (MessageBox.Show("Would you like to download new list?", "Tweak list update found", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
                 {
