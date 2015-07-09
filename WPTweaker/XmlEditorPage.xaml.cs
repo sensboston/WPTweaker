@@ -240,9 +240,5 @@ namespace WPTweaker
                 webBrowser.InvokeScript("setFontSize", _fontSize.ToString());
             }
         }
-
-        private void webBrowser_ScriptNotify(object sender, NotifyEventArgs e)
-        {
-        }
      }
 }
