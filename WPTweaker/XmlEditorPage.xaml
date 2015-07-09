@@ -14,7 +14,7 @@
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot">
-        <phone:WebBrowser x:Name="webBrowser" IsScriptEnabled="True"/>
+        <phone:WebBrowser x:Name="webBrowser" IsScriptEnabled="True" ScriptNotify="webBrowser_ScriptNotify"/>
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>
