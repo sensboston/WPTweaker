@@ -84,8 +84,8 @@ namespace WPTweaker
                 if (_settings.RunCount++ == 5)
                 {
                     if (MessageBox.Show("Would you like to support this project by installing and rating \"5 stars\" my apps from the store? "+
-                                        "It will take not more than five minutes of your time...\n\n"+
-                                        "I hope these appls will be useful for you ☺\n\n" +
+                                        "It will take less than 5 minutes of your time...\n\n" +
+                                        "I hope you will like these apps ☺\n\n" +
                                         "Press [OK] to open store or [Cancel] to igonre this note", "Developer's note", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
                     {
                         await Launcher.LaunchUriAsync(new Uri("ms-windows-store:search?keyword=senssoft"));
@@ -200,7 +200,8 @@ namespace WPTweaker
             {
                 foreach (var tweak in _tweaks)
                 {
-                    if (senderTweak != tweak && tweak.CheckForUpdate(hashedKeys)) _rebootCounter += tweak.RequireReboot;
+                    if (senderTweak != tweak) tweak.CheckForUpdate(hashedKeys);
+                    else _rebootCounter += tweak.RequireReboot * (tweak.IsChanged ? 1 : -1);
                 }
             }
         }

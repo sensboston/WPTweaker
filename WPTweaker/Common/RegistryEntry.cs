@@ -65,6 +65,8 @@ namespace WPTweaker
         public string Comparer { get; set; }
         public Int64 Min { get; set; }
         public Int64 Max { get; set; }
+        private bool _firstTime = true;
+        private dynamic _originalValue;
         public static bool IsInteropUnlocked()
         {
 #if ARM
@@ -122,6 +124,14 @@ namespace WPTweaker
                 else if (Comparer.Equals("<")) return Value < DefaultValue;
                 else if (Comparer.Equals("==")) return Value == DefaultValue;
                 else return !Value.Equals(DefaultValue);
+            } 
+        }
+
+        public bool IsChanged 
+        { 
+            get 
+            { 
+                return Value != _originalValue; 
             } 
         }
 
@@ -198,6 +208,13 @@ namespace WPTweaker
                 {
                     Debug.WriteLine(string.Format("Reading registry key {0}\non path {1}\nreturned {2}\n", KeyName, string.Concat(Hive, "\\", KeyPath), result));
                 }
+
+                if (_firstTime)
+                {
+                    _firstTime = false;
+                    _originalValue = DataConverter.FromString(result, DataType);
+                }
+
                 return DataConverter.FromString(result, DataType);
             }
 

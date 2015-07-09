@@ -159,6 +159,14 @@ namespace WPTweaker
             }
         }
 
+        public bool IsChanged
+        {
+            get
+            {
+                return Entries.Count(e => e.RegEntry.IsChanged) > 0;
+            }
+        }
+
         public string ValueToString 
         { 
             get 

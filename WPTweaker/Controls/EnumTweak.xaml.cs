@@ -35,6 +35,7 @@ namespace WPTweaker
                 {
                     _ignoreChange = true;
                     ValuesList.SelectedIndex = index;
+                    _ignoreChange = false;
                 }
             }
         }
