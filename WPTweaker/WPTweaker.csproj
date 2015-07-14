@@ -41,7 +41,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;EMULATOR</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -51,7 +51,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>Bin\Release</OutputPath>
-    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE;EMULATOR</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -89,6 +89,7 @@
     </Compile>
     <Compile Include="AppSettings.cs" />
     <Compile Include="Common\ColorConverter.cs" />
+    <Compile Include="Common\EmulatorData.cs" />
     <Compile Include="Common\Exceptions.cs" />
     <Compile Include="Common\DataConverter.cs" />
     <Compile Include="Common\RegistryEntry.cs" />
@@ -105,10 +106,13 @@
     <Compile Include="Controls\InputTweak.xaml.cs">
       <DependentUpon>InputTweak.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\RingtoneChooser.xaml.cs">
+      <DependentUpon>RingtoneChooser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ToggleTweak.xaml.cs">
       <DependentUpon>ToggleTweak.xaml</DependentUpon>
     </Compile>
-    <Compile Include="XmlEditorPage.xaml.cs">
+    <Compile Include="Controls\XmlEditorPage.xaml.cs">
       <DependentUpon>XmlEditorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
@@ -147,11 +151,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\RingtoneChooser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\ToggleTweak.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="XmlEditorPage.xaml">
+    <Page Include="Controls\XmlEditorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,9 +174,12 @@
     </AppxManifest>
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
-    <None Include="Properties\WMAppManifest.xml">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Properties\WMAppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(Platform)' == 'ARM' ">
+    <Content Include="WPInteropManifest.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AppBar\add.png" />
@@ -179,6 +190,8 @@
     <Content Include="Assets\AppBar\questionmark.png" />
     <Content Include="Assets\AppBar\refresh.png" />
     <Content Include="Assets\AppBar\save.png" />
+    <Content Include="Assets\AppBar\none.png" />
+    <Content Include="Assets\AppBar\play.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -216,6 +229,9 @@
     <Reference Include="RPCComponent">
       <HintPath>.\RPCComponent.winmd</HintPath>
     </Reference>
+    <Reference Include="Registry">
+      <HintPath>.\Registry.winmd</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=8.0.1.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
@@ -232,6 +248,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <Target Name="ValidateWMAppManifest" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -244,5 +261,13 @@
   <PropertyGroup>
     <PostBuildEvent>
     </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+      xcopy /y "$(MSBuildProjectDirectory)\Properties\Emulator\WMAppManifest.xml" "$(MSBuildProjectDirectory)\Properties\"
+    </PreBuildEvent>
+    <PreBuildEvent Condition=" '$(Platform)' == 'ARM' ">
+      xcopy /y "$(MSBuildProjectDirectory)\Properties\ARM\WMAppManifest.xml" "$(MSBuildProjectDirectory)\Properties\"
+    </PreBuildEvent>
   </PropertyGroup>
 </Project>

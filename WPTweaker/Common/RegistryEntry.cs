@@ -98,7 +98,7 @@ namespace WPTweaker
             return true;
 #endif
         }
-        public RegistryEntry(string fullPath, string keyName, RegDataType dataType, object defaultValue, string comparer, Int64 min = Int64.MinValue, Int64 max = Int64.MaxValue)
+        public RegistryEntry(string fullPath, string keyName, RegDataType dataType, object defaultValue = null, string comparer = "", Int64 min = Int64.MinValue, Int64 max = Int64.MaxValue)
         {
             if (fullPath.StartsWith("HKEY_CLASSES_ROOT") || fullPath.StartsWith("HKCR")) Hive = RegistryHive.HKEY_CLASSES_ROOT;
             else if (fullPath.StartsWith("HKEY_LOCAL_MACHINE") || fullPath.StartsWith("HKLM")) Hive = RegistryHive.HKEY_LOCAL_MACHINE;

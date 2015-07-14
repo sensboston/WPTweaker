@@ -20,14 +20,14 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="20"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="20"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="20"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" Grid.Row="0">
@@ -37,7 +37,7 @@
                 <TextBlock Text="WPTweaker " FontSize="24" Padding="10" TextAlignment="Center" Grid.Row="0" VerticalAlignment="Center" />
                 <TextBlock x:Name="appVersion" Text="ver 1.0.0" FontSize="24" Padding="10" VerticalAlignment="Center" />
             </StackPanel>
-            <RichTextBox IsReadOnly="True" Margin="0, 30, 0,0" TextAlignment="Center" Grid.Row="1" VerticalAlignment="Center">
+            <RichTextBox IsReadOnly="True" Margin="0,20,0,0" TextAlignment="Center" Grid.Row="1" VerticalAlignment="Center">
                 <Paragraph>
                     developed by XDA member
                     <Bold FontSize="22" Foreground="{StaticResource PhoneAccentBrush}">sensboston</Bold>
@@ -50,16 +50,22 @@
             <RichTextBox IsReadOnly="True" TextAlignment="Center" TextWrapping="Wrap" Grid.Row="6">
                 <Paragraph>
                     Special thanks to
-                    <Bold Foreground="{StaticResource PhoneAccentBrush}">vcfan</Bold>
-                    and
+                    <Bold Foreground="{StaticResource PhoneAccentBrush}">vcfan</Bold> and
                     <Bold Foreground="{StaticResource PhoneAccentBrush}">-W_O_L_F-</Bold>
                     <LineBreak/>
                     for their research and hacks!
                 </Paragraph>
+                <Paragraph>
+                    <LineBreak/>
+                    Sound editor source code adapted from
+                    <LineBreak/>
+                    <Hyperlink FontSize="22" NavigateUri="https://github.com/jessenic/wph-tweaks">wphTweaks project</Hyperlink>
+                     by <Bold Foreground="{StaticResource PhoneAccentBrush}">Jaxbot</Bold> and <Bold Foreground="{StaticResource PhoneAccentBrush}">jessenic</Bold>
+                </Paragraph>
             </RichTextBox>
 
-            <TextBlock Text="Tweak list contributors:" Margin="20,10" Grid.Row="8" />
-            <ListBox x:Name="ContributorsList" Foreground="{StaticResource TweakHeaderForegroundBrush}" Background="{StaticResource TweakOddBackgroundBrush}" Margin="20,10" Grid.Row="9" FontSize="22" Height="240" />
+            <TextBlock Foreground="{StaticResource PhoneAccentBrush}" Text="Tweak list contributors:" Margin="20,4" Grid.Row="8" FontWeight="Bold" />
+            <ListBox x:Name="ContributorsList" Foreground="{StaticResource TweakHeaderForegroundBrush}" Background="{StaticResource TweakOddBackgroundBrush}" Margin="20,10" Grid.Row="9" FontSize="22"  />
         </Grid>
     </Grid>
 

@@ -17,6 +17,8 @@ using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.ApplicationModel.Activation;
 using WPTweaker.Resources;
+using System.Reflection;
+using Microsoft.Phone.Net.NetworkInformation;
 
 namespace WPTweaker
 {
@@ -30,6 +32,7 @@ namespace WPTweaker
 
         public MainPage()
         {
+
             ParseTheme();
             InitializeComponent();
 
@@ -213,34 +216,79 @@ namespace WPTweaker
             brushes.Add(Application.Current.Resources["TweakOddBackgroundBrush"] as SolidColorBrush);
 
             LayoutRoot.Items.Clear();
-            var categories = _tweaks.Select(t => t.Category).Distinct();
-            if (_settings.SortTweaks) categories = categories.OrderBy(t => t);
+            var categories = _tweaks.Select(t => t.Category).Distinct().ToList();
+            categories.Add("Sounds");
+            if (_settings.SortTweaks) categories = categories.OrderBy(t => t).ToList();
             foreach (var category in categories)
             {
-                var tweaksByCategory = _tweaks.Where(t => t.Category.Equals(category));
-                if (_settings.SortTweaks) tweaksByCategory = tweaksByCategory.OrderBy(t => t.Name);
                 var pivotItem = new PivotItem() { Header = category };
                 var content = new StackPanel();
-                int i = 0;
-                foreach (var tweak in tweaksByCategory)
+
+                // Special event notification sounds tweaks
+                if (category.Equals("Sounds"))
                 {
-                    tweak.Background = brushes[++i % 2];
-                    dynamic tweakControl = null;
-                    switch (tweak.Type)
+#if ARM
+                    string[] subKeyNames = null;
+                    if (Registry.NativeRegistry.GetSubKeyNames(Registry.RegistryHive.HKLM, "Software\\Microsoft\\EventSounds\\Sounds", out subKeyNames))
+#else
+                    string[] subKeyNames = EmulatorData.NotificationEventValues.Keys.ToArray();
+#endif
                     {
-                        case TweakType.Toggle: tweakControl = new ToggleTweak(tweak); break;
-                        case TweakType.Enum: tweakControl = new EnumTweak(tweak); break;
-                        case TweakType.Input: tweakControl = new InputTweak(tweak); break;
-                        case TweakType.Color: tweakControl = new ColorTweak(tweak); break;
+                        if (subKeyNames != null)
+                        {
+                            int i = 0;       
+                            foreach (var str in subKeyNames)
+                            {
+#if ARM
+                                string readStr = string.Empty;
+                                if (Registry.NativeRegistry.ReadString(Registry.RegistryHive.HKLM, string.Concat("SOFTWARE\\Microsoft\\EventSounds\\Sounds\\", str), "Sound", out readStr))
+                                {
+#else
+                                    string readStr = EmulatorData.NotificationEventValues[str];
+#endif
+                                    var btn = new Button()
+                                    {
+                                        Background = brushes[++i % 2],
+                                        Content = str,
+                                        Tag = str,
+                                        Margin = new Thickness(4, 2, 4, 2),
+                                        Height = 90
+                                    };
+                                    btn.Click += button_Click;
+                                    btn.IsEnabled = readStr.Length > 3;
+                                    content.Children.Add(btn);
+#if ARM
+                                }
+#endif
+                            }
+                        }
                     }
-                    try
+                }
+                else
+                {
+                    var tweaksByCategory = _tweaks.Where(t => t.Category.Equals(category));
+                    if (_settings.SortTweaks) tweaksByCategory = tweaksByCategory.OrderBy(t => t.Name);
+                    int i = 0;
+                    foreach (var tweak in tweaksByCategory)
                     {
-                        tweakControl.DataContext = tweak;
-                        content.Children.Add(tweakControl);
-                    }
-                    catch (Exception e)
-                    {
-                        MessageBox.Show(e.Message, string.Format("Exception on adding tweak \"{0}\"", tweak.Name), MessageBoxButton.OK);
+                        tweak.Background = brushes[++i % 2];
+                        dynamic tweakControl = null;
+                        switch (tweak.Type)
+                        {
+                            case TweakType.Toggle: tweakControl = new ToggleTweak(tweak); break;
+                            case TweakType.Enum: tweakControl = new EnumTweak(tweak); break;
+                            case TweakType.Input: tweakControl = new InputTweak(tweak); break;
+                            case TweakType.Color: tweakControl = new ColorTweak(tweak); break;
+                        }
+                        try
+                        {
+                            tweakControl.DataContext = tweak;
+                            content.Children.Add(tweakControl);
+                        }
+                        catch (Exception e)
+                        {
+                            MessageBox.Show(e.Message, string.Format("Exception on adding tweak \"{0}\"", tweak.Name), MessageBoxButton.OK);
+                        }
                     }
                 }
                 pivotItem.Content = new ScrollViewer() { Content = content };
@@ -248,26 +296,71 @@ namespace WPTweaker
             }
         }
 
+        void button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+#if ARM
+                string str = string.Empty;
+                if (Registry.NativeRegistry.ReadString(Registry.RegistryHive.HKLM, string.Concat("SOFTWARE\\Microsoft\\EventSounds\\Sounds\\", ((Button)sender).Tag), "Sound", out str))
+#else
+                string str = EmulatorData.NotificationEventValues[((Button)sender).Tag as string];
+#endif
+                {
+                    var ringtoneChooser = new RingtoneChooser() { SelectedRingtone = str };
+                    var msgBox = new CustomMessageBox()
+                    {
+                        Background = Application.Current.Resources["TweakEvenBackgroundBrush"] as SolidColorBrush,
+                        Tag = ((Button)sender).Tag,
+                        Caption = string.Format("choose sound notification\nfor event \"{0}\"", ((Button)sender).Tag),
+                        Content = ringtoneChooser,
+                        LeftButtonContent = "choose",
+                        RightButtonContent = "cancel",
+                        IsFullScreen = true,
+                    };
+                    msgBox.Dismissed += (object boxSender, DismissedEventArgs ea) =>
+                        {
+                            if (ea.Result == 0)
+                            {
+                                var tag = ((CustomMessageBox)boxSender).Tag as string;
+                                var value = ((RingtoneChooser)((CustomMessageBox)boxSender).Content).SelectedRingtone;
+                                var regEntry = new RegistryEntry(@"HKLM\SOFTWARE\Microsoft\EventSounds\Sounds\"+tag, "Sound", RegDataType.REG_SZ);
+                                regEntry.Value = value.Equals("none") ? string.Empty : value;
+                            }
+                        };
+
+                    msgBox.Show();
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+
         #region Command bar buttons commands
 
         private async void CheckTweakListUpdate()
         {
-            var req = HttpWebRequest.Create(_tweakListUri);
-            req.Method = "HEAD";
-            try
+            if (NetworkInterface.GetIsNetworkAvailable())
             {
-                WebResponse resp = await req.GetResponseAsync();
-                // 196 bytes difference it's a headers size. Let's add a few more bytes for CR/LF, tabs etc. (non-significant changes)
-                if (resp.ContentLength > 0 && Math.Abs(resp.ContentLength - _settings.XmlTweaks.Length) > 210)
+                var req = HttpWebRequest.Create(_tweakListUri);
+                req.Method = "HEAD";
+                try
                 {
-                    if (MessageBox.Show("Would you like to download new list?", "Tweak list update found", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                    WebResponse resp = await req.GetResponseAsync();
+                    // 196 bytes difference it's a headers size. Let's add a few more bytes for CR/LF, tabs etc. (non-significant changes)
+                    if (resp.ContentLength > 0 && Math.Abs(resp.ContentLength - _settings.XmlTweaks.Length) > 210)
                     {
-                        SyncButton_Click(this, null);
+                        if (MessageBox.Show("Would you like to download new list?", "Tweak list update found", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                        {
+                            SyncButton_Click(this, null);
+                        }
                     }
                 }
+                // Lets be silent in case of exception...
+                catch { }
             }
-            // Lets be silent in case of exception...
-            catch { }
         }
 
         /// <summary>
@@ -277,21 +370,25 @@ namespace WPTweaker
         /// <param name="e"></param>
         private void SyncButton_Click(object sender, EventArgs e)
         {
-            var webClient = new WebClient();
-            webClient.DownloadStringCompleted += (object _, DownloadStringCompletedEventArgs args) =>
-                {
-                    if (args.Error == null)
+            if (NetworkInterface.GetIsNetworkAvailable())
+            {
+                var webClient = new WebClient();
+                webClient.DownloadStringCompleted += (object _, DownloadStringCompletedEventArgs args) =>
                     {
-                        _settings.XmlTweaks = args.Result;
-                        ParseTweaksXml();
-                        BuildUI();
-                    }
-                    else
-                    {
-                        MessageBox.Show(args.Error.Message);
-                    }
-                };
-            webClient.DownloadStringAsync(_tweakListUri);
+                        if (args.Error == null)
+                        {
+                            _settings.XmlTweaks = args.Result;
+                            ParseTweaksXml();
+                            BuildUI();
+                        }
+                        else
+                        {
+                            MessageBox.Show(args.Error.Message);
+                        }
+                    };
+                webClient.DownloadStringAsync(_tweakListUri);
+            }
+            else MessageBox.Show("Network is not available!", "Error", MessageBoxButton.OK);
         }
 
         /// <summary>
@@ -358,7 +455,7 @@ namespace WPTweaker
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/XmlEditorPage.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Controls/XmlEditorPage.xaml", UriKind.Relative));
         }
 
         private void AboutButton_Click(object sender, EventArgs e)
