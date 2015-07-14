@@ -11,7 +11,11 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
+
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator IsIndeterminate="True" IsVisible="False"/>
+    </shell:SystemTray.ProgressIndicator>
 
     <phone:Pivot x:Name="LayoutRoot" Background="{StaticResource PageHeaderBackgroundBrush}">
         <phone:Pivot.TitleTemplate>

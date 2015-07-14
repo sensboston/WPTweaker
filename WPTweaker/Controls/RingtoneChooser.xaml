@@ -11,7 +11,7 @@
     d:DesignHeight="80" d:DesignWidth="480" Loaded="RingtoneChooser_Loaded">
 
     <Grid>
-        <MediaElement x:Name="mediaElement" Volume="1" Visibility="Collapsed" BufferingTime="0:1:0" />
+        <MediaElement x:Name="mediaElement" Volume="1" Visibility="Collapsed" />
         <ListBox x:Name="RingtoneList" Height="580" SelectionChanged="RingtoneList_SelectionChanged" Margin="0,20,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>

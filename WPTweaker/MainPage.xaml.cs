@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.IO;
+using System.IO.IsolatedStorage;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -9,6 +11,7 @@ using System.Windows.Media;
 using System.Xml;
 using System.Xml.Linq;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Microsoft.Phone.Info;
@@ -32,7 +35,6 @@ namespace WPTweaker
 
         public MainPage()
         {
-
             ParseTheme();
             InitializeComponent();
 
@@ -65,6 +67,37 @@ namespace WPTweaker
 
             (ApplicationBar.MenuItems[2] as ApplicationBarMenuItem).Text = string.Format("{0}  sort tweaks", (_settings.SortTweaks ? _checkBoxChar[1] : _checkBoxChar[0]));
             (ApplicationBar.MenuItems[3] as ApplicationBarMenuItem).Text = string.Format("{0}  auto-check tweaks update", (_settings.CheckTweaks ? _checkBoxChar[1] : _checkBoxChar[0]));
+        }
+
+        /// <summary>
+        /// Run storage cleanup task
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (!_settings.CleanupStorage)
+            {
+                Task.Run(() =>
+                {
+                    string[] exts = { ".wma", ".wav", ".mp3" };
+                    using (var isoStore = IsolatedStorageFile.GetUserStoreForApplication())
+                    {
+                        string[] files = isoStore.GetFileNames();
+                        foreach (var fileName in files)
+                        {
+                            if (exts.Contains(Path.GetExtension(fileName)))
+                            {
+                                try
+                                {
+                                    isoStore.DeleteFile(fileName);
+                                }
+                                catch { }
+                            }
+                        }
+                    }
+                });
+            }
         }
 
         /// <summary>
@@ -385,8 +418,10 @@ namespace WPTweaker
                         {
                             MessageBox.Show(args.Error.Message);
                         }
+                        SystemTray.ProgressIndicator.IsVisible = false;
                     };
                 webClient.DownloadStringAsync(_tweakListUri);
+                SystemTray.ProgressIndicator.IsVisible = true;
             }
             else MessageBox.Show("Network is not available!", "Error", MessageBoxButton.OK);
         }

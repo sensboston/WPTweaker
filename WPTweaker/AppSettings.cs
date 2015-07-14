@@ -15,6 +15,7 @@ namespace WPTweaker
         public const string SortTweaksSettingKeyName = "SortTweaks";
         public const string CheckTweaksSettingKeyName = "CheckTweaks";
         public const string RunCountSettingKeyName = "RunCount";
+        public const string CleanupStorageSettingKeyName = "CleanupStorage";
 
         // The default value of our settings
         private const string XmlTweaksSettingDefault = "";
@@ -22,6 +23,7 @@ namespace WPTweaker
         private const bool SortTweaksSettingDefault = false;
         private const bool CheckTweaksSettingDefault = false;
         public const int RunCountSettingDefault = 0;
+        private const bool CleanupStorageSettingDefault = false;
 
         public AppSettings()
         {
@@ -109,6 +111,12 @@ namespace WPTweaker
         {
             get { return GetValueOrDefault<int>(RunCountSettingKeyName, RunCountSettingDefault); }
             set { AddOrUpdateValue(RunCountSettingKeyName, value); }
+        }
+
+        public bool CleanupStorage
+        {
+            get { return GetValueOrDefault<bool>(CleanupStorageSettingKeyName, CleanupStorageSettingDefault); }
+            set { AddOrUpdateValue(CleanupStorageSettingKeyName, value); }
         }
     }
 }

@@ -14,6 +14,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.ComponentModel;
+using Microsoft.Phone.Shell;
 
 namespace WPTweaker
 {
@@ -21,8 +22,8 @@ namespace WPTweaker
     {
 		public string SelectedRingtone { get; set; }
 
-        IsolatedStorageFile isfStore = IsolatedStorageFile.GetUserStoreForApplication();
-        string _isfRootPath = Windows.Storage.ApplicationData.Current.LocalFolder.Path;
+        IsolatedStorageFile _isoStore = IsolatedStorageFile.GetUserStoreForApplication();
+        string _isoRootPath = Windows.Storage.ApplicationData.Current.LocalFolder.Path;
 
 		public RingtoneChooser()
 		{
@@ -35,17 +36,21 @@ namespace WPTweaker
             if (file != null && !file.DisplayName.Contains("none"))
             {
 #if ARM
-                string fileName = file.DisplayName + ".tmp";
+                string fileName = Path.GetFileName(file.FullPath);
                 try
                 {
                     // Copy file to the isf
-                    File.Copy(file.FullPath, Path.Combine(_isfRootPath, fileName), true);
-                    using (IsolatedStorageFileStream stream = new IsolatedStorageFileStream(fileName, FileMode.Open, isfStore))
+                    if (!_isoStore.FileExists(fileName))
                     {
-                        mediaElement.SetSource(stream);
-                        mediaElement.Play();
+                        SystemTray.ProgressIndicator.IsVisible = true;
+                        File.Copy(file.FullPath, Path.Combine(_isoRootPath, fileName), true);
                     }
-                    isfStore.DeleteFile(fileName);
+                    using (IsolatedStorageFileStream isoStream = new IsolatedStorageFileStream(fileName, FileMode.Open, _isoStore))
+                    {
+                        mediaElement.SetSource(isoStream);
+                        mediaElement.Play();
+                        SystemTray.ProgressIndicator.IsVisible = false;
+                    }
                 }
                 catch { }
 #else
