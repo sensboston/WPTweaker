@@ -11,23 +11,28 @@ namespace WPTweaker
 
         // The isolated storage key names of our settings
         public const string XmlTweaksSettingKeyName = "XmlTweaks";
+        public const string XmlThemesSettingKeyName = "XmlThemes";
         public const string ThemeSettingKeyName = "Theme";
         public const string SortTweaksSettingKeyName = "SortTweaks";
         public const string CheckTweaksSettingKeyName = "CheckTweaks";
         public const string RunCountSettingKeyName = "RunCount";
         public const string CleanupStorageSettingKeyName = "CleanupStorage";
+        public const string ThemeNameSettingKeyName = "ThemeName";
 
         // The default value of our settings
         private const string XmlTweaksSettingDefault = "";
+        private const string XmlThemesSettingDefault = "";
         private const string ThemeSettingDefault = "";
         private const bool SortTweaksSettingDefault = false;
         private const bool CheckTweaksSettingDefault = false;
         public const int RunCountSettingDefault = 0;
         private const bool CleanupStorageSettingDefault = false;
+        public const string ThemeNameSettingDefault = "Default";
 
         public AppSettings()
         {
-            localSettings = IsolatedStorageSettings.ApplicationSettings;
+            try { localSettings = IsolatedStorageSettings.ApplicationSettings; }
+            catch { }
         }
 
         /// <summary>
@@ -89,6 +94,12 @@ namespace WPTweaker
             set { AddOrUpdateValue(XmlTweaksSettingKeyName, value); }
         }
 
+        public string XmlThemes
+        {
+            get { return GetValueOrDefault<string>(XmlThemesSettingKeyName, XmlThemesSettingDefault); }
+            set { AddOrUpdateValue(XmlThemesSettingKeyName, value); }
+        }
+
         public string Theme
         {
             get { return GetValueOrDefault<string>(ThemeSettingKeyName, ThemeSettingDefault); }
@@ -117,6 +128,12 @@ namespace WPTweaker
         {
             get { return GetValueOrDefault<bool>(CleanupStorageSettingKeyName, CleanupStorageSettingDefault); }
             set { AddOrUpdateValue(CleanupStorageSettingKeyName, value); }
+        }
+
+        public string ThemeName
+        {
+            get { return GetValueOrDefault<string>(ThemeNameSettingKeyName, ThemeNameSettingDefault); }
+            set { AddOrUpdateValue(ThemeNameSettingKeyName, value); }
         }
     }
 }

@@ -34,38 +34,38 @@
                 <Border Background="{StaticResource PhoneAccentBrush}" Height="70" Width="70"  Margin="20,0">
                     <Image Source="/Assets/ApplicationIcon.png" Stretch="Fill" HorizontalAlignment="Left" />
                 </Border>
-                <TextBlock Text="WPTweaker " FontSize="24" Padding="10" TextAlignment="Center" Grid.Row="0" VerticalAlignment="Center" />
-                <TextBlock x:Name="appVersion" Text="ver 1.0.0" FontSize="24" Padding="10" VerticalAlignment="Center" />
+                <TextBlock Foreground="{StaticResource TweakDescriptionForegroundBrush}" Text="WPTweaker " FontSize="24" Padding="10" TextAlignment="Center" Grid.Row="0" VerticalAlignment="Center" />
+                <TextBlock Foreground="{StaticResource TweakDescriptionForegroundBrush}" x:Name="appVersion" Text="ver 1.0.0" FontSize="24" Padding="10" VerticalAlignment="Center" />
             </StackPanel>
             <RichTextBox IsReadOnly="True" Margin="0,20,0,0" TextAlignment="Center" Grid.Row="1" VerticalAlignment="Center">
-                <Paragraph>
+                <Paragraph Foreground="{StaticResource TweakDescriptionForegroundBrush}">
                     developed by XDA member
                     <Bold FontSize="22" Foreground="{StaticResource PhoneAccentBrush}">sensboston</Bold>
                 </Paragraph>
             </RichTextBox>
 
-            <Button x:Name="donateButton" Content="You may donate to support this project" HorizontalAlignment="Stretch" FontSize="20" Padding="10" Grid.Row="3" Click="donateButton_Click"/>
-            <Button Content="or just install and rate my apps ☺" HorizontalAlignment="Stretch" Padding="10" FontSize="20" Grid.Row="4" Click="Button_Click"/>
+            <Button Foreground="{StaticResource TweakDescriptionForegroundBrush}" BorderBrush="{StaticResource TweakDescriptionForegroundBrush}" x:Name="donateButton" Content="You may donate to support this project" HorizontalAlignment="Stretch" FontSize="20" Padding="10" Grid.Row="3" Click="donateButton_Click"/>
+            <Button Foreground="{StaticResource TweakDescriptionForegroundBrush}" BorderBrush="{StaticResource TweakDescriptionForegroundBrush}" Content="or just install and rate my apps ☺" HorizontalAlignment="Stretch" Padding="10" FontSize="20" Grid.Row="4" Click="Button_Click"/>
 
             <RichTextBox IsReadOnly="True" TextAlignment="Center" TextWrapping="Wrap" Grid.Row="6">
-                <Paragraph>
+                <Paragraph Foreground="{StaticResource TweakDescriptionForegroundBrush}">
                     Special thanks to
                     <Bold Foreground="{StaticResource PhoneAccentBrush}">vcfan</Bold> and
                     <Bold Foreground="{StaticResource PhoneAccentBrush}">-W_O_L_F-</Bold>
                     <LineBreak/>
                     for their research and hacks!
                 </Paragraph>
-                <Paragraph>
+                <Paragraph Foreground="{StaticResource TweakDescriptionForegroundBrush}">
                     <LineBreak/>
                     Sound editor source code adapted from
                     <LineBreak/>
-                    <Hyperlink FontSize="22" NavigateUri="https://github.com/jessenic/wph-tweaks">wphTweaks project</Hyperlink>
+                    <Hyperlink Foreground="Blue" FontSize="22" NavigateUri="https://github.com/jessenic/wph-tweaks" Click="Hyperlink_Click">wphTweaks project</Hyperlink>
                      by <Bold Foreground="{StaticResource PhoneAccentBrush}">Jaxbot</Bold> and <Bold Foreground="{StaticResource PhoneAccentBrush}">jessenic</Bold>
                 </Paragraph>
             </RichTextBox>
 
             <TextBlock Foreground="{StaticResource PhoneAccentBrush}" Text="Tweak list contributors:" Margin="20,4" Grid.Row="8" FontWeight="Bold" />
-            <ListBox x:Name="ContributorsList" Foreground="{StaticResource TweakHeaderForegroundBrush}" Background="{StaticResource TweakOddBackgroundBrush}" Margin="20,10" Grid.Row="9" FontSize="22"  />
+            <ListBox x:Name="ContributorsList" Foreground="{StaticResource TweakDescriptionForegroundBrush}" Background="{StaticResource TweakOddBackgroundBrush}" Margin="20,10" Grid.Row="9" FontSize="22"  />
         </Grid>
     </Grid>
 

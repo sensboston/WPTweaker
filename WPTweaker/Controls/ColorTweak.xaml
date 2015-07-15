@@ -5,7 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     mc:Ignorable="d"
-    Margin="0,10"
+    Margin="0,5"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -13,9 +13,9 @@
 
     <StackPanel Background="{Binding Background}">
         <Border Background="{StaticResource TweakHeaderBackgroundBrush}" Padding="8">
-            <TextBlock Text="{Binding Name}" Foreground="{StaticResource TweakHeaderForegroundBrush}" FontSize="{StaticResource TweakHeaderFontSize}" VerticalAlignment="Center" />
+            <TextBlock Text="{Binding Name}" Foreground="{StaticResource TweakHeaderForegroundBrush}" FontSize="{StaticResource TweakHeaderFontSize}" VerticalAlignment="Center" TextWrapping="Wrap" />
         </Border>
         <TextBlock Text="{Binding Description}" Foreground="{StaticResource TweakDescriptionForegroundBrush}" FontSize="{StaticResource TweakDescriptionFontSize}" Padding="2" TextWrapping="Wrap"/>
-        <Button Content="Launch color editor" Click="Button_Click"/>
+        <Button BorderBrush="{StaticResource TweakDescriptionForegroundBrush}" Foreground="{StaticResource TweakDescriptionForegroundBrush}" Content="Launch color editor" Click="Button_Click"/>
     </StackPanel>
 </UserControl>

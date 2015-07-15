@@ -32,10 +32,10 @@ namespace WPTweaker
         bool _isSamsung = false;
         int _rebootCounter = 0;
         Uri _tweakListUri = new Uri("https://raw.githubusercontent.com/sensboston/WPTweaker/master/WPTweaker/Tweaks.xml");
+        ThemeManager _themeManager = new ThemeManager();
 
         public MainPage()
         {
-            ParseTheme();
             InitializeComponent();
 
             App.Current.UnhandledException += (object sender, ApplicationUnhandledExceptionEventArgs e) =>
@@ -64,9 +64,6 @@ namespace WPTweaker
 
             PhoneApplicationService.Current.ContractActivated +=  Application_ContractActivated;
             _isSamsung = DeviceStatus.DeviceManufacturer.ToLower().Contains("samsung");
-
-            (ApplicationBar.MenuItems[2] as ApplicationBarMenuItem).Text = string.Format("{0}  sort tweaks", (_settings.SortTweaks ? _checkBoxChar[1] : _checkBoxChar[0]));
-            (ApplicationBar.MenuItems[3] as ApplicationBarMenuItem).Text = string.Format("{0}  auto-check tweaks update", (_settings.CheckTweaks ? _checkBoxChar[1] : _checkBoxChar[0]));
         }
 
         /// <summary>
@@ -134,6 +131,7 @@ namespace WPTweaker
             }
             else if (e.NavigationMode == NavigationMode.Back && PhoneApplicationService.Current.State.ContainsKey("reload") && PhoneApplicationService.Current.State["reload"].ToString().Equals("True"))
             {
+                if (_settings.CheckTweaks) CheckTweakListUpdate();
                 ParseTweaksXml();
                 BuildUI();
             }
@@ -184,51 +182,6 @@ namespace WPTweaker
             LayoutRoot.Title = string.Format("WPTweaker: {0} tweak{1} available", _tweaks.Count, _tweaks.Count == 1 ? "" : "s");
         }
 
-        void ChangeResource(string resName, string newValue)
-        {
-            if (!string.IsNullOrEmpty(newValue))
-            {
-                if (Application.Current.Resources.Contains(resName)) Application.Current.Resources.Remove(resName);
-                if (resName.Contains("Size"))
-                {
-                    int newSize = 0;
-                    if (int.TryParse(newValue, out newSize)) Application.Current.Resources.Add(resName, newSize);
-                }
-                else
-                {
-                    // first, check for the system resources
-                    if (App.Current.Resources.Contains(newValue))
-                    {
-                        Application.Current.Resources.Add(resName, Application.Current.Resources[newValue]);
-                    }
-                    // try to parse color
-                    else
-                    {
-                        try { Application.Current.Resources.Add(resName, new SolidColorBrush(ColorExtensions.FromString(newValue))); }
-                        catch { }
-                    }
-                }
-            }
-        }
-
-        void ParseTheme()
-        {
-            if (!string.IsNullOrEmpty(_settings.Theme))
-            {
-                var theme = XElement.Parse(_settings.Theme);
-                if (theme != null)
-                {
-                    foreach (var key in Application.Current.Resources.Keys)
-                    {
-                        if (theme.Element(key.ToString()) != null)
-                        {
-                            ChangeResource(key.ToString(), theme.Element(key.ToString()).Value);
-                        }
-                    }
-                }
-            }
-        }
-
         void TweakValueChanged(object sender, string hashedKeys)
         {
             var senderTweak = sender as Tweak;
@@ -247,6 +200,7 @@ namespace WPTweaker
             List<SolidColorBrush> brushes = new List<SolidColorBrush>();
             brushes.Add(Application.Current.Resources["TweakEvenBackgroundBrush"] as SolidColorBrush);
             brushes.Add(Application.Current.Resources["TweakOddBackgroundBrush"] as SolidColorBrush);
+            SystemTray.ProgressIndicator.IsVisible = true;
 
             LayoutRoot.Items.Clear();
             var categories = _tweaks.Select(t => t.Category).Distinct().ToList();
@@ -282,6 +236,8 @@ namespace WPTweaker
                                     var btn = new Button()
                                     {
                                         Background = brushes[++i % 2],
+                                        Foreground = Application.Current.Resources["TweakDescriptionForegroundBrush"] as SolidColorBrush,
+                                        BorderBrush = Application.Current.Resources["TweakDescriptionForegroundBrush"] as SolidColorBrush,
                                         Content = str,
                                         Tag = str,
                                         Margin = new Thickness(4, 2, 4, 2),
@@ -327,6 +283,7 @@ namespace WPTweaker
                 pivotItem.Content = new ScrollViewer() { Content = content };
                 LayoutRoot.Items.Add(pivotItem);
             }
+            SystemTray.ProgressIndicator.IsVisible = false;
         }
 
         void button_Click(object sender, RoutedEventArgs e)
@@ -343,7 +300,7 @@ namespace WPTweaker
                     var ringtoneChooser = new RingtoneChooser() { SelectedRingtone = str };
                     var msgBox = new CustomMessageBox()
                     {
-                        Background = Application.Current.Resources["TweakEvenBackgroundBrush"] as SolidColorBrush,
+                        Background = Application.Current.Resources["PageHeaderBackgroundBrush"] as SolidColorBrush,
                         Tag = ((Button)sender).Tag,
                         Caption = string.Format("choose sound notification\nfor event \"{0}\"", ((Button)sender).Tag),
                         Content = ringtoneChooser,
@@ -493,6 +450,11 @@ namespace WPTweaker
             NavigationService.Navigate(new Uri("/Controls/XmlEditorPage.xaml", UriKind.Relative));
         }
 
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/SettingsPage.xaml", UriKind.Relative));
+        }
+
         private void AboutButton_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/AboutPage.xaml", UriKind.Relative));
@@ -505,23 +467,6 @@ namespace WPTweaker
             ParseTweaksXml();
             BuildUI();
         }
-
-        static char[] _checkBoxChar = new char[] {'☐', '☑'};
-        private void SortTweaks_Click(object sender, EventArgs e)
-        {
-            _settings.SortTweaks = !_settings.SortTweaks;
-            (sender as ApplicationBarMenuItem).Text = string.Format("{0}  sort tweaks", (_settings.SortTweaks ? _checkBoxChar[1] : _checkBoxChar[0]));
-            ParseTweaksXml();
-            BuildUI();
-        }
-
-        private void AutoCheckTweaks_Click(object sender, EventArgs e)
-        {
-            _settings.CheckTweaks = !_settings.CheckTweaks;
-            (sender as ApplicationBarMenuItem).Text = string.Format("{0}  auto-check tweaks update", (_settings.CheckTweaks ? _checkBoxChar[1] : _checkBoxChar[0]));
-            if (_settings.CheckTweaks) CheckTweakListUpdate();
-        }
-
         #endregion
     }
 }

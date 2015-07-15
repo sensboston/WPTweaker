@@ -6,13 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Margin="0,10"
+    Margin="0,5"
     d:DesignHeight="230"
     d:DesignWidth="480">
 
     <StackPanel Background="{Binding Background}">
         <Border Background="{StaticResource TweakHeaderBackgroundBrush}" Padding="8">
-            <TextBlock Text="{Binding Name}" Foreground="{StaticResource TweakHeaderForegroundBrush}" FontSize="{StaticResource TweakHeaderFontSize}" VerticalAlignment="Center" />
+            <TextBlock Text="{Binding Name}" Foreground="{StaticResource TweakHeaderForegroundBrush}" FontSize="{StaticResource TweakHeaderFontSize}" VerticalAlignment="Center" TextWrapping="Wrap" />
         </Border>
         <TextBlock Text="{Binding Description}" Foreground="{StaticResource TweakDescriptionForegroundBrush}" FontSize="{StaticResource TweakDescriptionFontSize}" Padding="4" TextWrapping="Wrap"/>
         <Grid Margin="4">
@@ -20,13 +20,13 @@
                 <ColumnDefinition Width="60"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Value:" FontSize="{StaticResource TweakDescriptionFontSize}" VerticalAlignment="Center" Grid.Column="0" />
-            <TextBox x:Name="ValueInput" Text="{Binding Path=ValueToString, Mode=OneWay}" FontSize="18" Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Stretch" FontFamily="/WPTweaker;component/Fonts/Fonts.zip#Segoe UI Mono" />
+            <TextBlock Foreground="{StaticResource TweakDescriptionForegroundBrush}" Text="Value:" FontSize="{StaticResource TweakDescriptionFontSize}" VerticalAlignment="Center" Grid.Column="0" />
+            <TextBox BorderBrush="{StaticResource TweakDescriptionForegroundBrush}" x:Name="ValueInput" Text="{Binding Path=ValueToString, Mode=OneWay}" FontSize="18" Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Stretch" FontFamily="/WPTweaker;component/Fonts/Fonts.zip#Segoe UI Mono" />
         </Grid>
         <StackPanel Orientation="Horizontal">
-            <Button Content="Read" Margin="0,0,10,0" Width="140" Click="ReadButton_Click"/>
-            <Button Content="Write" Margin="0,0,10,0" Width="140" Click="WriteButton_Click"/>
-            <Button Content="Default" Margin="0" Width="140" Click="DefaultButton_Click"/>
+            <Button BorderBrush="{StaticResource TweakDescriptionForegroundBrush}" Foreground="{StaticResource TweakDescriptionForegroundBrush}" Content="Read" Margin="0,0,10,0" Width="140" Click="ReadButton_Click"/>
+            <Button BorderBrush="{StaticResource TweakDescriptionForegroundBrush}" Foreground="{StaticResource TweakDescriptionForegroundBrush}" Content="Write" Margin="0,0,10,0" Width="140" Click="WriteButton_Click"/>
+            <Button BorderBrush="{StaticResource TweakDescriptionForegroundBrush}" Foreground="{StaticResource TweakDescriptionForegroundBrush}" Content="Default" Margin="0" Width="140" Click="DefaultButton_Click"/>
         </StackPanel>
     </StackPanel>
 </UserControl>

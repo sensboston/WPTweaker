@@ -42,5 +42,10 @@ namespace WPTweaker
         {
             await Launcher.LaunchUriAsync(new Uri("ms-windows-store:search?keyword=senssoft"));
         }
+
+        private async void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            await Launcher.LaunchUriAsync(new Uri("https://github.com/jessenic/wph-tweaks"));
+        }
     }
 }

@@ -7,13 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     mc:Ignorable="d"
-    Margin="0,10"
+    Margin="0,5"
     d:DesignHeight="180"
     d:DesignWidth="480" Loaded="EnumControl_Loaded">
 
     <StackPanel Background="{Binding Background}">
         <Border Background="{StaticResource TweakHeaderBackgroundBrush}"  Padding="8">
-            <TextBlock Text="{Binding Name}" Foreground="{StaticResource TweakHeaderForegroundBrush}" FontSize="{StaticResource TweakHeaderFontSize}" VerticalAlignment="Center"  />
+            <TextBlock Text="{Binding Name}" Foreground="{StaticResource TweakHeaderForegroundBrush}" FontSize="{StaticResource TweakHeaderFontSize}" VerticalAlignment="Center" TextWrapping="Wrap" />
         </Border>
         <TextBlock Text="{Binding Description}" Foreground="{StaticResource TweakDescriptionForegroundBrush}" FontSize="{StaticResource TweakDescriptionFontSize}" Padding="4" TextWrapping="Wrap"/>
         <Grid Margin="4">
@@ -21,8 +21,8 @@
                 <ColumnDefinition Width="60"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Value:" FontSize="18" VerticalAlignment="Center" Grid.Column="0" />
-            <toolkit:ListPicker x:Name="ValuesList" ItemsSource="{Binding EnumList, Mode=OneWay}" DisplayMemberPath="DisplayName" SelectionMode="Single" FontSize="22" Grid.Column="1" VerticalAlignment="Center"/>
+            <TextBlock Foreground="{StaticResource TweakDescriptionForegroundBrush}" Text="Value:" FontSize="18" VerticalAlignment="Center" Grid.Column="0" />
+            <toolkit:ListPicker BorderBrush="{StaticResource TweakDescriptionForegroundBrush}" Foreground="{StaticResource TweakDescriptionForegroundBrush}" x:Name="ValuesList" ItemsSource="{Binding EnumList, Mode=OneWay}" DisplayMemberPath="DisplayName" SelectionMode="Single" FontSize="22" Grid.Column="1" VerticalAlignment="Center"/>
         </Grid>
     </StackPanel>
 </UserControl>

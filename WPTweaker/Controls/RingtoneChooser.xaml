@@ -12,10 +12,10 @@
 
     <Grid>
         <MediaElement x:Name="mediaElement" Volume="1" Visibility="Collapsed" />
-        <ListBox x:Name="RingtoneList" Height="580" SelectionChanged="RingtoneList_SelectionChanged" Margin="0,20,0,0">
+        <ListBox x:Name="RingtoneList" MaxHeight="570" SelectionChanged="RingtoneList_SelectionChanged" Margin="0,20,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                    <StackPanel Orientation="Horizontal" Margin="0,6">
                         <Image Source="{Binding ImageSource}" Width="48" Stretch="Uniform" HorizontalAlignment="Center" Margin="10" Tap="Image_Tap" />
                         <TextBlock Text="{Binding DisplayName}" VerticalAlignment="Center" FontSize="32" Margin="10,-4,0,0" />
                     </StackPanel>

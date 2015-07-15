@@ -20,7 +20,7 @@
     <phone:Pivot x:Name="LayoutRoot" Background="{StaticResource PageHeaderBackgroundBrush}">
         <phone:Pivot.TitleTemplate>
             <DataTemplate>
-                <Border Width="480" Background="{StaticResource AppHeaderBackgroundBrush}" Margin="-20,-14,0,0" Padding="0,6" >
+                <Border Width="480" Background="{StaticResource AppHeaderBackgroundBrush}" Margin="-24,-17,0,0" Padding="0,8" >
                     <TextBlock Text="{Binding}" Foreground="{StaticResource AppHeaderForegroundBrush}" FontSize="{StaticResource AppHeaderFontSize}" Margin="10,0,0,0" />
                 </Border>
             </DataTemplate>
@@ -39,12 +39,11 @@
             <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/refresh.png" Text="web update" Click="SyncButton_Click"/>
             <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/download.png" Text="load" Click="LoadButton_Click"/>
             <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/edit.png" Text="edit" Click="EditButton_Click"/>
-            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/questionmark.png" Text="about" Click="AboutButton_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/feature.settings.png" Text="settings" Click="SettingsButton_Click" />
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="restore default tweaks" Click="RestoreTweaksButton_Click"/>
                 <shell:ApplicationBarMenuItem Text="save tweaks" Click="SaveTweaksButton_Click"/>
-                <shell:ApplicationBarMenuItem Text="☐  sort tweaks" Click="SortTweaks_Click"/>
-                <shell:ApplicationBarMenuItem Text="☐  auto-check tweaks update" Click="AutoCheckTweaks_Click"/>
+                <shell:ApplicationBarMenuItem Text="about" Click="AboutButton_Click"/>
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

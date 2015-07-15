@@ -109,7 +109,7 @@
     </phone:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PageHeaderBackgroundBrush}">
 
         <ListBox x:Name="ColorsList" Margin="10" SelectionChanged="ColorsList_SelectionChanged" toolkit:TiltEffect.IsTiltEnabled="True" ItemContainerStyle="{StaticResource MyStyle}">
             <ListBox.ItemsPanel>
@@ -132,7 +132,7 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Red:" Foreground="Red" Width="60" VerticalAlignment="Center" Margin="10,0,0,30" />
                 <Slider x:Name="RedSlider" Foreground="Red" Minimum="0" Maximum="255" Margin="20,0,70,0" Grid.Column="1" ValueChanged="ColorSlider_ValueChanged"/>
-                <TextBox x:Name="RedValue" Text="{Binding ElementName=RedSlider, Path=Value, Mode=TwoWay}" FontSize="18" Grid.Column="1" HorizontalAlignment="Right" Width="65" Height="60" VerticalAlignment="Center" Margin="10,0,0,30" IsReadOnly="True" Style="{StaticResource ReadOnlyTextBoxStyle}"/>
+                <TextBox Foreground="{StaticResource TweakDescriptionForegroundBrush}"  x:Name="RedValue" Text="{Binding ElementName=RedSlider, Path=Value, Mode=TwoWay}" FontSize="18" Grid.Column="1" HorizontalAlignment="Right" Width="65" Height="60" VerticalAlignment="Center" Margin="10,0,0,30" IsReadOnly="True" Style="{StaticResource ReadOnlyTextBoxStyle}"/>
             </Grid>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -141,7 +141,7 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Green:" Foreground="Green" Width="60" VerticalAlignment="Center" Margin="10,0,0,30"/>
                 <Slider x:Name="GreenSlider" Foreground="Green" Minimum="0" Maximum="255" Margin="20,0,70,0" Grid.Column="1" ValueChanged="ColorSlider_ValueChanged"/>
-                <TextBox x:Name="GreenValue" Text="{Binding ElementName=GreenSlider, Path=Value, Mode=TwoWay}" FontSize="18" Grid.Column="1" HorizontalAlignment="Right" Width="65" Height="60" VerticalAlignment="Center" Margin="10,0,0,30" IsReadOnly="True" Style="{StaticResource ReadOnlyTextBoxStyle}"/>
+                <TextBox Foreground="{StaticResource TweakDescriptionForegroundBrush}"  x:Name="GreenValue" Text="{Binding ElementName=GreenSlider, Path=Value, Mode=TwoWay}" FontSize="18" Grid.Column="1" HorizontalAlignment="Right" Width="65" Height="60" VerticalAlignment="Center" Margin="10,0,0,30" IsReadOnly="True" Style="{StaticResource ReadOnlyTextBoxStyle}"/>
             </Grid>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -150,14 +150,14 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Blue:" Foreground="Blue" Width="60" VerticalAlignment="Center" Margin="10,0,0,30"/>
                 <Slider x:Name="BlueSlider" Foreground="Blue" Minimum="0" Maximum="255" Margin="20,0,70,0" Grid.Column="1" ValueChanged="ColorSlider_ValueChanged"/>
-                <TextBox x:Name="BlueValue" Text="{Binding ElementName=BlueSlider, Path=Value, Mode=TwoWay}" Grid.Column="1" FontSize="18" HorizontalAlignment="Right" Width="65" Height="60" VerticalAlignment="Center" Margin="10,0,0,30" IsReadOnly="True" Style="{StaticResource ReadOnlyTextBoxStyle}"/>
+                <TextBox Foreground="{StaticResource TweakDescriptionForegroundBrush}"  x:Name="BlueValue" Text="{Binding ElementName=BlueSlider, Path=Value, Mode=TwoWay}" Grid.Column="1" FontSize="18" HorizontalAlignment="Right" Width="65" Height="60" VerticalAlignment="Center" Margin="10,0,0,30" IsReadOnly="True" Style="{StaticResource ReadOnlyTextBoxStyle}"/>
             </Grid>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0,10">
-            <Button Content="Read" Margin="10,0" Width="140" Click="ReadButton_Click"/>
-            <Button Content="Write" Margin="10,0" Width="140" Click="WriteButton_Click"/>
-            <Button Content="Default" Margin="10,0" Width="140" Click="DefaultButton_Click"/>
+            <Button BorderBrush="{StaticResource TweakDescriptionForegroundBrush}" Foreground="{StaticResource TweakDescriptionForegroundBrush}" Content="Read" Margin="10,0" Width="140" Click="ReadButton_Click"/>
+            <Button BorderBrush="{StaticResource TweakDescriptionForegroundBrush}" Foreground="{StaticResource TweakDescriptionForegroundBrush}" Content="Write" Margin="10,0" Width="140" Click="WriteButton_Click"/>
+            <Button BorderBrush="{StaticResource TweakDescriptionForegroundBrush}" Foreground="{StaticResource TweakDescriptionForegroundBrush}" Content="Default" Margin="10,0" Width="140" Click="DefaultButton_Click"/>
         </StackPanel>
     </Grid>
 
