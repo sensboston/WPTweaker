@@ -235,9 +235,8 @@ namespace WPTweaker
 #endif
                                     var btn = new Button()
                                     {
-                                        Background = brushes[++i % 2],
-                                        Foreground = Application.Current.Resources["TweakDescriptionForegroundBrush"] as SolidColorBrush,
-                                        BorderBrush = Application.Current.Resources["TweakDescriptionForegroundBrush"] as SolidColorBrush,
+                                        Foreground = Application.Current.Resources["PageHeaderForegroundBrush"] as SolidColorBrush,
+                                        BorderBrush = Application.Current.Resources["PageHeaderForegroundBrush"] as SolidColorBrush,
                                         Content = str,
                                         Tag = str,
                                         Margin = new Thickness(4, 2, 4, 2),
