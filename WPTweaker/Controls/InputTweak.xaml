@@ -24,9 +24,9 @@
             <TextBox BorderBrush="{StaticResource TweakDescriptionForegroundBrush}" x:Name="ValueInput" Text="{Binding Path=ValueToString, Mode=OneWay}" FontSize="18" Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Stretch" FontFamily="/WPTweaker;component/Fonts/Fonts.zip#Segoe UI Mono" />
         </Grid>
         <StackPanel Orientation="Horizontal">
-            <Button BorderBrush="{StaticResource TweakDescriptionForegroundBrush}" Foreground="{StaticResource TweakDescriptionForegroundBrush}" Content="Read" Margin="0,0,10,0" Width="140" Click="ReadButton_Click"/>
-            <Button BorderBrush="{StaticResource TweakDescriptionForegroundBrush}" Foreground="{StaticResource TweakDescriptionForegroundBrush}" Content="Write" Margin="0,0,10,0" Width="140" Click="WriteButton_Click"/>
-            <Button BorderBrush="{StaticResource TweakDescriptionForegroundBrush}" Foreground="{StaticResource TweakDescriptionForegroundBrush}" Content="Default" Margin="0" Width="140" Click="DefaultButton_Click"/>
+            <Button BorderBrush="{StaticResource TweakDescriptionForegroundBrush}" Foreground="{StaticResource TweakDescriptionForegroundBrush}" Content="Read" Width="150" Click="ReadButton_Click"/>
+            <Button BorderBrush="{StaticResource TweakDescriptionForegroundBrush}" Foreground="{StaticResource TweakDescriptionForegroundBrush}" Content="Write" Width="150" Click="WriteButton_Click"/>
+            <Button x:Name="DefaultButton" BorderBrush="{StaticResource TweakDescriptionForegroundBrush}" Foreground="{StaticResource TweakDescriptionForegroundBrush}" Content="Default" Width="150" Click="DefaultButton_Click"/>
         </StackPanel>
     </StackPanel>
 </UserControl>

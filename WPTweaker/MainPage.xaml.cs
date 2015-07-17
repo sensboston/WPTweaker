@@ -73,7 +73,7 @@ namespace WPTweaker
         /// <param name="e"></param>
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
-            if (!_settings.CleanupStorage)
+            if (_settings.CleanupStorage)
             {
                 Task.Run(() =>
                 {
@@ -85,10 +85,7 @@ namespace WPTweaker
                         {
                             if (exts.Contains(Path.GetExtension(fileName)))
                             {
-                                try
-                                {
-                                    isoStore.DeleteFile(fileName);
-                                }
+                                try { isoStore.DeleteFile(fileName); }
                                 catch { }
                             }
                         }
@@ -223,7 +220,6 @@ namespace WPTweaker
                     {
                         if (subKeyNames != null)
                         {
-                            int i = 0;       
                             foreach (var str in subKeyNames)
                             {
 #if ARM
