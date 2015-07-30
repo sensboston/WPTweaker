@@ -42,6 +42,7 @@ namespace WPTweaker
         private List<TweakEntry> Entries = new List<TweakEntry>();
         public List<RegistryEntry> RegEntries { get { return Entries.Select(e => e.RegEntry).ToList(); } }
         public int RequireReboot { get; private set; }
+        public string InputHelper { get; set; }
 
         public delegate void ValueChangedHandler(object sender, string hashedKeys);
         public event ValueChangedHandler ValueChanged;
@@ -58,6 +59,7 @@ namespace WPTweaker
             catch { throw new Exception(string.Format("Error: unknown \"type\" value for the tweak \"{0}\"", Name)); }
             Description = xml.Attribute("description") != null ? xml.Attribute("description").Value : string.Empty;
             RequireReboot = (xml.Attribute("reboot") != null && xml.Attribute("reboot").Value.Equals("true")) ? 1 : 0;
+            InputHelper = xml.Attribute("helper") != null ? xml.Attribute("helper").Value : string.Empty;
 
             var xmlEntries = xml.Descendants("entry");
             if (xmlEntries == null || xmlEntries.Count() == 0) throw new Exception(string.Format("Error: no registry entries found for the tweak \"{0}\"", Name));

@@ -37,7 +37,7 @@
                 <TextBlock Foreground="{StaticResource PageHeaderForegroundBrush}" Text="WPTweaker " FontSize="24" Padding="10" TextAlignment="Center" Grid.Row="0" VerticalAlignment="Center" />
                 <TextBlock Foreground="{StaticResource PageHeaderForegroundBrush}" x:Name="appVersion" Text="ver 1.0.0" FontSize="24" Padding="10" VerticalAlignment="Center" />
             </StackPanel>
-            <RichTextBox IsReadOnly="True" Margin="0,20,0,0" TextAlignment="Center" Grid.Row="1" VerticalAlignment="Center">
+            <RichTextBox IsReadOnly="True" Margin="0,16,0,0" TextAlignment="Center" Grid.Row="1" VerticalAlignment="Center">
                 <Paragraph Foreground="{StaticResource PageHeaderForegroundBrush}">
                     developed by XDA member
                     <Bold FontSize="22" Foreground="{StaticResource PhoneAccentBrush}">sensboston</Bold>
@@ -56,7 +56,6 @@
                     for their research and hacks!
                 </Paragraph>
                 <Paragraph Foreground="{StaticResource PageHeaderForegroundBrush}">
-                    <LineBreak/>
                     Sound editor source code adapted from
                     <LineBreak/>
                     <Hyperlink Foreground="Blue" FontSize="22" NavigateUri="https://github.com/jessenic/wph-tweaks" Click="Hyperlink_Click">wphTweaks project</Hyperlink>
@@ -65,7 +64,7 @@
             </RichTextBox>
 
             <TextBlock Foreground="{StaticResource PhoneAccentBrush}" Text="Tweak list contributors:" Margin="20,4" Grid.Row="8" FontWeight="Bold" />
-            <ListBox x:Name="ContributorsList" Foreground="{StaticResource PageHeaderForegroundBrush}" Background="{StaticResource TweakOddBackgroundBrush}" Margin="20,10" Grid.Row="9" FontSize="22"  />
+            <ListBox x:Name="ContributorsList" Margin="20,10" Grid.Row="9" FontSize="22"  />
         </Grid>
     </Grid>
 

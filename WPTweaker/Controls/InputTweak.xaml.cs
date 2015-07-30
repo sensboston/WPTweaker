@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using Microsoft.Phone.Tasks;
 
 namespace WPTweaker
 {
@@ -19,6 +20,10 @@ namespace WPTweaker
             this.InitializeComponent();
             _tweak = tweak;
             _tweak.ValueChanged += ValueChanged;
+            if (!string.IsNullOrEmpty(_tweak.InputHelper))
+            {
+                DefaultButton.Content = "Browse";
+            }
         }
 
         void ValueChanged(object sender, string hashedKeys)
@@ -56,8 +61,26 @@ namespace WPTweaker
 
         private void DefaultButton_Click(object sender, RoutedEventArgs e)
         {
-            string value = _tweak.DefaultValueToString;
-            if (!string.IsNullOrEmpty(value)) ValueInput.SetValue(TextBox.TextProperty, _tweak.DefaultValueToString);
+            if (!string.IsNullOrEmpty(_tweak.InputHelper))
+            {
+                if (_tweak.InputHelper.Contains("picture"))
+                {
+                    var photoChooser = new PhotoChooserTask();
+                    photoChooser.Completed += (object _, PhotoResult result) =>
+                    {
+                        if (result.ChosenPhoto != null)
+                        {
+                            ValueInput.Text = result.OriginalFileName;
+                        }
+                    };
+                    photoChooser.Show();
+                }
+            }
+            else
+            {
+                string value = _tweak.DefaultValueToString;
+                if (!string.IsNullOrEmpty(value)) ValueInput.SetValue(TextBox.TextProperty, _tweak.DefaultValueToString);
+            }
         }
     }
 }

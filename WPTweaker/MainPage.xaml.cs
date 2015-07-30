@@ -73,7 +73,7 @@ namespace WPTweaker
         /// <param name="e"></param>
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
-            if (!_settings.CleanupStorage)
+            if (_settings.CleanupStorage)
             {
                 Task.Run(() =>
                 {
@@ -85,10 +85,7 @@ namespace WPTweaker
                         {
                             if (exts.Contains(Path.GetExtension(fileName)))
                             {
-                                try
-                                {
-                                    isoStore.DeleteFile(fileName);
-                                }
+                                try { isoStore.DeleteFile(fileName); }
                                 catch { }
                             }
                         }
@@ -223,7 +220,6 @@ namespace WPTweaker
                     {
                         if (subKeyNames != null)
                         {
-                            int i = 0;       
                             foreach (var str in subKeyNames)
                             {
 #if ARM
@@ -235,8 +231,6 @@ namespace WPTweaker
 #endif
                                     var btn = new Button()
                                     {
-                                        Foreground = Application.Current.Resources["PageHeaderForegroundBrush"] as SolidColorBrush,
-                                        BorderBrush = Application.Current.Resources["PageHeaderForegroundBrush"] as SolidColorBrush,
                                         Content = str,
                                         Tag = str,
                                         Margin = new Thickness(4, 2, 4, 2),
@@ -299,7 +293,6 @@ namespace WPTweaker
                     var ringtoneChooser = new RingtoneChooser() { SelectedRingtone = str };
                     var msgBox = new CustomMessageBox()
                     {
-                        Background = Application.Current.Resources["PageHeaderBackgroundBrush"] as SolidColorBrush,
                         Tag = ((Button)sender).Tag,
                         Caption = string.Format("choose sound notification\nfor event \"{0}\"", ((Button)sender).Tag),
                         Content = ringtoneChooser,
@@ -307,6 +300,14 @@ namespace WPTweaker
                         RightButtonContent = "cancel",
                         IsFullScreen = true,
                     };
+
+                    // Set background only for custom theme (not for default)
+                    if ((Application.Current.Resources["PageHeaderBackgroundBrush"] as SolidColorBrush) !=
+                        (Application.Current.Resources["PhoneBackgroundColor"] as SolidColorBrush))
+                    {
+                        msgBox.Background = Application.Current.Resources["PageHeaderBackgroundBrush"] as SolidColorBrush;
+                    }
+
                     msgBox.Dismissed += (object boxSender, DismissedEventArgs ea) =>
                         {
                             if (ea.Result == 0)

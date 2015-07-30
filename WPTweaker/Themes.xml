@@ -37,7 +37,7 @@
     <AppHeaderBackgroundBrush>#2e6610</AppHeaderBackgroundBrush>
     <AppHeaderForegroundBrush>#dafaaa</AppHeaderForegroundBrush>"
     <AppHeaderFontSize>26</AppHeaderFontSize>"
-    <PageHeaderBackgroundBrush>#dafaaa</PageHeaderBackgroundBrush>
+    <PageHeaderBackgroundBrush>#abc486</PageHeaderBackgroundBrush>
     <PageHeaderForegroundBrush>#2e6610</PageHeaderForegroundBrush>
     <PageHeaderFontSize>38</PageHeaderFontSize>
     <TweakHeaderBackgroundBrush>#4a5e3f</TweakHeaderBackgroundBrush>
@@ -45,18 +45,18 @@
     <TweakHeaderFontSize>24</TweakHeaderFontSize>
     <TweakDescriptionForegroundBrush>#2e6610</TweakDescriptionForegroundBrush>
     <TweakDescriptionFontSize>18</TweakDescriptionFontSize>
-    <TweakEvenBackgroundBrush>#dafaaa</TweakEvenBackgroundBrush>
-    <TweakOddBackgroundBrush>#abc486</TweakOddBackgroundBrush>
+    <TweakEvenBackgroundBrush>#abc486</TweakEvenBackgroundBrush>
+    <TweakOddBackgroundBrush>#dafaaa</TweakOddBackgroundBrush>
   </theme>
 
   <theme name="XDA 2010">
     <AppHeaderBackgroundBrush>#261805</AppHeaderBackgroundBrush>
-    <AppHeaderForegroundBrush>#ffdf4f</AppHeaderForegroundBrush>"
+    <AppHeaderForegroundBrush>#cca90e</AppHeaderForegroundBrush>"
     <AppHeaderFontSize>24</AppHeaderFontSize>"
     <PageHeaderBackgroundBrush>#4d310b</PageHeaderBackgroundBrush>
     <PageHeaderForegroundBrush>#faf8f5</PageHeaderForegroundBrush>
     <PageHeaderFontSize>36</PageHeaderFontSize>
-    <TweakHeaderBackgroundBrush>#ffdd47</TweakHeaderBackgroundBrush>
+    <TweakHeaderBackgroundBrush>#cca90e</TweakHeaderBackgroundBrush>
     <TweakHeaderForegroundBrush>#261805</TweakHeaderForegroundBrush>
     <TweakHeaderFontSize>24</TweakHeaderFontSize>
     <TweakDescriptionForegroundBrush>#26231f</TweakDescriptionForegroundBrush>
