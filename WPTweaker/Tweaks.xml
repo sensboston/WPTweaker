@@ -100,10 +100,10 @@
       <value>res://UIXMobileAssets{ScreenResolution}!actioncenter.hotspot.tier25.png</value>
     </entry>
     <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="QuickSettingsTitle" type="string">
-      <value>@\\windows\\system32\\Settings3Res.dll,-535</value>
+      <value>@\windows\system32\Settings3Res.dll,-535</value>
     </entry>
     <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="Title" type="string">
-      <value>@\\windows\\system32\\Settings3Res.dll,-242</value>
+      <value>@\windows\system32\Settings3Res.dll,-242</value>
     </entry>
     <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="Type" type="dword" default="0">
       <value>1</value>
