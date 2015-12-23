@@ -299,7 +299,7 @@
     </entry>
   </tweak>
   
-  <tweak category="System" name="Full FS over SFTP" type="toggle">
+  <tweak category="System" name="Full FS access over SFTP" type="toggle">
     <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-home-dir" type="string" default="%FOLDERID_SharedData%\PhoneTools\">
       <value>C:\</value>
     </entry>
