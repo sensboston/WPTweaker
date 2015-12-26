@@ -10,6 +10,7 @@
     <contributor>kovalDN @ xda-developers</contributor>
     <contributor>AR2186 @ xda-developers</contributor>
     <contributor>Pen4iK @ 4pda.ru</contributor>
+    <contributor>snickler @ xda-developers</contributor>
   </contributors>
 
   <tweak category="System" name="'Never' screen timeout option" type="toggle" description="Enable or disable 'Never' timeout" comparer="==">
@@ -265,7 +266,7 @@
     </entry>
   </tweak>
 
-  <tweak category="System" name="Full FS access" type="toggle">
+  <tweak category="System" name="Full FS access over MTP" type="toggle">
     <entry path="HKLM\Software\microsoft\mtp" name="datastore" type="string" default="C:\Data\Users\PUBLIC" >
       <value>c:</value>
     </entry>
@@ -295,6 +296,36 @@
     </entry>
     <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="Type" type="dword">
       <value>7</value>
+    </entry>
+  </tweak>
+  
+  <tweak category="System" name="Full FS access over SFTP" type="toggle">
+    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-home-dir" type="string" default="%FOLDERID_SharedData%\PhoneTools\">
+      <value>C:\</value>
+    </entry>
+    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="default-home-dir" type="string" default="%FOLDERID_SharedData%\PhoneTools\">
+      <value>C:\</value>
+    </entry>
+    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-mkdir-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools\\.*">
+      <value>.*</value>
+    </entry>
+    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-open-dir-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools(\\.*)*">
+      <value>.*</value>
+    </entry>
+    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-read-file-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools\\.*">
+      <value>.*</value>
+    </entry>
+    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-remove-file-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools\\.*">
+      <value>.*</value>
+    </entry>
+    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-rmdir-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools\\.*">
+      <value>.*</value>
+    </entry>
+    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-stat-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools\\.*">
+      <value>.*</value>
+    </entry>
+    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-write-file-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools\\.*">
+      <value>.*</value>
     </entry>
   </tweak>
   
@@ -414,6 +445,6 @@
     <entry path="HKLM\SOFTWARE\OEM\Nokia\Camera\Barc" name="DNGDisabled" type="dword" default="1">
       <value>0</value>
     </entry>
-  </tweak>  
- 
+  </tweak>
+  
 </tweaks>
