@@ -57,8 +57,23 @@
     </entry>
   </tweak>
 
-  <tweak category="Cell" name="Hide highest speed selection" type="toggle" >
-    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideHighestSpeed" type="dword" default="0" >
+  <tweak category="Cell" name="Show speed selection" type="toggle" description="Settings - Cellular and SIM - SIM settings">
+    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideHighestSpeed" type="dword" default="1">
+      <value>0</value>
+    </entry>
+    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideHighestSpeed3G" type="dword" default="1">
+      <value>0</value>
+    </entry>
+    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideHighestSpeed4G" type="dword" default="1">
+      <value>0</value>
+    </entry>
+    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideHighestSpeed3GOnly" type="dword" default="1">
+      <value>0</value>
+    </entry>
+    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideHighestSpeed4GOnly" type="dword" default="1">
+      <value>0</value>
+    </entry>
+    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="ShowHighestSpeed3GPreferred" type="dword" default="0">
       <value>1</value>
     </entry>
   </tweak>
