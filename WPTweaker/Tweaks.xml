@@ -56,6 +56,13 @@
       <value name="High">72</value>
     </entry>
   </tweak>
+  
+  <tweak category="Network" name="Enable KeepWiFiOnSvc (W10, Reboot)" type="toggle" description="Keeps WiFi on while screen is locked" reboot="true">
+    <entry path="HKLM\SYSTEM\CurrentControlSet\Services\KeepWiFiOnSvc" name="Start" type="dword" default="4">
+      <value>2</value>
+    </entry>
+  </tweak>
+
 
   <tweak category="Cell" name="Show speed selection" type="toggle" description="Settings - Cellular and SIM - SIM settings">
     <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideHighestSpeed" type="dword" default="1">
