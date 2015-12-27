@@ -11,6 +11,7 @@
     <contributor>AR2186 @ xda-developers</contributor>
     <contributor>Pen4iK @ 4pda.ru</contributor>
     <contributor>snickler @ xda-developers</contributor>
+    <contributor>kwanice @ xda-developers</contributor>
   </contributors>
 
   <tweak category="System" name="'Never' screen timeout option" type="toggle" description="Enable or disable 'Never' timeout" comparer="==">
@@ -62,7 +63,15 @@
       <value>2</value>
     </entry>
   </tweak>
-
+  
+  <tweak category="Network" name="Show WiFi static IP selection" type="toggle" description="WiFi Control Panel">
+    <entry path="HKLM\SOFTWARE\Microsoft\WCMSvc\WifiNetworkManager\Config" name="EnableStaticIP" type="dword" default="0">
+      <value>1</value>
+    </entry>
+    <entry path="HKLM\SYSTEM\ControlSet001\services\WiFiConnSvc\Parameters\Config" name="EnableStaticIP" type="dword" default="0">
+      <value>1</value>
+    </entry>
+  </tweak>
 
   <tweak category="Cell" name="Show speed selection" type="toggle" description="Settings - Cellular and SIM - SIM settings">
     <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideHighestSpeed" type="dword" default="1">
@@ -85,9 +94,9 @@
     </entry>
   </tweak>
 
-  <tweak category="Cell" name="Hide mode selection" type="toggle" >
-    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideModeSelection" type="dword" default="0" >
-      <value>1</value>
+  <tweak category="Cell" name="Show network mode selection" type="toggle">
+    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideModeSelection" type="dword" default="1">
+      <value>0</value>
     </entry>
   </tweak>
 
@@ -175,12 +184,6 @@
 
   <tweak category="System" name="Allow disabling camera shutter sound" type="toggle" >
     <entry path="HKLM\Software\Microsoft\Photos\OEM" name="ShutterSoundUnlocked" type="dword" default="0" >
-      <value>1</value>
-    </entry>
-  </tweak>
-
-  <tweak category="Network" name="Enable WiFi static IP" type="toggle" >
-    <entry path="HKLM\SYSTEM\ControlSet001\services\WiFiConnSvc\Parameters\Config" name="EnableStaticIP" type="dword" default="0" >
       <value>1</value>
     </entry>
   </tweak>
