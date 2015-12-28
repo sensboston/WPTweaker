@@ -13,7 +13,70 @@
     <contributor>snickler @ xda-developers</contributor>
     <contributor>kwanice @ xda-developers</contributor>
   </contributors>
-
+  
+  <tweak category="System" name="Full FS access over MTP" type="toggle">
+    <entry path="HKLM\Software\microsoft\mtp" name="datastore" type="string" default="C:\Data\Users\PUBLIC" >
+      <value>c:</value>
+    </entry>
+    <entry path="HKLM\System\ControlSet001\services\Mtp" name="ObjectName" type="string" default=".\WPNONETWORK" >
+      <value>LocalSystem</value>
+    </entry>
+    <entry path="HKLM\System\ControlSet001\services\Mtp" name="Type" type="dword">
+      <value>10</value>
+    </entry>
+    <entry path="HKLM\System\ControlSet001\services\Mtp" name="ServiceSidType" type="dword">
+      <value>1</value>
+    </entry>
+    <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="Data0" type="binary">
+      <value>7508bca3290b900c</value>
+    </entry>
+    <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="Data1" type="binary">
+      <value>0000000001000000</value>
+    </entry>
+    <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="DataType0" type="dword">
+      <value>1</value>
+    </entry>
+    <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="DataType1" type="dword">
+      <value>1</value>
+    </entry>
+    <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="Guid" type="binary">
+      <value>16287a2d5e0cfc459ce7570e5ecde9c9</value>
+    </entry>
+    <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="Type" type="dword">
+      <value>7</value>
+    </entry>
+  </tweak>
+  
+  <tweak category="System" name="Full FS access over SFTP" type="toggle">
+    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-home-dir" type="string" default="%FOLDERID_SharedData%\PhoneTools\">
+      <value>C:\</value>
+    </entry>
+    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="default-home-dir" type="string" default="%FOLDERID_SharedData%\PhoneTools\">
+      <value>C:\</value>
+    </entry>
+    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-mkdir-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools\\.*">
+      <value>.*</value>
+    </entry>
+    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-open-dir-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools(\\.*)*">
+      <value>.*</value>
+    </entry>
+    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-read-file-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools\\.*">
+      <value>.*</value>
+    </entry>
+    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-remove-file-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools\\.*">
+      <value>.*</value>
+    </entry>
+    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-rmdir-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools\\.*">
+      <value>.*</value>
+    </entry>
+    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-stat-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools\\.*">
+      <value>.*</value>
+    </entry>
+    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-write-file-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools\\.*">
+      <value>.*</value>
+    </entry>
+  </tweak>
+  
   <tweak category="System" name="'Never' screen timeout option" type="toggle" description="Enable or disable 'Never' timeout" comparer="==">
     <entry path="HKLM\SOFTWARE\Microsoft\Settings\Lock" name="DisableNever" type="dword" default="1">
       <value>0</value>
@@ -291,69 +354,6 @@
     </entry>
   </tweak>
 
-  <tweak category="System" name="Full FS access over MTP" type="toggle">
-    <entry path="HKLM\Software\microsoft\mtp" name="datastore" type="string" default="C:\Data\Users\PUBLIC" >
-      <value>c:</value>
-    </entry>
-    <entry path="HKLM\System\ControlSet001\services\Mtp" name="ObjectName" type="string" default=".\WPNONETWORK" >
-      <value>LocalSystem</value>
-    </entry>
-    <entry path="HKLM\System\ControlSet001\services\Mtp" name="Type" type="dword">
-      <value>10</value>
-    </entry>
-    <entry path="HKLM\System\ControlSet001\services\Mtp" name="ServiceSidType" type="dword">
-      <value>1</value>
-    </entry>
-    <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="Data0" type="binary">
-      <value>7508bca3290b900c</value>
-    </entry>
-    <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="Data1" type="binary">
-      <value>0000000001000000</value>
-    </entry>
-    <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="DataType0" type="dword">
-      <value>1</value>
-    </entry>
-    <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="DataType1" type="dword">
-      <value>1</value>
-    </entry>
-    <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="Guid" type="binary">
-      <value>16287a2d5e0cfc459ce7570e5ecde9c9</value>
-    </entry>
-    <entry path="HKLM\System\ControlSet001\services\Mtp\TriggerInfo\0" name="Type" type="dword">
-      <value>7</value>
-    </entry>
-  </tweak>
-  
-  <tweak category="System" name="Full FS access over SFTP" type="toggle">
-    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-home-dir" type="string" default="%FOLDERID_SharedData%\PhoneTools\">
-      <value>C:\</value>
-    </entry>
-    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="default-home-dir" type="string" default="%FOLDERID_SharedData%\PhoneTools\">
-      <value>C:\</value>
-    </entry>
-    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-mkdir-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools\\.*">
-      <value>.*</value>
-    </entry>
-    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-open-dir-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools(\\.*)*">
-      <value>.*</value>
-    </entry>
-    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-read-file-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools\\.*">
-      <value>.*</value>
-    </entry>
-    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-remove-file-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools\\.*">
-      <value>.*</value>
-    </entry>
-    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-rmdir-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools\\.*">
-      <value>.*</value>
-    </entry>
-    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-stat-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools\\.*">
-      <value>.*</value>
-    </entry>
-    <entry path="HKLM\System\Currentcontrolset\control\ssh\sirepuser" name="sftp-write-file-rex" type="string" default="%FOLDERID_SharedData%\\PhoneTools\\.*">
-      <value>.*</value>
-    </entry>
-  </tweak>
-  
   <tweak category="Misc" name="Enable IE hidden setting" description="Hidden IE setting 'Show Pictures Automatically' toggle" type="toggle" >
     <entry path="HKLM\Software\Microsoft\Internet Explorer" name="Disable Display Inline Images" type="dword" default="0">
       <value>1</value>
