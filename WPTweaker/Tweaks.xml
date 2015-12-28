@@ -77,6 +77,10 @@
     </entry>
   </tweak>
   
+  <tweak category="System" name="NdtkSvc Path" type="input">
+    <entry path="HKLM\Software\OEM\Nokia\NokiaSvcHost\Plugins\NsgExtA\NdtkSvc" name="Path" type="string" default="c:\windows\system32\ndtksvc.dll" />
+  </tweak>
+  
   <tweak category="System" name="'Never' screen timeout option" type="toggle" description="Enable or disable 'Never' timeout" comparer="==">
     <entry path="HKLM\SOFTWARE\Microsoft\Settings\Lock" name="DisableNever" type="dword" default="1">
       <value>0</value>
