@@ -87,6 +87,17 @@
     </entry>
   </tweak>
 
+ <tweak category="User Interface" name="Start Screen Tweak" type="enum" description="Modify the number of small tiles on start Screen. Need reboot" reboot="true">
+	 <entry path="HKLM\SOFTWARE\Microsoft\Shell\Start" name="TileColumnSize" type="dword" >
+		<value name="4 small tiles">4</value>
+		<value name="6 small tiles">6</value>
+		<value name="8 small tiles">8</value>
+		<value name="10 small tiles">A</value>
+		<value name="12 small tiles">C</value>
+		<value name="14 small tiles">E</value>
+	 </entry>
+  </tweak>
+
   <tweak category="User interface" name="Smaller text in system apps" type="enum" reboot="true">
     <entry path="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Control Panel\Theme" name="LargeScreen" type="dword" default="0">
       <value name="Small (normal text)">0</value>
