@@ -127,7 +127,7 @@
     </entry>
   </tweak>
 
-  <tweak category="Cell" name="Show speed selection" type="toggle" description="Settings - Cellular and SIM - SIM settings">
+  <tweak category="Cell" name="Allow speed selection" type="toggle" description="Settings - Cellular and SIM - SIM settings">
     <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideHighestSpeed" type="dword" default="1">
       <value>0</value>
     </entry>
@@ -148,8 +148,17 @@
     </entry>
   </tweak>
 
-  <tweak category="Cell" name="Show network mode selection" type="toggle">
+  <tweak category="Cell" name="Allow network mode selection" type="toggle">
     <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideModeSelection" type="dword" default="1">
+      <value>0</value>
+    </entry>
+  </tweak>
+  
+  <tweak category="Cell" name="Allow APN selection" type="toggle">
+    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideAPN" type="dword" default="1">
+      <value>0</value>
+    </entry>
+    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideMMSAPN" type="dword" default="1">
       <value>0</value>
     </entry>
   </tweak>
@@ -362,18 +371,6 @@
   <tweak category="Misc" name="IE easter egg" description="Apply tweak and type 'about:moz' in the IE address field (mostly useless)" type="toggle" >
     <entry path="HKLM\Software\Microsoft\Internet Explorer\Abouturls" name="moz" type="string" default="">
       <value>res://mshtml.dll/about.moz</value>
-    </entry>
-  </tweak>
-
-  <tweak category="Cell" name="Unhide APN" type="toggle">
-    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideAPN" type="dword" default="1">
-      <value>0</value>
-    </entry>
-  </tweak>
-
-  <tweak category="Cell" name="Unhide MMS APN" type="toggle">
-    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideMMSAPN" type="dword" default="1">
-      <value>0</value>
     </entry>
   </tweak>
 
