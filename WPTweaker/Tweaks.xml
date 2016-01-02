@@ -236,12 +236,6 @@
     </entry>
   </tweak>
 
-  <tweak category="System" name="Allow disabling camera shutter sound" type="toggle" >
-    <entry path="HKLM\Software\Microsoft\Photos\OEM" name="ShutterSoundUnlocked" type="dword" default="0" >
-      <value>1</value>
-    </entry>
-  </tweak>
-
   <tweak category="Cell" name="Enable SIM Contacts in People" type="toggle" >
     <entry path="HKLM\Software\Microsoft\Contacts\Sim" name="EnableSIMAddressBookAndExport" type="dword" default="0" >
       <value>1</value>
@@ -512,6 +506,12 @@
   <tweak category="Camera" name="Allow .DNG format" type="toggle" description="Camera settings">
     <entry path="HKLM\SOFTWARE\OEM\Nokia\Camera\Barc" name="DNGDisabled" type="dword" default="1">
       <value>0</value>
+    </entry>
+  </tweak>
+  
+  <tweak category="Camera" name="Allow disabling camera shutter sound" type="toggle" description="Not relevant with most region settings">
+    <entry path="HKLM\Software\Microsoft\Photos\OEM" name="ShutterSoundUnlocked" type="dword" default="0">
+      <value>1</value>
     </entry>
   </tweak>
    
