@@ -312,12 +312,6 @@
     </entry>
   </tweak>
 
-  <tweak category="System" name="Start key wakes up the screen" type="toggle" reboot="true" >
-    <entry path="HKLM\System\Keyboard" name="EnableStartOnIdle" type="dword" default="0">
-      <value>1</value>
-    </entry>
-  </tweak>
-
   <tweak category="System" name="Data Activity indicators" type="toggle" reboot="true" >
     <entry path="HKLM\Software\Microsoft\Shell\OEM\SystemTray" name="DataActivity" type="dword" default="0">
       <value>1</value>
@@ -461,6 +455,12 @@
      <entry path="HKLM\SOFTWARE\OEM\Nokia\Display\ColorAndLight" name="UserSettingKeyLightsEnabled" type="dword" default="0">
        <value>1</value>
      </entry>
+  </tweak>
+  
+  <tweak category="Buttons" name="Start key wakes up the screen" type="toggle" reboot="true" >
+    <entry path="HKLM\System\Keyboard" name="EnableStartOnIdle" type="dword" default="0">
+      <value>1</value>
+    </entry>
   </tweak>
 
    <tweak category="Buttons" name="Volume Up - Delay" type="enum" description="Delay between press and action - default is 300" reboot="true">
