@@ -98,30 +98,6 @@
 	 </entry>
   </tweak>
 
-  <tweak category="User interface" name="Smaller text in system apps" type="enum" reboot="true">
-    <entry path="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Control Panel\Theme" name="LargeScreen" type="dword" default="0">
-      <value name="Small (normal text)">0</value>
-      <value name="Medium (smaller text)">3f</value>
-      <value name="Big (small text, 5 quick toggles)">4b</value>
-    </entry>
-  </tweak>
-
-  <tweak category="User interface" name="Screen size" type="enum" reboot="true">
-    <entry path="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Control Panel\Theme" name="UserPreferenceWidth" type="dword" default="0">
-      <value name="Small (2 medium tiles)">0</value>
-      <value name="Medium (3 medium tiles)">1</value>
-      <value name="Big (3 medium tiles)">2</value>
-    </entry>
-  </tweak>
-
-  <tweak category="User interface" name="Start screen size" type="enum" reboot="true">
-    <entry path="HKLM\Software\Microsoft\Shell\OEM\\Start" name="ScreenSize" type="dword" default="0">
-      <value name="Small (2 medium tiles)">0</value>
-      <value name="Medium (3 medium tiles)">1</value>
-      <value name="Big (3 medium tiles)">2</value>
-    </entry>
-  </tweak>
-
   <tweak category="User interface" name="Haptic feedback" type="toggle" description="Enable or disable haptic feedback" reboot="true">
     <entry path="HKEY_LOCAL_MACHINE\System\Touch\Buttons" name="Vibrate" type="dword" default="0">
       <value>1</value>
