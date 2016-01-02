@@ -463,4 +463,62 @@
     </entry>
   </tweak>
   
+   <tweak category="Buttons" name="Disable Led on Hardware Button" type="toggle">
+	<entry path="HKLM\SOFTWARE\OEM\Nokia\Display\ColorAndLight" name="UserSettingKeyLightsEnabled" type="dword" default="1">
+	<value>0</value>
+	</entry>
+   </tweak>
+
+   <tweak category="Buttons" name="Volume Up - Delay" type="enum" description="Delay between press and action - default is 300" reboot="true">
+     <entry path="HKLM\SOFTWARE\Microsoft\Shell\CustomHoldDelays" name="VolumeUpHoldTimeout" type="dword">
+       <value name="Default - 300">12C</value>
+       <value name="VeryLooooong - 900">384</value>
+       <value name="Long - 600">258</value>
+       <value name="Quite long - 450">1C2</value>
+       <value name="Short - 150">96</value>
+       <value name="VeryShort - 50">32</value>
+     </entry>
+   </tweak>
+   <tweak category="Buttons" name="Volume Down - Delay" type="enum" description="Delay between press and action - default is 300" reboot="true">
+     <entry path="HKLM\SOFTWARE\Microsoft\Shell\CustomHoldDelays" name="VolumeDownHoldTimeout" type="dword">
+       <value name="Default - 300">12C</value>
+       <value name="VeryLooooong - 900">384</value>
+       <value name="Long - 600">258</value>
+       <value name="Quite long - 450">1C2</value>
+       <value name="Short - 150">96</value>
+       <value name="VeryShort - 50">32</value>
+     </entry>
+   </tweak>
+   <tweak category="Buttons" name="Power - Delay" type="enum" description="Delay between press and action - default is 1500" reboot="true">
+     <entry path="HKLM\SOFTWARE\Microsoft\Shell\CustomHoldDelays" name="PowerHoldTimeout" type="dword">
+       <value name="Default - 1500">5DC</value>
+       <value name="VeryLooooong - 2500">9C4</value>
+       <value name="Long - 2000">7D0</value>
+       <value name="Shorter - 1000">3E8</value>
+       <value name="Short - 750">2EE</value>
+       <value name="VeryShort - 500">1F4</value>
+     </entry>
+   </tweak>
+   <tweak category="Buttons" name="Search (Simple search) - Delay" type="enum" description="Delay between press and action - default is 300" reboot="true">
+     <entry path="HKLM\SOFTWARE\Microsoft\Shell\CustomHoldDelays" name="SearchHoldTimeout" type="dword">
+       <value name="Default - 300">12C</value>
+       <value name="VeryLooooong - 900">384</value>
+       <value name="Long - 600">258</value>
+       <value name="Quite long - 450">1C2</value>
+       <value name="Short - 150">96</value>
+       <value name="VeryShort - 50">32</value>
+     </entry>
+   </tweak>
+   <tweak category="Buttons" name="Search Tap (Cortana) - Delay" type="enum" description="Delay between press and action - default is 2500" reboot="true">
+     <entry path="HKLM\SOFTWARE\Microsoft\Shell\CustomHoldDelays" name="SearchTapTimeout" type="dword">
+       <value name="Default - 2500">9C4</value>
+       <value name="Long - 3500">DAC</value>
+       <value name="Quite long - 3000">BB8</value>
+       <value name="Shorter - 2000">7D0</value>
+       <value name="Short - 1500">5DC</value>
+       <value name="VeryShort - 1000">3E8</value>
+       <value name="OMG so Shooort - 750">2EE</value>
+     </entry>
+   </tweak>
+  
 </tweaks>
