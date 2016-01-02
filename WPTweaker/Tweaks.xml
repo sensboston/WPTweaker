@@ -330,12 +330,6 @@
     </entry>
   </tweak>
 
-  <tweak category="System" name="Disable backlight for the hardware buttons"  type="toggle">
-    <entry path="HKLM\SOFTWARE\OEM\Nokia\Display\ColorAndLight" name="UserSettingKeyLightsEnabled" type="dword" default="1">
-      <value>0</value>
-    </entry>
-  </tweak>
-
   <tweak category="Network" name="Enable WiFi connection sound notifications" type="toggle">
     <entry path="HKLM\SOFTWARE\Microsoft\EventSounds\Sounds\WiFiConnected" name="Disabled" type="dword" default="1">
       <value>0</value>
@@ -463,11 +457,11 @@
     </entry>
   </tweak>
   
-   <tweak category="Buttons" name="Disable Led on Hardware Button" type="toggle">
-	<entry path="HKLM\SOFTWARE\OEM\Nokia\Display\ColorAndLight" name="UserSettingKeyLightsEnabled" type="dword" default="1">
-	<value>0</value>
-	</entry>
-   </tweak>
+  <tweak category="Buttons" name="Backlight on Hardware Buttons" type="toggle">
+     <entry path="HKLM\SOFTWARE\OEM\Nokia\Display\ColorAndLight" name="UserSettingKeyLightsEnabled" type="dword" default="0">
+       <value>1</value>
+     </entry>
+  </tweak>
 
    <tweak category="Buttons" name="Volume Up - Delay" type="enum" description="Delay between press and action - default is 300" reboot="true">
      <entry path="HKLM\SOFTWARE\Microsoft\Shell\CustomHoldDelays" name="VolumeUpHoldTimeout" type="dword">
