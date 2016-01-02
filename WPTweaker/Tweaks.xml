@@ -514,5 +514,30 @@
        <value name="OMG so Shooort - 750">2EE</value>
      </entry>
    </tweak>
+   
+ <tweak category="Camera" name="FFC Minimal ISO" type="input" description="hex">
+   <entry path="HKLM\SOFTWARE\OEM\nokia\Camera\FFC\Caps" name="MinIso" type="dword"/>
+ </tweak>
+ <tweak category="Camera" name="FFC Maximal ISO" type="input" description="hex">
+   <entry path="HKLM\SOFTWARE\OEM\nokia\Camera\FFC\Caps" name="MaxIso" type="dword" default="C80"/>
+ </tweak>  
+ <tweak category="Camera" name="FFC Minimal Shutter Speed" type="input" description="hex">
+    <entry path="HKLM\SOFTWARE\OEM\nokia\Camera\FFC\Caps" name="MinET" type="dword"/>
+ </tweak>     
+ <tweak category="Camera" name="FFC Maximal Shutter Speed" type="input" description="hex">
+    <entry path="HKLM\SOFTWARE\OEM\nokia\Camera\FFC\Caps" name="MaxET" type="dword"/>
+   </tweak>     
+ <tweak category ="Camera" name="RFC Minimal ISO" type="input" description="hex">
+    <entry path="HKLM\SOFTWARE\OEM\nokia\Camera\RFC\Caps" name="MinIso" type="dword" default="40"/>
+ </tweak>	
+ <tweak category="Camera" name="RFC Maximal ISO" type="input" description="hex">
+    <entry path="HKLM\SOFTWARE\OEM\nokia\Camera\RFC\Caps" name="MaxIso" type="dword" default="C80"/>
+ </tweak>	
+ <tweak category="Camera" name="RFC Minimal Shutter Speed" type="input" description="hex">
+    <entry path="HKLM\SOFTWARE\OEM\nokia\Camera\RFC\Caps" name="MinET" type="dword"/>
+ </tweak>	
+ <tweak category="Camera" name="RFC Maximal Shutter Speed" type="input" description="hex">
+    <entry path="HKLM\SOFTWARE\OEM\nokia\Camera\RFC\Caps" name="MaxET" type="dword" default="3D0900"/>
+ </tweak>	
   
 </tweaks>
