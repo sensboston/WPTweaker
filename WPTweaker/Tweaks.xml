@@ -509,7 +509,7 @@
      </entry>
    </tweak>
    
-  <tweak category="Misc" name="Allow .DNG format" type="toggle" description="Camera settings">
+  <tweak category="Camera" name="Allow .DNG format" type="toggle" description="Camera settings">
     <entry path="HKLM\SOFTWARE\OEM\Nokia\Camera\Barc" name="DNGDisabled" type="dword" default="1">
       <value>0</value>
     </entry>
