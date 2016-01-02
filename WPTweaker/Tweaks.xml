@@ -445,12 +445,6 @@
     </entry>
   </tweak>
 
-  <tweak category="Misc" name="Unhide .DNG format in Camera settings" type="toggle">
-    <entry path="HKLM\SOFTWARE\OEM\Nokia\Camera\Barc" name="DNGDisabled" type="dword" default="1">
-      <value>0</value>
-    </entry>
-  </tweak>
-  
   <tweak category="Buttons" name="Backlight on Hardware Buttons" type="toggle">
      <entry path="HKLM\SOFTWARE\OEM\Nokia\Display\ColorAndLight" name="UserSettingKeyLightsEnabled" type="dword" default="0">
        <value>1</value>
@@ -514,6 +508,12 @@
        <value name="OMG so Shooort - 750">2EE</value>
      </entry>
    </tweak>
+   
+  <tweak category="Misc" name="Allow .DNG format" type="toggle" description="Camera settings">
+    <entry path="HKLM\SOFTWARE\OEM\Nokia\Camera\Barc" name="DNGDisabled" type="dword" default="1">
+      <value>0</value>
+    </entry>
+  </tweak>
    
  <tweak category="Camera" name="FFC Minimal ISO" type="input" description="hex">
    <entry path="HKLM\SOFTWARE\OEM\nokia\Camera\FFC\Caps" name="MinIso" type="dword"/>
