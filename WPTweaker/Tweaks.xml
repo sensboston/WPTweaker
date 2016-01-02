@@ -154,18 +154,6 @@
     </entry>
   </tweak>
 
-  <tweak category="Cell" name="Enable LTE" type="toggle" >
-    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\General" name="LTEEnabled" type="dword" default="0" >
-      <value>1</value>
-    </entry>
-  </tweak>
-
-  <tweak category="Cell" name="Force LTE" type="toggle" >
-    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\General" name="LTEForced" type="dword" default="0" >
-      <value>1</value>
-    </entry>
-  </tweak>
-
   <tweak category="Cell" name="Enable internet sharing" type="toggle" description="Enable internet sharing (if disabled by provider)" reboot="true">
     <entry path="HKEY_LOCAL_MACHINE\System\ControlSet001\Services\ICSSVC\Settings" name="Enabled" type="dword" default="0">
       <value>1</value>
