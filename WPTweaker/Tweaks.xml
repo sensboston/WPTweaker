@@ -412,7 +412,7 @@
     <entry path="HKLM\Software\Microsoft\Windows\CurrentVersion\Control Panel\Theme\Themes\0\Accents\0" name="ComplementaryColor" type="dword"/>
   </tweak>
 
-  <tweak category="Cell" name="Allow DTMF 'Long Tones' Phone setting" type="toggle" >
+  <tweak category="Cell" name="Allow DTMF 'Long Tones'" type="toggle" description="Settings - Phone">
     <entry path="HKLM\Software\Microsoft\Phone\Settings" name="ShowLongTones" type="dword" default="0" >
       <value>1</value>
     </entry>
