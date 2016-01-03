@@ -167,6 +167,9 @@
     <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideMMSAPNIPType" type="dword" default="1">
       <value>0</value>
     </entry>
+    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="ShowViewAPN" type="dword" default="0">
+      <value>1</value>
+    </entry>
   </tweak>
 
   <tweak category="Cell" name="Enable internet sharing" type="toggle" description="Enable internet sharing (if disabled by provider)" reboot="true">
