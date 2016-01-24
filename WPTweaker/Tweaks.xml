@@ -333,12 +333,6 @@
     </entry>
   </tweak>
 
-  <tweak category="Misc" name="Enable IE hidden setting" description="Hidden IE setting 'Show Pictures Automatically' toggle" type="toggle" >
-    <entry path="HKLM\Software\Microsoft\Internet Explorer" name="Disable Display Inline Images" type="dword" default="0">
-      <value>1</value>
-    </entry>
-  </tweak>
-
   <tweak category="Misc" name="China variant of Maps" type="toggle">
     <entry path="HKLM\System\Maps" name="OEMChinaVariant" type="dword" default="0">
       <value>1</value>
@@ -379,12 +373,6 @@
 
   <tweak category="Device Info" name="Phone Mobile Operator Display Name" type="input" description="Change Phone Operator Display Name">
     <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="PhoneMobileOperatorDisplayName" type="string"/>
-  </tweak>
-
-  <tweak category="Misc" name="IE easter egg" description="Apply tweak and type 'about:moz' in the IE address field (mostly useless)" type="toggle" >
-    <entry path="HKLM\Software\Microsoft\Internet Explorer\Abouturls" name="moz" type="string" default="">
-      <value>res://mshtml.dll/about.moz</value>
-    </entry>
   </tweak>
 
   <tweak category="Cell" name="Hide SIM security UI" type="toggle">
