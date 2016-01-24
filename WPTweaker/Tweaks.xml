@@ -351,6 +351,10 @@
     </entry>
   </tweak>
   
+  <tweak category="Device Info" name="SystemStartOptions" type="input">
+    <entry path="HKLM\SYSTEM\ControlSet001\Control" name="SystemStartOptions" type="string"/>
+  </tweak>
+  
   <tweak category="Device Info" name="Phone Manufacturer" type="input" description="Change Phone Manufacturer">
     <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="PhoneManufacturer" type="string"/>
   </tweak>
