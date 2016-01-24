@@ -81,6 +81,12 @@
     <entry path="HKLM\Software\OEM\Nokia\NokiaSvcHost\Plugins\NsgExtA\NdtkSvc" name="Path" type="string" default="c:\windows\system32\ndtksvc.dll" />
   </tweak>
   
+  <tweak category="System" name="BCD: Poweroff Charging" type="toggle">
+    <entry path="HKLM\BCD00000001\Objects\{7ea2e1ac-2e61-4728-aaa3-896d9d0a9f0e}\Elements\26000512" name="Element" type="binary" default="00">
+       <value>01</value>
+    </entry>
+  </tweak>
+  
   <tweak category="System" name="'Never' screen timeout option" type="toggle" description="Enable or disable 'Never' timeout" comparer="==">
     <entry path="HKLM\SOFTWARE\Microsoft\Settings\Lock" name="DisableNever" type="dword" default="1">
       <value>0</value>
