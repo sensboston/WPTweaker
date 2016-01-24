@@ -177,6 +177,12 @@
       <value>1</value>
     </entry>
   </tweak>
+  
+  <tweak category="Cell" name="Allow 'Manage preferred networks'" type="toggle" description="Settings - Cellular and SIM - SIM settings">
+    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="ShowPreferredPLMNPage" type="dword" default="0">
+       <value>1</value>
+    </entry>
+  </tweak>
 
   <tweak category="Cell" name="Enable internet sharing" type="toggle" description="Enable internet sharing (if disabled by provider)" reboot="true">
     <entry path="HKEY_LOCAL_MACHINE\System\ControlSet001\Services\ICSSVC\Settings" name="Enabled" type="dword" default="0">
