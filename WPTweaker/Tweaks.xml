@@ -12,6 +12,7 @@
     <contributor>Pen4iK @ 4pda.ru</contributor>
     <contributor>snickler @ xda-developers</contributor>
     <contributor>kwanice @ xda-developers</contributor>
+    <contributor>Myriachan @ xda-developers</contributor>
   </contributors>
   
   <tweak category="System" name="Full FS access over MTP" type="toggle">
@@ -84,6 +85,12 @@
   <tweak category="System" name="BCD: Poweroff Charging" type="toggle">
     <entry path="HKLM\BCD00000001\Objects\{7ea2e1ac-2e61-4728-aaa3-896d9d0a9f0e}\Elements\26000512" name="Element" type="binary" default="00">
        <value>01</value>
+    </entry>
+  </tweak>
+  
+  <tweak category="System" name="BCD: TŅSTSIGNING (pre-WM10572)" type="toggle" description="CVE-2015-2552, @Myriachan">
+    <entry path="HKLM\BCD00000001\objects\{7619dcc9-fafe-11d9-b411-000476eba25f}\Elements\12000030" name="Element" type="string" default="">
+      <value>/TŅSTSIGNING</value>
     </entry>
   </tweak>
   
