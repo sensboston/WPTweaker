@@ -443,6 +443,12 @@
       <value>1</value>
     </entry>
   </tweak>
+  
+  <tweak category="Buttons" name="Diverse Emoji Color Picker" type="toggle" description="Disabled: Emoji color locked. Vertical scroll." >
+    <entry path="HKLM\SOFTWARE\Microsoft\StigRegKey\FingerKB" name="DiverseEmojiColorPickerEnabled" type="dword" default="0">
+      <value>1</value>
+    </entry>
+  </tweak>
 
   <tweak category="Buttons" name="Backlight on Hardware Buttons" type="toggle">
      <entry path="HKLM\SOFTWARE\OEM\Nokia\Display\ColorAndLight" name="UserSettingKeyLightsEnabled" type="dword" default="0">
