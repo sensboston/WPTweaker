@@ -107,6 +107,12 @@
       <value>0</value>
     </entry>
   </tweak>
+  
+  <tweak category="User interface" name="OneNote QuickAction: New Note" type="toggle" description="Disabled: Open OneNote normally" reboot="true">
+    <entry path="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ActionCenter\Quick Actions\All\SystemSettings_Launcher_QuickNote" name="Uri" type="string" default="onenote-cmd://">
+      <value>onenote-cmd://quicknote?onOpen=typing</value>
+    </entry>
+  </tweak>
 
  <tweak category="User interface" name="Start Screen Tweak" type="enum" description="Modify the number of small tiles on start Screen. Need reboot" reboot="true">
 	 <entry path="HKLM\SOFTWARE\Microsoft\Shell\Start" name="TileColumnSize" type="dword" >
@@ -119,7 +125,7 @@
 	 </entry>
   </tweak>
 
-  <tweak category="User interface" name="Haptic feedback" type="toggle" description="Enable or disable haptic feedback" reboot="true">
+  <tweak category="User interface" name="Enable Haptic feedback" type="toggle" reboot="true">
     <entry path="HKEY_LOCAL_MACHINE\System\Touch\Buttons" name="Vibrate" type="dword" default="0">
       <value>1</value>
     </entry>
