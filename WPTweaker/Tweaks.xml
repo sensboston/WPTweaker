@@ -406,12 +406,6 @@
     <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="PhoneMobileOperatorName" type="string"/>
   </tweak>
 
-  <tweak category="Device Info" name="Enable Dev OS Preview" description="Preview for Developers Enable toggle" type="toggle" >
-    <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="DevOSPreviewEnable" type="dword" default="0">
-      <value>1</value>
-    </entry>
-  </tweak>
-
   <tweak category="Device Info" name="Phone Friendly Name" type="input" description="Change Phone Friendly Name">
     <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="PhoneFriendlyName" type="string"/>
   </tweak>
