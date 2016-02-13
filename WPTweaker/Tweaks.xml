@@ -82,6 +82,14 @@
     <entry path="HKLM\Software\OEM\Nokia\NokiaSvcHost\Plugins\NsgExtA\NdtkSvc" name="Path" type="string" default="c:\windows\system32\ndtksvc.dll" />
   </tweak>
   
+  <tweak category="System" name="NdtkSvc Path" type="enum">
+    <entry path="HKLM\Software\OEM\Nokia\NokiaSvcHost\Plugins\NsgExtA\NdtkSvc" name="Path" type="string" default="NdtkSvc.dll">
+        <value name="NdtkSvc.dll">NdtkSvc.dll</value>
+        <value name="C:\Data\SharedData\OEM\Public\NsgExtA_NdtkSvc_2.0.1.1.dll">C:\Data\SharedData\OEM\Public\NsgExtA_NdtkSvc_2.0.1.1.dll</value>
+        <value name="c:\windows\system32\ndtksvc.dll">c:\windows\system32\ndtksvc.dll</value>
+    </entry>
+  </tweak>
+  
   <tweak category="System" name="BCD: Poweroff Charging" type="toggle">
     <entry path="HKLM\BCD00000001\Objects\{7ea2e1ac-2e61-4728-aaa3-896d9d0a9f0e}\Elements\26000512" name="Element" type="binary" default="00">
        <value>01</value>
