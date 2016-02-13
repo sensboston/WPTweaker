@@ -226,6 +226,32 @@
       <value>7</value>
     </entry>
   </tweak>
+  
+  <tweak category="Cell" name="PartnerImmediateDialStrings" type="input" description="REG_MULTI_SZ: For writing, use CustomPFD Registry Editor.">
+    <entry path="HKLM\SOFTWARE\Microsoft\Phone\Settings" name="PartnerImmediateDialStrings" type="strings"/>
+  </tweak>
+
+
+  <tweak category="Cell" name="PartnerNonImmediateDialStrings" type="input" description="REG_MULTI_SZ: For writing, use CustomPFD Registry Editor.">
+    <entry path="HKLM\SOFTWARE\Microsoft\Phone\Settings" name="PartnerNonImmediateDialStrings" type="strings"/>
+  </tweak>
+
+  <tweak category="Cell" name="HomeNetworkSpecificDialStrings" type="input" description="REG_MULTI_SZ: For writing, use CustomPFD Registry Editor.">
+    <entry path="HKLM\SOFTWARE\Microsoft\Phone\Settings" name="HomeNetworkSpecificDialStrings" type="strings"/>
+  </tweak>
+
+  <tweak category="Cell" name="PersoUnlockCode" type="input">
+    <entry path="HKLM\SOFTWARE\Microsoft\Phone\Settings" name="PersoUnlockCode" type="string" default="##782#"/>
+  </tweak>
+
+  <tweak category="Cell" name="PartnerAppTaskUri" type="input">
+    <entry path="HKLM\SOFTWARE\Microsoft\Phone\Settings" name="PartnerAppTaskUri" type="string" default="app://2377fe1b-c10f-47da-92f3-fc517345a3c0/_default#/Launcher;component/MainPage.xaml"/>
+  </tweak>
+
+  <tweak category="Cell" name="PartnerAppProvisioningFilePath" type="input">
+    <entry path="HKLM\SOFTWARE\Microsoft\Phone\Settings" name="PartnerAppProvisioningFilePath" type="string" default="app://2377fe1b-c10f-47da-92f3-fc517345a3c0/_default#/Launcher;component/MainPage.xaml"/>
+  </tweak>
+
 
   <tweak category="User interface" name="Boot screen logo" type="input" description="Change boot screen logo" helper="picture">
     <entry path="HKEY_LOCAL_MACHINE\SYSTEM\Shell\BootScreens" name="WPBootScreenOverride" type="string"/>
