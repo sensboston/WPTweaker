@@ -331,10 +331,6 @@
     </entry>
   </tweak>
 
-  <tweak category="User interface" name="Recent people in people hub" type="input" >
-    <entry path="HKLM\Software\Microsoft\Pim\RecentList\8" name="MaxSize" type="dword" default="8" />
-  </tweak>
-
   <tweak category="System" name="Screen timeout (on battery)" type="enum" reboot="true">
     <entry path="HKLM\SOFTWARE\Microsoft\Shell\Timeouts" name="DCUserIdle" type="dword">
       <value name="30 seconds">1e</value>
@@ -408,12 +404,12 @@
     <entry path="HKLM\SYSTEM\ControlSet001\Control" name="SystemStartOptions" type="string"/>
   </tweak>
   
-  <tweak category="Device Info" name="Phone Manufacturer" type="input" description="Change Phone Manufacturer">
-    <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="PhoneManufacturer" type="string"/>
+  <tweak category="Device Info" name="Phone Manufacturer" type="input" description="Default value is for 950XL">
+    <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="PhoneManufacturer" type="string" default="MicrosoftMDG"/>
   </tweak>
 
-  <tweak category="Device Info" name="Phone Manufacturer Model Name" type="input" description="Change Phone Manufacturer Model Name">
-    <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="PhoneManufacturerModelName" type="string"/>
+  <tweak category="Device Info" name="Phone Manufacturer Model Name" type="input" description="Default value is for 950XL">
+    <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="PhoneManufacturerModelName" type="string" default="RM-1085_11302"/>
   </tweak>
 
   <tweak category="Device Info" name="Phone Mobile Operator Name" type="input" description="Change Phone Mobile Operator Name">
