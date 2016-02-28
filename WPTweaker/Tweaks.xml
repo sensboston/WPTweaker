@@ -388,12 +388,6 @@
     </entry>
   </tweak>
   
-  <tweak category="Misc" name="OEM Watermark in maps" type="toggle">
-    <entry path="HKLM\System\Maps" name="OEMWatermarkEnabled" type="dword" default="0">
-      <value>1</value>
-    </entry>
-  </tweak>
-  
   <tweak category="Device Info" name="SystemStartOptions" type="input">
     <entry path="HKLM\SYSTEM\ControlSet001\Control" name="SystemStartOptions" type="string"/>
   </tweak>
