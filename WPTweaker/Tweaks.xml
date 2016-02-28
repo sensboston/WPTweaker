@@ -145,7 +145,7 @@
     </entry>
   </tweak>
   
-  <tweak category="Network" name="Show WiFi static IP selection" type="toggle" description="WiFi Control Panel">
+  <tweak category="Network" name="Allow WiFi static IP" type="toggle" description="WiFi Control Panel">
     <entry path="HKLM\SOFTWARE\Microsoft\WCMSvc\WifiNetworkManager\Config" name="EnableStaticIP" type="dword" default="0">
       <value>1</value>
     </entry>
@@ -269,12 +269,6 @@
 
   <tweak category="User interface" name="Boot screen logo" type="input" description="Change boot screen logo" helper="picture">
     <entry path="HKEY_LOCAL_MACHINE\SYSTEM\Shell\BootScreens" name="WPBootScreenOverride" type="string"/>
-  </tweak>
-
-  <tweak category="System" name="Save maps to SD card" type="toggle" >
-    <entry path="HKLM\System\Maps\Storage\" name="UseExternalStorage" type="dword" default="0" >
-      <value>1</value>
-    </entry>
   </tweak>
 
   <tweak category="System" name="Use 64MB maps cache instead of 128MB" type="toggle" >
