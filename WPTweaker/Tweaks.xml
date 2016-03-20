@@ -641,6 +641,15 @@
        <value>1</value>
     </entry>
   </tweak>
+  
+  <tweak category="Formats" name="sShortTime" type="enum">
+    <entry path="HKLM\SYSTEM\CurrentControlSet\Control\CommonGlobUserSettings\Control Panel\International" name="sShortTime" type="string">
+       <value name="h:mm tt">h:mm tt</value>
+       <value name="HH:mm">HH:mm</value>
+       <value name="hh:mm tt">hh:mm tt</value>
+       <value name="H:mm">H:mm</value>
+    </entry>
+  </tweak>
 
   <tweak category="Formats" name="sTimeFormat" type="enum">
     <entry path="HKLM\SYSTEM\CurrentControlSet\Control\CommonGlobUserSettings\Control Panel\International" name="sTimeFormat" type="string" default="h:mm:ss tt">
