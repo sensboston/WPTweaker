@@ -382,12 +382,6 @@
     </entry>
   </tweak>
 
-  <tweak category="Misc" name="China variant of Maps" type="toggle">
-    <entry path="HKLM\System\Maps" name="OEMChinaVariant" type="dword" default="0">
-      <value>1</value>
-    </entry>
-  </tweak>
-  
   <tweak category="Device Info" name="SystemStartOptions" type="input">
     <entry path="HKLM\SYSTEM\ControlSet001\Control" name="SystemStartOptions" type="string"/>
   </tweak>
@@ -400,16 +394,32 @@
     <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="PhoneManufacturerModelName" type="string" default="RM-1085_11302"/>
   </tweak>
 
-  <tweak category="Device Info" name="Phone Mobile Operator Name" type="input" description="Change Phone Mobile Operator Name">
+  <tweak category="Device Info" name="Phone Mobile Operator Name" type="input">
     <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="PhoneMobileOperatorName" type="string"/>
   </tweak>
 
-  <tweak category="Device Info" name="Phone Friendly Name" type="input" description="Change Phone Friendly Name">
+  <tweak category="Device Info" name="Phone Friendly Name" type="input">
     <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="PhoneFriendlyName" type="string"/>
   </tweak>
 
-  <tweak category="Device Info" name="Phone Mobile Operator Display Name" type="input" description="Change Phone Operator Display Name">
+  <tweak category="Device Info" name="Phone Mobile Operator Display Name" type="input">
     <entry path="HKLM\SYSTEM\Platform\DeviceTargetingInfo" name="PhoneMobileOperatorDisplayName" type="string"/>
+  </tweak>
+  
+  <tweak category="Device Info" name="Store: OEMID" type="input">
+    <entry path="HKLM\Software\Microsoft\Windows\CurrentVersion\Store\Configuration" name="OEMID" type="string" />
+  </tweak>
+
+  <tweak category="Device Info" name="Store: SCMID" type="input">
+    <entry path="HKLM\Software\Microsoft\Windows\CurrentVersion\Store\Configuration" name="SCMID" type="string" />
+  </tweak>
+
+  <tweak category="Device Info" name="Store: MOID" type="input">
+    <entry path="HKLM\Software\Microsoft\Windows\CurrentVersion\Store\Configuration" name="MOID" type="string" />
+  </tweak>
+
+  <tweak category="Device Info" name="Store: Hardware" type="input">
+    <entry path="HKLM\Software\Microsoft\Windows\CurrentVersion\Store\Configuration" name="Hardware" type="string" />
   </tweak>
 
   <tweak category="Cell" name="Hide SIM security UI" type="toggle">
@@ -673,6 +683,17 @@
   <tweak category="Formats" name="sTime" type="input">
     <entry path="HKLM\SYSTEM\CurrentControlSet\Control\CommonGlobUserSettings\Control Panel\International" name="sTime" type="string" />
   </tweak>
-
+  
+  <tweak category="Formats" name="OEMChinaVariant" type="toggle">
+    <entry path="HKLM\System\Maps" name="OEMChinaVariant" type="dword" default="0">
+      <value>1</value>
+    </entry>
+  </tweak>
+  
+  <tweak category="Formats" name="OEMChinaVariantWin10" type="toggle">
+    <entry path="HKLM\System\Maps" name="OEMChinaVariantWin10" type="dword" default="0">
+      <value>1</value>
+    </entry>
+  </tweak>
   
 </tweaks>
