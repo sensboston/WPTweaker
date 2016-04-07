@@ -113,6 +113,24 @@
       <value>onenote-cmd://quicknote?onOpen=typing</value>
     </entry>
   </tweak>
+  
+  <tweak category="User interface" name="QuickAction: Airplane Mode ➡ WPTweaker" type="toggle" reboot="true" description="Change Long Press Action">
+    <entry path="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ActionCenter\Quick Actions\All\SystemSettings_QuickAction_AirplaneMode" name="Uri" type="string" default="ms-settings-airplanemode:">
+      <value>wptweaker:</value>
+    </entry>
+  </tweak>
+
+  <tweak category="User interface" name="QuickAction: Brightness ➡ High contrast" type="toggle" reboot="true" description="Change Long Press Action">
+    <entry path="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ActionCenter\Quick Actions\All\SystemSettings_System_Display_QuickAction_Brightness" name="Uri" type="string" default="ms-settings:display">
+      <value>ms-settings:easeofaccess-highcontrast</value>
+    </entry>
+  </tweak>
+
+ <tweak category="User interface" name="QuickAction: Rotation Lock ➡ Extras" type="toggle" reboot="true" description="Change Long Press Action">
+    <entry path="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ActionCenter\Quick Actions\All\SystemSettings_System_Display_Internal_Rotation" name="Args" type="string">
+      <value>page=SettingsPageExtensibility</value>
+    </entry>
+ </tweak>
 
  <tweak category="User interface" name="Start Screen Tweak" type="enum" description="Modify the number of small tiles on start Screen. Need reboot" reboot="true">
 	 <entry path="HKLM\SOFTWARE\Microsoft\Shell\Start" name="TileColumnSize" type="dword" >
@@ -289,12 +307,6 @@
     </entry>
   </tweak>
 
-  <tweak category="User interface" name="Disable Start Menu Letters" type="toggle" reboot="true" >
-    <entry path="HKLM\Software\Microsoft\Shell\Start" name="GroupingThreshold" type="dword" default="45" comparer=">" >
-      <value>1000</value>
-    </entry>
-  </tweak>
-
   <tweak category="Cell" name="Enable SIM Contacts in People" type="toggle" >
     <entry path="HKLM\Software\Microsoft\Contacts\Sim" name="EnableSIMAddressBookAndExport" type="dword" default="0" >
       <value>1</value>
@@ -431,12 +443,6 @@
   <tweak category="User interface" name="Enable Double Tap Off on soft navbar" type="toggle" >
     <entry path="HKLM\SOFTWARE\Microsoft\Shell\NavigationBar" name="IsDoubleTapOffEnabled" type="dword" default="0" >
       <value>1</value>
-    </entry>
-  </tweak>
-
-  <tweak category="User interface" name="Color or Black on soft navbar" type="toggle" >
-    <entry path="HKLM\SOFTWARE\Microsoft\Shell\NavigationBar" name="Color" type="dword" default="0" >
-      <value>2</value>
     </entry>
   </tweak>
 
