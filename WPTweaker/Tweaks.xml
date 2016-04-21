@@ -598,13 +598,13 @@
     <entry path="HKLM\SOFTWARE\OEM\nokia\Camera\RFC\Caps" name="MaxET" type="dword" default="3D0900"/>
  </tweak>
 
-  <tweak category="Formats" name="iTime: 24-hour clock format" type="toggle">
+  <tweak category="Region" name="iTime: 24-hour clock format" type="toggle">
     <entry path="HKLM\SYSTEM\CurrentControlSet\Control\CommonGlobUserSettings\Control Panel\International" name="iTime" type="string" default="0">
       <value>1</value>
     </entry>
   </tweak>
 
-  <tweak category="Formats" name="iDate: display order in short dates" type="enum">
+  <tweak category="Region" name="iDate: display order in short dates" type="enum">
     <entry path="HKLM\SYSTEM\CurrentControlSet\Control\CommonGlobUserSettings\Control Panel\International" name="iDate" type="string" default="0">
       <value name="0 - MM DD YY [default]">0</value>
       <value name="1 - DD MM YY">1</value>
@@ -612,7 +612,7 @@
     </entry>
   </tweak>
 
-  <tweak category="Formats" name="sShortDate: short date format" type="enum">
+  <tweak category="Region" name="sShortDate: short date format" type="enum">
     <entry path="HKLM\SYSTEM\CurrentControlSet\Control\CommonGlobUserSettings\Control Panel\International" name="sShortDate" type="string" default="M/d/yyyy">
       <value name="M/d/yyyy [default]">M/d/yyyy</value>
       <value name="M/d/yy">M/d/yy</value>
@@ -624,7 +624,7 @@
     </entry>
   </tweak>
 
-  <tweak category="Formats" name="sLongDate: long date format" type="enum">
+  <tweak category="Region" name="sLongDate: long date format" type="enum">
     <entry path="HKLM\SYSTEM\CurrentControlSet\Control\CommonGlobUserSettings\Control Panel\International" name="sLongDate" type="string" default="dddd, MMMM d, yyyy">
       <value name="dddd, MMMM d, yyyy [default]">dddd, MMMM d, yyyy</value>
       <value name="MMMM d, yyyy">MMMM d, yyyy</value>
@@ -633,19 +633,19 @@
     </entry>
   </tweak>
 
-  <tweak category="Formats" name="iTLZero: leading zeros before single-digit hours" type="toggle">
+  <tweak category="Region" name="iTLZero: leading zeros before single-digit hours" type="toggle">
     <entry path="HKLM\SYSTEM\CurrentControlSet\Control\CommonGlobUserSettings\Control Panel\International" name="iTLZero" type="string" default="0">
       <value>1</value>
     </entry>
   </tweak>
 
-  <tweak category="Formats" name="iLZero: leading zero in decimal fractions" type="toggle">
+  <tweak category="Region" name="iLZero: leading zero in decimal fractions" type="toggle">
     <entry path="HKLM\SYSTEM\CurrentControlSet\Control\CommonGlobUserSettings\Control Panel\International" name="iLZero" type="string" default="0">
       <value>1</value>
     </entry>
   </tweak>
 
-  <tweak category="Formats" name="iFirstDayOfWeek" type="enum">
+  <tweak category="Region" name="iFirstDayOfWeek" type="enum">
     <entry path="HKLM\SYSTEM\CurrentControlSet\Control\CommonGlobUserSettings\Control Panel\International" name="iFirstDayOfWeek" type="string" default="6">
        <value name="6 - Sunday [default]">6</value>
        <value name="0 - Monday">0</value>
@@ -657,7 +657,7 @@
     </entry>
   </tweak>
 
-  <tweak category="Formats" name="iFirstWeekOfYear" type="enum">
+  <tweak category="Region" name="iFirstWeekOfYear" type="enum">
     <entry path="HKLM\SYSTEM\CurrentControlSet\Control\CommonGlobUserSettings\Control Panel\International" name="iFirstWeekOfYear" type="string" default="0">
        <value name="0 - First Day Of Year [default]">0</value>
        <value name="1 - First Full Week">1</value>
@@ -665,13 +665,13 @@
     </entry>
   </tweak>
 
-  <tweak category="Formats" name="iTimePrefix: put time marker *before* the time" type="toggle">
+  <tweak category="Region" name="iTimePrefix: put time marker *before* the time" type="toggle">
     <entry path="HKLM\SYSTEM\CurrentControlSet\Control\CommonGlobUserSettings\Control Panel\International" name="iTimePrefix" type="string" default="0">
        <value>1</value>
     </entry>
   </tweak>
   
-  <tweak category="Formats" name="sShortTime" type="enum">
+  <tweak category="Region" name="sShortTime" type="enum">
     <entry path="HKLM\SYSTEM\CurrentControlSet\Control\CommonGlobUserSettings\Control Panel\International" name="sShortTime" type="string">
        <value name="h:mm tt">h:mm tt</value>
        <value name="HH:mm">HH:mm</value>
@@ -680,7 +680,7 @@
     </entry>
   </tweak>
 
-  <tweak category="Formats" name="sTimeFormat" type="enum">
+  <tweak category="Region" name="sTimeFormat" type="enum">
     <entry path="HKLM\SYSTEM\CurrentControlSet\Control\CommonGlobUserSettings\Control Panel\International" name="sTimeFormat" type="string" default="h:mm:ss tt">
        <value name="h:mm:ss tt">h:mm:ss tt</value>
        <value name="HH:mm:ss">HH:mm:ss</value>
@@ -689,27 +689,27 @@
     </entry>
   </tweak>
 
-  <tweak category="Formats" name="iMeasure: U.S. measurement system" type="toggle" description="Default: Metric">
+  <tweak category="Region" name="iMeasure: U.S. measurement system" type="toggle" description="Default: Metric">
     <entry path="HKLM\SYSTEM\CurrentControlSet\Control\CommonGlobUserSettings\Control Panel\International" name="iMeasure" type="string" default="0">
        <value>1</value>
     </entry>
   </tweak>
 
-  <tweak category="Formats" name="sDate" type="input">
+  <tweak category="Region" name="sDate" type="input">
     <entry path="HKLM\SYSTEM\CurrentControlSet\Control\CommonGlobUserSettings\Control Panel\International" name="sDate" type="string" />
   </tweak>
 
-  <tweak category="Formats" name="sTime" type="input">
+  <tweak category="Region" name="sTime" type="input">
     <entry path="HKLM\SYSTEM\CurrentControlSet\Control\CommonGlobUserSettings\Control Panel\International" name="sTime" type="string" />
   </tweak>
   
-  <tweak category="Formats" name="OEMChinaVariant" type="toggle">
+  <tweak category="Region" name="Maps: OEMChinaVariant (for WP8.1)" type="toggle">
     <entry path="HKLM\System\Maps" name="OEMChinaVariant" type="dword" default="0">
       <value>1</value>
     </entry>
   </tweak>
   
-  <tweak category="Formats" name="OEMChinaVariantWin10" type="toggle">
+  <tweak category="Region" name="Maps: OEMChinaVariantWin10" (for W10M) type="toggle">
     <entry path="HKLM\System\Maps" name="OEMChinaVariantWin10" type="dword" default="0">
       <value>1</value>
     </entry>
