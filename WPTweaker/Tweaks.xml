@@ -709,7 +709,7 @@
     </entry>
   </tweak>
   
-  <tweak category="Region" name="Maps: OEMChinaVariantWin10" (for W10M) type="toggle">
+  <tweak category="Region" name="Maps: OEMChinaVariantWin10 (for W10M)" type="toggle">
     <entry path="HKLM\System\Maps" name="OEMChinaVariantWin10" type="dword" default="0">
       <value>1</value>
     </entry>
