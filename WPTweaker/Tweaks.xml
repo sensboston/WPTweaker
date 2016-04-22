@@ -90,6 +90,15 @@
     </entry>
   </tweak>
   
+  <tweak category="System" name="Windows Feedback" type="enum" description="Diagnostic and usage data" default="3">
+     <entry path="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" name="AllowTelemetry" type="dword" >
+          <value name="0 - Disabled (enterprise only)">0</value>
+          <value name="1 - Basic">1</value>
+          <value name="2 - Enhanced">2</value>
+          <value name="3 - Full (recommended)">3</value>
+     </entry>
+  </tweak>
+  
   <tweak category="System" name="BCD: Poweroff Charging" type="toggle">
     <entry path="HKLM\BCD00000001\Objects\{7ea2e1ac-2e61-4728-aaa3-896d9d0a9f0e}\Elements\26000512" name="Element" type="binary" default="00">
        <value>01</value>
