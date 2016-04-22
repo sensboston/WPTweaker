@@ -1,5 +1,5 @@
 # WPTweaker
-It's a first XML-based registry tweaker for the Windows Phone 8.1 and Windows 10 Mobile
+It's a first XML-based registry tweaker for the Windows Phone 8.1 and Windows 10 Mobile.
 You may easily add new hacks by modifying XML data file.
 
 This app should work on the interop-unlocked Lumias and Samsung handsets ONLY.
