@@ -111,6 +111,30 @@
     </entry>
   </tweak>
   
+  <tweak category="System" name="Allow USB settings" type="toggle" >
+    <entry path="HKLM\Software\Microsoft\Shell\USB" name="DisableUSBControlPanel" type="dword" default="1" >
+      <value>0</value>
+    </entry>
+    <entry path="HKLM\Software\Microsoft\Shell\USB" name="HideUsbErrorNotifyOptionUI" type="dword" default="1" >
+      <value>0</value>
+    </entry>
+    <entry path="HKLM\Software\Microsoft\Shell\USB" name="HideWeakChargerNotifyOptionUI" type="dword" default="1" >
+      <value>0</value>
+    </entry>
+  </tweak>
+  
+  <tweak category="System" name="Use 64MB maps cache instead of 128MB" type="toggle" >
+    <entry path="HKLM\System\Maps\Storage\" name="UseSmallerCache" type="dword" default="0" >
+      <value>1</value>
+    </entry>
+  </tweak>
+
+  <tweak category="System" name="Disable FM radio option" type="toggle" >
+    <entry path="HKLM\Software\Microsoft\FMRadio\OEM" name="NotPresent" type="dword" default="0" >
+      <value>1</value>
+    </entry>
+  </tweak>
+  
   <tweak category="User interface" name="OneNote QuickAction: New Note" type="toggle" description="Disabled: Open OneNote normally" reboot="true">
     <entry path="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ActionCenter\Quick Actions\All\SystemSettings_Launcher_QuickNote" name="Uri" type="string" default="onenote-cmd://">
       <value>onenote-cmd://quicknote?onOpen=typing</value>
@@ -320,18 +344,6 @@
     <entry path="HKEY_LOCAL_MACHINE\SYSTEM\Shell\BootScreens" name="WPBootScreenOverride" type="string"/>
   </tweak>
 
-  <tweak category="System" name="Use 64MB maps cache instead of 128MB" type="toggle" >
-    <entry path="HKLM\System\Maps\Storage\" name="UseSmallerCache" type="dword" default="0" >
-      <value>1</value>
-    </entry>
-  </tweak>
-
-  <tweak category="System" name="Disable FM radio option" type="toggle" >
-    <entry path="HKLM\Software\Microsoft\FMRadio\OEM" name="NotPresent" type="dword" default="0" >
-      <value>1</value>
-    </entry>
-  </tweak>
-
   <tweak category="Network" name="Enable Data Sense WiFI hotspots" type="toggle" >
     <entry path="HKLM\Software\Microsoft\Data Sense" name="DSEnabled" type="dword" default="0" >
       <value>1</value>
@@ -340,18 +352,6 @@
 
   <tweak category="Cell" name="Enable SIM Contacts in People" type="toggle" >
     <entry path="HKLM\Software\Microsoft\Contacts\Sim" name="EnableSIMAddressBookAndExport" type="dword" default="0" >
-      <value>1</value>
-    </entry>
-  </tweak>
-
-  <tweak category="System" name="Disable USB Control Panel" type="toggle" >
-    <entry path="HKLM\Software\Microsoft\Shell\USB" name="DisableUSBControlPanel" type="dword" default="0" >
-      <value>1</value>
-    </entry>
-  </tweak>
-
-  <tweak category="System" name="Notify on weak charger" type="toggle" >
-    <entry path="HKLM\SOFTWARE\Microsoft\Shell\USB" name="NotifyOnWeakCharger" type="dword" default="0" >
       <value>1</value>
     </entry>
   </tweak>
