@@ -718,7 +718,7 @@
     </entry>
   </tweak>
   
-  <tweak category="Region" name="WiFiToWLAN" type="toggle" description="'WLAN' instead of 'WiFi' string">
+  <tweak category="Region" name="'WLAN' instead of 'WiFi' string" type="toggle">
     <entry path="HKLM\Software\Microsoft\UIX\ProductFeatures" name="WiFiToWLAN" type="dword" default="0">
       <value>1</value>
     </entry>
