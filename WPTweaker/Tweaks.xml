@@ -388,12 +388,6 @@
     </entry>
   </tweak>
 
-  <tweak category="Network" name="WLAN instead of WiFi string" type="toggle" >
-    <entry path="HKLM\Software\Microsoft\UIX\ProductFeatures" name="WiFiToWLAN" type="dword" default="0">
-      <value>1</value>
-    </entry>
-  </tweak>
-
   <tweak category="Network" name="Enable WiFi connection sound notifications" type="toggle">
     <entry path="HKLM\SOFTWARE\Microsoft\EventSounds\Sounds\WiFiConnected" name="Disabled" type="dword" default="1">
       <value>0</value>
@@ -720,6 +714,12 @@
   
   <tweak category="Region" name="Maps: OEMChinaVariantWin10 (for W10M)" type="toggle">
     <entry path="HKLM\System\Maps" name="OEMChinaVariantWin10" type="dword" default="0">
+      <value>1</value>
+    </entry>
+  </tweak>
+  
+  <tweak category="Region" name="WiFiToWLAN" type="toggle" description="'WLAN' instead of 'WiFi' string">
+    <entry path="HKLM\Software\Microsoft\UIX\ProductFeatures" name="WiFiToWLAN" type="dword" default="0">
       <value>1</value>
     </entry>
   </tweak>
