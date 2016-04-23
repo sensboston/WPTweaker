@@ -111,12 +111,6 @@
     </entry>
   </tweak>
   
-  <tweak category="System" name="'Never' screen timeout option" type="toggle" description="Enable or disable 'Never' timeout" comparer="==">
-    <entry path="HKLM\SOFTWARE\Microsoft\Settings\Lock" name="DisableNever" type="dword" default="1">
-      <value>0</value>
-    </entry>
-  </tweak>
-  
   <tweak category="User interface" name="OneNote QuickAction: New Note" type="toggle" description="Disabled: Open OneNote normally" reboot="true">
     <entry path="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ActionCenter\Quick Actions\All\SystemSettings_Launcher_QuickNote" name="Uri" type="string" default="onenote-cmd://">
       <value>onenote-cmd://quicknote?onOpen=typing</value>
@@ -140,6 +134,48 @@
       <value>page=SettingsPageExtensibility</value>
     </entry>
  </tweak>
+ 
+  <tweak category="User interface" name="Allow 'Never' screen timeout" type="toggle" description="Enable or disable 'Never' timeout" comparer="==">
+    <entry path="HKLM\SOFTWARE\Microsoft\Settings\Lock" name="DisableNever" type="dword" default="1">
+      <value>0</value>
+    </entry>
+  </tweak>
+  
+  <tweak category="User interface" name="Screen timeout (on battery)" type="enum" reboot="true">
+    <entry path="HKLM\SOFTWARE\Microsoft\Shell\Timeouts" name="DCUserIdle" type="dword">
+      <value name="30 seconds">1e</value>
+      <value name="1 minute">3c</value>
+      <value name="3 minutes">b4</value>
+      <value name="5 minutes">12c</value>
+      <value name="15 minutes">384</value>
+      <value name="30 minutes">708</value>
+      <value name="Never">0</value>
+    </entry>
+  </tweak>
+
+  <tweak category="User interface" name="Screen timeout (when charging)" type="enum" reboot="true">
+    <entry path="HKLM\SOFTWARE\Microsoft\Shell\Timeouts" name="ACUserIdle" type="dword">
+      <value name="30 seconds">1e</value>
+      <value name="1 minute">3c</value>
+      <value name="3 minutes">b4</value>
+      <value name="5 minutes">12c</value>
+      <value name="15 minutes">384</value>
+      <value name="30 minutes">708</value>
+      <value name="Never">0</value>
+    </entry>
+  </tweak>
+
+  <tweak category="User interface" name="Limit volume on reboot" type="toggle" reboot="true" >
+    <entry path="HKLM\Software\OEM\VolumeLimit" name="EnableVolumeLimit" type="dword" default="0">
+      <value>1</value>
+    </entry>
+  </tweak>
+
+  <tweak category="User interface" name="Volume limit on reboot" type="input" >
+    <entry path="HKLM\Software\OEM\VolumeLimit" name="VolumeLimit" type="dword" min="0" max="1E" default="19">
+      <value>1</value>
+    </entry>
+  </tweak>
 
  <tweak category="User interface" name="Start Screen Tweak" type="enum" description="Modify the number of small tiles on start Screen. Need reboot" reboot="true">
 	 <entry path="HKLM\SOFTWARE\Microsoft\Shell\Start" name="TileColumnSize" type="dword" >
@@ -316,42 +352,6 @@
 
   <tweak category="System" name="Notify on weak charger" type="toggle" >
     <entry path="HKLM\SOFTWARE\Microsoft\Shell\USB" name="NotifyOnWeakCharger" type="dword" default="0" >
-      <value>1</value>
-    </entry>
-  </tweak>
-
-  <tweak category="System" name="Screen timeout (on battery)" type="enum" reboot="true">
-    <entry path="HKLM\SOFTWARE\Microsoft\Shell\Timeouts" name="DCUserIdle" type="dword">
-      <value name="30 seconds">1e</value>
-      <value name="1 minute">3c</value>
-      <value name="3 minutes">b4</value>
-      <value name="5 minutes">12c</value>
-      <value name="15 minutes">384</value>
-      <value name="30 minutes">708</value>
-      <value name="Never">0</value>
-    </entry>
-  </tweak>
-
-  <tweak category="System" name="Screen timeout (when charging)" type="enum" reboot="true">
-    <entry path="HKLM\SOFTWARE\Microsoft\Shell\Timeouts" name="ACUserIdle" type="dword">
-      <value name="30 seconds">1e</value>
-      <value name="1 minute">3c</value>
-      <value name="3 minutes">b4</value>
-      <value name="5 minutes">12c</value>
-      <value name="15 minutes">384</value>
-      <value name="30 minutes">708</value>
-      <value name="Never">0</value>
-    </entry>
-  </tweak>
-
-  <tweak category="System" name="Limit volume on reboot" type="toggle" reboot="true" >
-    <entry path="HKLM\Software\OEM\VolumeLimit" name="EnableVolumeLimit" type="dword" default="0">
-      <value>1</value>
-    </entry>
-  </tweak>
-
-  <tweak category="System" name="Volume limit on reboot" type="input" >
-    <entry path="HKLM\Software\OEM\VolumeLimit" name="VolumeLimit" type="dword" min="0" max="1E" default="19">
       <value>1</value>
     </entry>
   </tweak>
