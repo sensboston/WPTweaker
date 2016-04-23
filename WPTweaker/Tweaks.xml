@@ -356,7 +356,7 @@
     </entry>
   </tweak>
 
-  <tweak category="System" name="Data Activity indicators" type="toggle" reboot="true" >
+  <tweak category="Network" name="Data Activity indicators" type="toggle" reboot="true" >
     <entry path="HKLM\Software\Microsoft\Shell\OEM\SystemTray" name="DataActivity" type="dword" default="0">
       <value>1</value>
     </entry>
