@@ -152,20 +152,6 @@
 	 </entry>
   </tweak>
 
-  <tweak category="User interface" name="Enable Haptic feedback" type="toggle" reboot="true">
-    <entry path="HKEY_LOCAL_MACHINE\System\Touch\Buttons" name="Vibrate" type="dword" default="0">
-      <value>1</value>
-    </entry>
-  </tweak>
-
-  <tweak category="User interface" name="Touch buttons intensity" type="enum" description="Increase or decrease intensity of touch buttons">
-    <entry path="HKLM\System\Touch\Buttons" name="Intensity" type="dword" default="36">
-      <value name="Low">18</value>      
-      <value name="Default">36</value>
-      <value name="High">72</value>
-    </entry>
-  </tweak>
-  
   <tweak category="Network" name="Enable KeepWiFiOnSvc (W10, Reboot)" type="toggle" description="Keeps WiFi on while screen is locked" reboot="true">
     <entry path="HKLM\SYSTEM\CurrentControlSet\Services\KeepWiFiOnSvc" name="Start" type="dword" default="4">
       <value>2</value>
@@ -461,6 +447,20 @@
      <entry path="HKLM\SOFTWARE\OEM\Nokia\Display\ColorAndLight" name="UserSettingKeyLightsEnabled" type="dword" default="0">
        <value>1</value>
      </entry>
+  </tweak>
+  
+  <tweak category="Input" name="Enable Haptic feedback" type="toggle" reboot="true">
+    <entry path="HKEY_LOCAL_MACHINE\System\Touch\Buttons" name="Vibrate" type="dword" default="0">
+      <value>1</value>
+    </entry>
+  </tweak>
+
+  <tweak category="Input" name="Touch buttons intensity" type="enum" description="Increase or decrease intensity of touch buttons">
+    <entry path="HKLM\System\Touch\Buttons" name="Intensity" type="dword" default="36">
+      <value name="Low">18</value>      
+      <value name="Default">36</value>
+      <value name="High">72</value>
+    </entry>
   </tweak>
   
   <tweak category="Input" name="Enable soft Back, Start and Search buttons" type="toggle" >
