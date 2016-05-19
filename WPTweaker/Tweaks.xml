@@ -135,6 +135,12 @@
     </entry>
   </tweak>
   
+  <tweak category="User interface" name="Allow Brightness slider" type="toggle" description="Settings - Display">
+    <entry path="HKLM\SOFTWARE\OEM\NOKIA\Display\ColorAndLight" name="UserSettingNoBrightnessSettings" type="dword" default="1">
+       <value>0</value>
+    </entry>
+  </tweak>
+  
   <tweak category="User interface" name="OneNote QuickAction: New Note" type="toggle" description="Disabled: Open OneNote normally" reboot="true">
     <entry path="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ActionCenter\Quick Actions\All\SystemSettings_Launcher_QuickNote" name="Uri" type="string" default="onenote-cmd://">
       <value>onenote-cmd://quicknote?onOpen=typing</value>
