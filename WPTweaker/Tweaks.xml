@@ -147,9 +147,21 @@
     </entry>
   </tweak>
   
-  <tweak category="User interface" name="QuickAction: Airplane Mode ➡ WPTweaker" type="toggle" reboot="true" description="Change Long Press Action">
+  <tweak category="User interface" name="QuickAction: Airplane Mode" type="enum" reboot="true" description="Change Long Press Action">
     <entry path="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ActionCenter\Quick Actions\All\SystemSettings_QuickAction_AirplaneMode" name="Uri" type="string" default="ms-settings-airplanemode:">
-      <value>wptweaker:</value>
+      <value name="ms-settings-airplanemode:">ms-settings-airplanemode:</value>
+      <value name="ms-settings:windowsupdate">ms-settings:windowsupdate</value>
+      <value name="ms-settings:developers">ms-settings:developers</value>
+      <value name="wptweaker:">wptweaker:</value>
+    </entry>
+  </tweak>
+
+  <tweak category="User interface" name="QuickAction: Flashlight Toggle" type="enum" reboot="true" description="Change Long Press Action">
+    <entry path="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ActionCenter\Quick Actions\All\SystemSettings_Flashlight_Toggle" name="Uri" type="string" default="">
+      <value name=""></value>
+      <value name="ms-settings:developers">ms-settings:developers</value>
+      <value name="ms-settings:windowsupdate">ms-settings:windowsupdate</value>
+      <value name="wptweaker:">wptweaker:</value>
     </entry>
   </tweak>
 
