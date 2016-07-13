@@ -335,6 +335,13 @@
     </entry>
   </tweak>
   
+  <tweak category="Cell" name="ShowCallerIdNetworkDefaultSetting" type="toggle" description="Settings - Phone">
+    <entry path="HKLM\SOFTWARE\Microsoft\Phone\Settings" name="ShowCallerIdNetworkDefaultSetting" type="dword" default="0">
+      <value>1</value>
+    </entry>
+  </tweak>
+
+  
   <tweak category="Cell" name="PartnerImmediateDialStrings" type="input" description="REG_MULTI_SZ: For writing, use CustomPFD Registry Editor.">
     <entry path="HKLM\SOFTWARE\Microsoft\Phone\Settings" name="PartnerImmediateDialStrings" type="strings"/>
   </tweak>
