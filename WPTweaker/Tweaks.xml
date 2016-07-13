@@ -147,7 +147,7 @@
     </entry>
   </tweak>
   
-  <tweak category="User interface" name="QuickAction: Airplane Mode" type="enum" reboot="true" description="Change Long Press Action">
+  <tweak category="User interface" name="QuickAction: Airplane Mode" type="enum" reboot="true" description="Long Press Action">
     <entry path="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ActionCenter\Quick Actions\All\SystemSettings_QuickAction_AirplaneMode" name="Uri" type="string" default="ms-settings-airplanemode:">
       <value name="ms-settings-airplanemode:">ms-settings-airplanemode:</value>
       <value name="ms-settings:windowsupdate">ms-settings:windowsupdate</value>
@@ -156,7 +156,7 @@
     </entry>
   </tweak>
 
-  <tweak category="User interface" name="QuickAction: Flashlight Toggle" type="enum" reboot="true" description="Change Long Press Action">
+  <tweak category="User interface" name="QuickAction: Flashlight Toggle" type="enum" reboot="true" description="Long Press Action">
     <entry path="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ActionCenter\Quick Actions\All\SystemSettings_Flashlight_Toggle" name="Uri" type="string" default="">
       <value name=""></value>
       <value name="ms-settings:developers">ms-settings:developers</value>
@@ -165,19 +165,19 @@
     </entry>
   </tweak>
 
-  <tweak category="User interface" name="QuickAction: Brightness ➡ High contrast" type="toggle" reboot="true" description="Change Long Press Action">
+  <tweak category="User interface" name="QuickAction: Brightness ➡ High contrast" type="toggle" reboot="true" description="Long Press Action">
     <entry path="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ActionCenter\Quick Actions\All\SystemSettings_System_Display_QuickAction_Brightness" name="Uri" type="string" default="ms-settings:display">
       <value>ms-settings:easeofaccess-highcontrast</value>
     </entry>
   </tweak>
 
- <tweak category="User interface" name="QuickAction: Rotation Lock ➡ Extras" type="toggle" reboot="true" description="Change Long Press Action">
+ <tweak category="User interface" name="QuickAction: Rotation Lock ➡ Extras" type="toggle" reboot="true" description="Long Press Action">
     <entry path="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ActionCenter\Quick Actions\All\SystemSettings_System_Display_Internal_Rotation" name="Args" type="string">
       <value>page=SettingsPageExtensibility</value>
     </entry>
  </tweak>
  
-  <tweak category="User interface" name="Allow 'Never' screen timeout" type="toggle" description="Enable or disable 'Never' timeout" comparer="==">
+  <tweak category="User interface" name="Allow 'Never' screen timeout" type="toggle" comparer="==">
     <entry path="HKLM\SOFTWARE\Microsoft\Settings\Lock" name="DisableNever" type="dword" default="1">
       <value>0</value>
     </entry>
