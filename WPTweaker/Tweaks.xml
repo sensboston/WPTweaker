@@ -230,7 +230,7 @@
 	 </entry>
   </tweak>
 
-  <tweak category="Network" name="Enable KeepWiFiOnSvc (W10, Reboot)" type="toggle" description="Keeps WiFi on while screen is locked" reboot="true">
+  <tweak category="Network" name="Enable KeepWiFiOnSvc" type="toggle" description="Keeps WiFi on while screen is locked" reboot="true">
     <entry path="HKLM\SYSTEM\CurrentControlSet\Services\KeepWiFiOnSvc" name="Start" type="dword" default="4">
       <value>2</value>
     </entry>
@@ -259,6 +259,9 @@
       <value>0</value>
     </entry>
     <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideHighestSpeed4GOnly" type="dword" default="1">
+      <value>0</value>
+    </entry>
+    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="HideHighestSpeed4G3GOnly" type="dword" default="1">
       <value>0</value>
     </entry>
     <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="ShowHighestSpeed3GPreferred" type="dword" default="0">
@@ -358,7 +361,7 @@
   </tweak>
 
 
-  <tweak category="User interface" name="Boot screen logo" type="input" description="Change boot screen logo" helper="picture">
+  <tweak category="User interface" name="Boot screen logo" type="input" helper="picture">
     <entry path="HKEY_LOCAL_MACHINE\SYSTEM\Shell\BootScreens" name="WPBootScreenOverride" type="string"/>
   </tweak>
 
@@ -435,11 +438,11 @@
     </entry>
   </tweak>
 
-  <tweak category="User interface" name="Change default accent colors" type="color">
+  <tweak category="User interface" name="Default accent colors" type="color">
     <entry path="HKLM\Software\Microsoft\Windows\CurrentVersion\Control Panel\Theme\Themes\0\Accents\0" name="Color" type="dword"/>
   </tweak>
 
-  <tweak category="User interface" name="Change default complementary colors" description="(for dual SIM phones only)" type="color">
+  <tweak category="User interface" name="Default complementary colors" description="(for dual SIM phones only)" type="color">
     <entry path="HKLM\Software\Microsoft\Windows\CurrentVersion\Control Panel\Theme\Themes\0\Accents\0" name="ComplementaryColor" type="dword"/>
   </tweak>
 
