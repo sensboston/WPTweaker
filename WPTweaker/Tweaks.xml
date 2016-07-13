@@ -294,43 +294,43 @@
   </tweak>
   
   <tweak category="Cell" name="Allow 'Manage preferred networks'" type="toggle" description="Settings - Cellular and SIM - SIM settings">
-    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="ShowPreferredPLMNPage" type="dword" default="0">
+    <entry path="HKLM\Software\Microsoft\Cellular\MVSettings\IMSISpecific\Default\CellUX" name="ShowPreferredPLMNPage" type="dword" default="0">
        <value>1</value>
     </entry>
   </tweak>
 
-  <tweak category="Cell" name="Enable internet sharing" type="toggle" description="Enable internet sharing (if disabled by provider)" reboot="true">
-    <entry path="HKEY_LOCAL_MACHINE\System\ControlSet001\Services\ICSSVC\Settings" name="Enabled" type="dword" default="0">
+  <tweak category="Cell" name="Allow internet sharing" type="toggle" reboot="true">
+    <entry path="HKLM\System\ControlSet001\Services\ICSSVC\Settings" name="Enabled" type="dword" default="0">
       <value>1</value>
     </entry>
-    <entry path="HKEY_LOCAL_MACHINE\System\ControlSet001\Services\ICSSVC\Settings" name="EntitlementRequired" type="dword" default="1">
+    <entry path="HKLM\System\ControlSet001\Services\ICSSVC\Settings" name="EntitlementRequired" type="dword" default="1">
       <value>0</value>
     </entry>
-    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="" type="string">
+    <entry path="HKLM\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="" type="string">
       <value>Soft AP</value>
     </entry>
-    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="Location" type="string">
+    <entry path="HKLM\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="Location" type="string">
       <value>app://5B04B775-356B-4AA0-AAF8-6491FFEA5629/Default</value>
     </entry>
-    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="Plugin" type="string">
+    <entry path="HKLM\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="Plugin" type="string">
       <value>{09c51652-2cbc-49d5-883e-20606f9a47ff}</value>
     </entry>
-    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="QuickSettingsIconURI" type="string">
+    <entry path="HKLM\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="QuickSettingsIconURI" type="string">
       <value>res://UIXMobileAssets{ScreenResolution}!actioncenter.hotspot.tier25.png</value>
     </entry>
-    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="QuickSettingsTitle" type="string">
+    <entry path="HKLM\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="QuickSettingsTitle" type="string">
       <value>@\windows\system32\Settings3Res.dll,-535</value>
     </entry>
-    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="Title" type="string">
+    <entry path="HKLM\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="Title" type="string">
       <value>@\windows\system32\Settings3Res.dll,-242</value>
     </entry>
-    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="Type" type="dword" default="0">
+    <entry path="HKLM\Software\Microsoft\Settings\{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" name="Type" type="dword" default="0">
       <value>1</value>
     </entry>
-    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\{69DAA7D1-09EA-4eae-A67E-56E4B0B4CA5B}\SecureItems" name="{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" type="dword">
+    <entry path="HKLM\Software\Microsoft\Settings\{69DAA7D1-09EA-4eae-A67E-56E4B0B4CA5B}\SecureItems" name="{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" type="dword">
       <value>b0</value>
     </entry>
-    <entry path="HKEY_LOCAL_MACHINE\Software\Microsoft\Settings\QuickSettingElements" name="{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" type="dword">
+    <entry path="HKLM\Software\Microsoft\Settings\QuickSettingElements" name="{1DEF9B7D-2322-40eb-A007-16A75D5CDA6F}" type="dword">
       <value>7</value>
     </entry>
   </tweak>
@@ -609,7 +609,7 @@
  <tweak category="Camera" name="FFC Maximal Shutter Speed" type="input" description="hex">
     <entry path="HKLM\SOFTWARE\OEM\nokia\Camera\FFC\Caps" name="MaxET" type="dword"/>
    </tweak>     
- <tweak category ="Camera" name="RFC Minimal ISO" type="input" description="hex">
+ <tweak category="Camera" name="RFC Minimal ISO" type="input" description="hex">
     <entry path="HKLM\SOFTWARE\OEM\nokia\Camera\RFC\Caps" name="MinIso" type="dword" default="40"/>
  </tweak>	
  <tweak category="Camera" name="RFC Maximal ISO" type="input" description="hex">
