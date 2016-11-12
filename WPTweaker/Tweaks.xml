@@ -77,6 +77,12 @@
       <value>.*</value>
     </entry>
   </tweak>
+
+  <tweak category="System" name="UMCIAuditMode (Redstone and higher)" type="toggle" description="Allow running apps in a non signed environment" reboot="true">
+    <entry path="HKLM\SYSTEM\ControlSet001\Control\CI" name="UMCIAuditMode" type="dword" default="0">
+      <value>1</value>
+    </entry>
+  </tweak>
   
   <tweak category="System" name="NdtkSvc Path" type="input">
     <entry path="HKLM\Software\OEM\Nokia\NokiaSvcHost\Plugins\NsgExtA\NdtkSvc" name="Path" type="string" default="c:\windows\system32\ndtksvc.dll" />
