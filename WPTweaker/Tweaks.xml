@@ -230,8 +230,14 @@
 	 </entry>
   </tweak>
 
-  <tweak category="Network" name="Enable KeepWiFiOnSvc" type="toggle" description="Keeps WiFi on while screen is locked" reboot="true">
+  <tweak category="Network" name="Service: KeepWiFiOnSvc" type="toggle" description="Keeps WiFi on while screen is locked" reboot="true">
     <entry path="HKLM\SYSTEM\CurrentControlSet\Services\KeepWiFiOnSvc" name="Start" type="dword" default="4">
+      <value>2</value>
+    </entry>
+  </tweak>
+
+  <tweak category="Network" name="Service: MpsSvc" type="toggle" description="Windows Firewall" reboot="true">
+    <entry path="HKLM\SYSTEM\ControlSet001\Services\MpsSvc" name="Start" type="dword" default="4">
       <value>2</value>
     </entry>
   </tweak>
