@@ -182,7 +182,13 @@
       <value>page=SettingsPageExtensibility</value>
     </entry>
  </tweak>
- 
+	
+ <tweak category="User interface" name="Enable High Contrast Theme" type="toggle">
+    <entry path="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Control Panel\Theme" name="HighContrast" type="dword" default="0">
+      <value>1</value>
+    </entry>
+ </tweak>
+	
   <tweak category="User interface" name="Allow 'Never' screen timeout" type="toggle" comparer="==">
     <entry path="HKLM\SOFTWARE\Microsoft\Settings\Lock" name="DisableNever" type="dword" default="1">
       <value>0</value>
