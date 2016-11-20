@@ -456,6 +456,10 @@
   <tweak category="Device Info" name="Store: Hardware" type="input">
     <entry path="HKLM\Software\Microsoft\Windows\CurrentVersion\Store\Configuration" name="Hardware" type="string" />
   </tweak>
+
+  <tweak category="Device Info" name="SystemBiosVersion" type="input">
+    <entry path="HKLM\SYSTEM\HardwareConfig\Current" name="SystemBiosVersion" type="string" />
+  </tweak>
   
   <tweak category="User interface" name="Default accent colors" type="color">
     <entry path="HKLM\Software\Microsoft\Windows\CurrentVersion\Control Panel\Theme\Themes\0\Accents\0" name="Color" type="dword"/>
