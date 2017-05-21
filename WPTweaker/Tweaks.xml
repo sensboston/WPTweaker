@@ -15,7 +15,7 @@
     <contributor>Myriachan @ xda-developers</contributor>
   </contributors>
   
-  <tweak category="System" name="Full FS access over MTP" type="toggle">
+  <tweak category="System" name="Full FS access over MTP (causes problems on devices with the USB-Type C port)" type="toggle">
     <entry path="HKLM\Software\microsoft\mtp" name="datastore" type="string" default="C:\Data\Users\PUBLIC" >
       <value>c:</value>
     </entry>
