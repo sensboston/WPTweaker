@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml versioxdan="1.0" encoding="utf-8" ?>
 <tweaks>
 
   <contributors>
@@ -13,8 +13,14 @@
     <contributor>snickler @ xda-developers</contributor>
     <contributor>kwanice @ xda-developers</contributor>
     <contributor>Myriachan @ xda-developers</contributor>
+    <contributor>kcirtap @ xda-developers</contributor>
   </contributors>
-  
+	
+  <tweak category="System" name="Add C: and U: in File Explorer app(Windows 10 Mobile)" type="toggle">
+    <entry path="HKLM\Software\microsoft\Windows\CurrentVersion\FileExplorer\Config" name="NavigationRoots" type="string" default="shell:::{679f85cb-0220-4080-b29b-5540cc05aab6};knownfolder:{1C2AC1DC-4358-4B6C-9733-AF21156576F0}" >
+      <value>shell:::{679f85cb-0220-4080-b29b-5540cc05aab6};knownfolder:{1C2AC1DC-4358-4B6C-9733-AF21156576F0};C:;U:</value>
+</entry>
+  </tweak>
   <tweak category="System" name="Full FS access over MTP (causes problems on devices with the USB-Type C port)" type="toggle">
     <entry path="HKLM\Software\microsoft\mtp" name="datastore" type="string" default="C:\Data\Users\PUBLIC" >
       <value>c:</value>
