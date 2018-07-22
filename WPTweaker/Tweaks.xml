@@ -12,7 +12,7 @@
     <contributor>snickler @ xda-developers</contributor>
     <contributor>kwanice @ xda-developers</contributor>
     <contributor>Myriachan @ xda-developers</contributor>
-    <contributor>kcirtap @ xda-developers</contributor>
+    <contributor>kcirtap- @ xda-developers</contributor>
   </contributors>
 <tweak category="System" name="Unlimited sideload apps" type="toggle" description="Interop/OEM unlock with unlimited sideload apps" comparer="==">
     <entry path="HKLM\SOFTWARE\Microsoft\DeviceReg\Install" name="MaxUnsignedApp" type="dword" reboot="true" default="7FFFFFFF">
